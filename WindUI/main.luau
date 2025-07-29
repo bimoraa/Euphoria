@@ -1,20 +1,3 @@
---[[
-     _      ___         ____  ______
-    | | /| / (_)__  ___/ / / / /  _/
-    | |/ |/ / / _ \/ _  / /_/ // /  
-    |__/|__/_/_//_/\_,_/\____/___/
-    
-    by .ftgs#0 (Discord)
-    
-    This script is NOT intended to be modified.
-    To view the source code, see the 'Src' folder on the official GitHub repository.
-    
-    Author: .ftgs#0 (Discord User)
-    Github: https://github.com/Footagesus/WindUI
-    Discord: https://discord.gg/84CNGY5wAV
-]]
- 
- 
 local a a={cache={}, load=function(b)if not a.cache[b]then a.cache[b]={c=a[b]()}end return a.cache[b].c end}do function a.a()
 
 
@@ -5938,7 +5921,7 @@ function g.New(h,i)
 local j={
 __type="Paragraph",
 Title=i.Title or"Paragraph",
-Content=i.Content or"This is a paragraph of text that can be used to display information.",
+Content=i.Content or i.Desc or"This is a paragraph of text that can be used to display information.",
 Flags=i.Flags or nil,
 UIElements={}
 }
