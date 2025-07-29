@@ -558,7 +558,7 @@ end
 
 
 function b.GetAllFlags(d)
-return d.Values
+return d.Flags
 end
 
 
