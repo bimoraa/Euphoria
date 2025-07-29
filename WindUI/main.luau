@@ -562,6 +562,16 @@ return d.Flags
 end
 
 
+function b.GetAllValues(d)
+return d.Values
+end
+
+
+function b.GetFlagObject(d,e)
+return d.Flags[e]
+end
+
+
 function b.OnFlagChanged(d,e,f)
 if not d.Flags[e]then
 return false
@@ -8044,6 +8054,14 @@ v.GetFlags=function()
 return b.FlagManager:GetAllFlags()
 end
 
+v.GetFlagValues=function()
+return b.FlagManager:GetAllValues()
+end
+
+v.GetFlagObject=function(w)
+return b.FlagManager:GetFlagObject(w)
+end
+
 return v
 end
 
@@ -8052,8 +8070,16 @@ function b.GetFlags(p)
 return p.FlagManager:GetAllFlags()
 end
 
+function b.GetFlagValues(p)
+return p.FlagManager:GetAllValues()
+end
+
 function b.GetFlag(p,q)
 return p.FlagManager:GetFlag(q)
+end
+
+function b.GetFlagObject(p,q)
+return p.FlagManager:GetFlagObject(q)
 end
 
 function b.SetFlag(p,q,r)
