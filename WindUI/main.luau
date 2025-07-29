@@ -8032,4 +8032,17 @@ end
 return v
 end
 
+
+function b.GetFlags(p)
+return p.FlagManager:GetAllFlags()
+end
+
+function b.GetFlag(p,q)
+return p.FlagManager:GetFlag(q)
+end
+
+function b.SetFlag(p,q,r)
+return p.FlagManager:SetFlag(q,r)
+end
+
 return b
