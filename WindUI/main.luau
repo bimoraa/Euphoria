@@ -531,12 +531,23 @@ d.Values[e]=f
 
 
 local g=d.Flags[e]
-if g and g.Set then
+if g then
+
+if g.Set then
 g:Set(f)
-elseif g and g.Update then
+elseif g.Update then
 g:Update(f)
-elseif g and g.Select then
+elseif g.Select then
 g:Select(f)
+elseif g.__type=="Paragraph"and type(f)=="table"then
+
+if f.Title and g.SetTitle then
+g:SetTitle(f.Title)
+end
+if f.Desc and g.SetDesc then
+g:SetDesc(f.Desc)
+end
+end
 end
 
 return true
@@ -5669,7 +5680,9 @@ end
 end
 
 function C.SetTitle(E,F)
+if C.ParagraphFrame and C.ParagraphFrame.SetTitle then
 C.ParagraphFrame:SetTitle(F)
+end
 C.Title=F
 
 
@@ -5681,7 +5694,9 @@ Desc=C.Desc
 end
 end
 function C.SetDesc(E,F)
+if C.ParagraphFrame and C.ParagraphFrame.SetDesc then
 C.ParagraphFrame:SetDesc(F)
+end
 C.Desc=F
 
 
@@ -5701,8 +5716,8 @@ if C.Flags then
 f:Register(C.Flags,C)
 
 f.Values[C.Flags]={
-Title=C.Title,
-Desc=C.Desc
+Title=C.Title or"Paragraph",
+Desc=C.Desc or""
 }
 end
 
