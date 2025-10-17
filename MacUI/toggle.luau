@@ -5,10 +5,8 @@ local function createGui(parent)
     screenGui["DisplayOrder"] = 0
     screenGui["IgnoreGuiInset"] = true
 
-	--Frame1--
     local UserInputService = game:GetService("UserInputService")
 
-    -- Create Frame
     local Frame1 = Instance.new("Frame", screenGui)
     Frame1.AnchorPoint = Vector2.new(0.5, 0.5)
     Frame1.Name = "main"
@@ -19,7 +17,6 @@ local function createGui(parent)
     Frame1.Active = true
     Frame1.Draggable = false
     
-    -- ✅ Dragging System (Fixed)
     local dragging = false
     local dragInput
     local dragStart
@@ -118,7 +115,6 @@ local function createGui(parent)
     TextButton7.BackgroundColor3 = Color3.new(1, 1, 1)
     TextButton7.ZIndex = 9999999
     
-    -- Enable dragging from button too
     TextButton7.InputBegan:Connect(startDrag)
     
     return screenGui
