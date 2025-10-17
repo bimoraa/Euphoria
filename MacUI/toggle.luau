@@ -151,11 +151,20 @@ local function createGui(parent)
     
     return screenGui
 end
+
+    local existingUI = game.CoreGui:FindFirstChild("Ajomok UI")
+    if existingUI then
+        return true
+    end
+
 local interface = {}
 function interface:is_already_executed()
-    if game.CoreGui:FindFirstChild("Ajomok UI") then
-        game.CoreGui:FindFirstChild("Ajomok UI"):Destroy()
+    local existingUI = game.CoreGui:FindFirstChild("Ajomok UI")
+    if existingUI then
+        existingUI:Destroy()
+        return true
     end
+    return false
 end
 
 function interface:toggle_position()
