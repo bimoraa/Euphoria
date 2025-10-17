@@ -5,8 +5,10 @@ local function createGui(parent)
     screenGui["DisplayOrder"] = 0
     screenGui["IgnoreGuiInset"] = true
 
+	--Frame1--
     local UserInputService = game:GetService("UserInputService")
 
+    -- Create Frame
     local Frame1 = Instance.new("Frame", screenGui)
     Frame1.AnchorPoint = Vector2.new(0.5, 0.5)
     Frame1.Name = "main"
@@ -17,6 +19,7 @@ local function createGui(parent)
     Frame1.Active = true
     Frame1.Draggable = false
     
+    -- ✅ Mobile & PC Dragging System (Fixed for Mobile)
     local dragging = false
     local dragInput
     local dragStart
@@ -32,32 +35,36 @@ local function createGui(parent)
         )
     end
     
-    local function startDrag(input)
+    Frame1.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or 
-            input.UserInputType == Enum.UserInputType.Touch then
+           input.UserInputType == Enum.UserInputType.Touch then
             dragging = true
             dragStart = input.Position
             startPos = Frame1.Position
             
-            input.Changed:Connect(function()
+            local connection
+            connection = input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
                     dragging = false
+                    if connection then
+                        connection:Disconnect()
+                    end
                 end
             end)
         end
-    end
-    
-    Frame1.InputBegan:Connect(startDrag)
+    end)
     
     Frame1.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement or 
-           input.UserInputType == Enum.UserInputType.Touch then
-            dragInput = input
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or 
+           input.UserInputType == Enum.UserInputType.Touch) then
+            update(input)
         end
     end)
     
+    -- Also handle drag through UserInputService for better mobile support
     UserInputService.InputChanged:Connect(function(input)
-        if input == dragInput and dragging then
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or 
+           input.UserInputType == Enum.UserInputType.Touch) then
             update(input)
         end
     end)    
@@ -115,7 +122,32 @@ local function createGui(parent)
     TextButton7.BackgroundColor3 = Color3.new(1, 1, 1)
     TextButton7.ZIndex = 9999999
     
-    TextButton7.InputBegan:Connect(startDrag)
+    -- Enable dragging from button too (Mobile & PC compatible)
+    TextButton7.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or 
+           input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = Frame1.Position
+            
+            local connection
+            connection = input.Changed:Connect(function()
+                if input.UserInputState == Enum.UserInputState.End then
+                    dragging = false
+                    if connection then
+                        connection:Disconnect()
+                    end
+                end
+            end)
+        end
+    end)
+    
+    TextButton7.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or 
+           input.UserInputType == Enum.UserInputType.Touch) then
+            update(input)
+        end
+    end)
     
     return screenGui
 end
