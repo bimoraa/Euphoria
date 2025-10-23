@@ -3,17 +3,17 @@ local players: Players          = game:GetService("Players")
 local starter_gui: StarterGui   = game:GetService("StarterGui")
 
 --@eu_guards 
--- https://getsades.net/Modules/__guard_core?init_id=script_key
--- https://getsades.net/Modules/__whitelist_check.lua?key=script_key
--- https://getsades.net/Modules/_init_safeguard_v2.luau?init_id=script_key
--- https://getsades.net/Modules/____eu_validate____.luau?token=script_key
--- https://getsades.net/Modules/guard_proxy/__init__.luau?init_id=script_key
--- https://getsades.net/Modules/white_gatekeeper-01.luau?init_id=script_key
--- https://getsades.net/Modules/secure/__init_guard_router.luau?key=script_key
--- https://getsades.net/Modules/verify/____script_key_check.luau?init=script_key
--- https://getsades.net/Modules/locks/__eu_whitelist_init.luau?init_id=script_key
--- https://getsades.net/Modules/__init_shield_v3__.luau?init_id=script_key
--- https://getsades.net/Modules/cloud/__verify_cloud_device?cloud_id=CLOUD_IP&CLOUD_API_KEY&CLOUD_HWID&CLOUD_FINGERPRINT
+-- https://getsades.net/Module/__guard_core?init_id=script_key
+-- https://getsades.net/Module/__whitelist_check.lua?key=script_key
+-- https://getsades.net/Module/_init_safeguard_v2.luau?init_id=script_key
+-- https://getsades.net/Module/____eu_validate____.luau?token=script_key
+-- https://getsades.net/Module/guard_proxy/__init__.luau?init_id=script_key
+-- https://getsades.net/Module/white_gatekeeper-01.luau?init_id=script_key
+-- https://getsades.net/Module/secure/__init_guard_router.luau?key=script_key
+-- https://getsades.net/Module/verify/____script_key_check.luau?init=script_key
+-- https://getsades.net/Module/locks/__eu_whitelist_init.luau?init_id=script_key
+-- https://getsades.net/Module/__init_shield_v3__.luau?init_id=script_key
+-- https://getsades.net/Module/cloud/__verify_cloud_device?cloud_id=CLOUD_IP&CLOUD_API_KEY&CLOUD_HWID&CLOUD_FINGERPRINT
 
 --@types
 type loader_config = {
