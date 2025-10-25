@@ -93,18 +93,18 @@ function MacLib:Window(Settings)
 	local base = Instance.new("Frame")
     base.Name = "Base"
     base.AnchorPoint = Vector2.new(0.5, 0.5)
-    base.BackgroundColor3 = Color3.fromRGB(24, 24, 27) -- Zinc 900
+    base.BackgroundColor3 = Color3.fromRGB(24, 24, 27) -- Zinc 900 Zinc 900
     base.ClipsDescendants = true
     base.BackgroundTransparency = Settings.AcrylicBlur and 0.2 or 0
-    base.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+    base.BorderColor3 = Color3.fromRGB(0, 0, 0)
     base.BorderSizePixel = 0
     base.Position = UDim2.fromScale(0.5, 0.5)
     base.Size = Settings.Size or UDim2.fromOffset(868, 650)
     base.Visible = false
     
-    -- Add gradient background (Dark Mode - Zinc)
+    -- Add gradient background
     local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new(Color3.fromRGB(39, 39, 42), Color3.fromRGB(24, 24, 27)) -- Zinc 800 to 900
+    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
     gradient.Rotation = 90
     gradient.Parent = base
 
@@ -191,15 +191,15 @@ function MacLib:Window(Settings)
 	local baseUIStroke = Instance.new("UIStroke")
 	baseUIStroke.Name = "BaseUIStroke"
 	baseUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	baseUIStroke.Color = Color3.fromRGB(63, 63, 70) -- Zinc 700
-	baseUIStroke.Transparency = 0.5
+	baseUIStroke.Color = Color3.fromRGB(255, 255, 255)
+	baseUIStroke.Transparency = 0.9
 	baseUIStroke.Parent = base
 
 	local sidebar = Instance.new("Frame")
 	sidebar.Name = "Sidebar"
-	sidebar.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	sidebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	sidebar.BackgroundTransparency = 1
-	sidebar.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	sidebar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	sidebar.BorderSizePixel = 0
 	sidebar.Position = UDim2.fromScale(-3.52e-08, 4.69e-08)
 	sidebar.Size = UDim2.fromScale(0.325, 1)
@@ -207,9 +207,9 @@ function MacLib:Window(Settings)
 	local divider = Instance.new("Frame")
 	divider.Name = "Divider"
 	divider.AnchorPoint = Vector2.new(1, 0)
-	divider.BackgroundColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
-	divider.BackgroundTransparency = 0.5
-	divider.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	divider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	divider.BackgroundTransparency = 0.9
+	divider.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	divider.BorderSizePixel = 0
 	divider.Position = UDim2.fromScale(1, 0)
 	divider.Size = UDim2.new(0, 1, 1, 0)
@@ -218,32 +218,32 @@ function MacLib:Window(Settings)
 	local dividerInteract = Instance.new("TextButton")
 	dividerInteract.Name = "DividerInteract"
 	dividerInteract.AnchorPoint = Vector2.new(0.5, 0)
-	dividerInteract.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	dividerInteract.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	dividerInteract.BackgroundTransparency = 1
-	dividerInteract.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	dividerInteract.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	dividerInteract.BorderSizePixel = 0
 	dividerInteract.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 	dividerInteract.Position = UDim2.fromScale(0.5, 0)
 	dividerInteract.Size = UDim2.new(1, 6, 1, 0)
 	dividerInteract.Text = ""
-	dividerInteract.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+	dividerInteract.TextColor3 = Color3.fromRGB(0, 0, 0)
 	dividerInteract.TextSize = 14
 	dividerInteract.Parent = divider
 
 	local windowControls = Instance.new("Frame")
 	windowControls.Name = "WindowControls"
-	windowControls.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	windowControls.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	windowControls.BackgroundTransparency = 1
-	windowControls.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	windowControls.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	windowControls.BorderSizePixel = 0
 	windowControls.Size = UDim2.new(1, 0, 0, 31)
     windowControls.Visible = true
 
 	local controls = Instance.new("Frame")
 	controls.Name = "Controls"
-	controls.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	controls.BackgroundColor3 = Color3.fromRGB(119, 174, 94)
 	controls.BackgroundTransparency = 1
-	controls.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	controls.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	controls.BorderSizePixel = 0
 	controls.Size = UDim2.fromScale(1, 1)
 
@@ -269,18 +269,18 @@ function MacLib:Window(Settings)
 	local stroke = Instance.new("UIStroke")
 	stroke.Name = "BaseUIStroke"
 	stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	stroke.Color = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	stroke.Color = Color3.fromRGB(255, 255, 255)
 	stroke.Transparency = windowControlSettings.strokeTransparency
 
 	local exit = Instance.new("TextButton")
 	exit.Name = "Exit"
 	exit.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 	exit.Text = ""
-	exit.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+	exit.TextColor3 = Color3.fromRGB(0, 0, 0)
 	exit.TextSize = 14
 	exit.AutoButtonColor = false
 	exit.BackgroundColor3 = Color3.fromRGB(250, 93, 86)
-	exit.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	exit.BorderSizePixel = 0
 
 	local uICorner = Instance.new("UICorner")
@@ -294,11 +294,11 @@ function MacLib:Window(Settings)
 	minimize.Name = "Minimize"
 	minimize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 	minimize.Text = ""
-	minimize.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+	minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
 	minimize.TextSize = 14
 	minimize.AutoButtonColor = false
 	minimize.BackgroundColor3 = Color3.fromRGB(252, 190, 57)
-	minimize.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	minimize.BorderSizePixel = 0
 	minimize.LayoutOrder = 1
 
@@ -313,11 +313,11 @@ function MacLib:Window(Settings)
 	maximize.Name = "Maximize"
 	maximize.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 	maximize.Text = ""
-	maximize.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+	maximize.TextColor3 = Color3.fromRGB(0, 0, 0)
 	maximize.TextSize = 14
 	maximize.AutoButtonColor = false
 	maximize.BackgroundColor3 = Color3.fromRGB(119, 174, 94)
-	maximize.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	maximize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	maximize.BorderSizePixel = 0
 	maximize.LayoutOrder = 1
 
@@ -366,9 +366,9 @@ function MacLib:Window(Settings)
 	local divider1 = Instance.new("Frame")
 	divider1.Name = "Divider"
 	divider1.AnchorPoint = Vector2.new(0, 1)
-	divider1.BackgroundColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
-	divider1.BackgroundTransparency = 0.5
-	divider1.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	divider1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	divider1.BackgroundTransparency = 0.9
+	divider1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	divider1.BorderSizePixel = 0
 	divider1.Position = UDim2.fromScale(0, 1)
 	divider1.Size = UDim2.new(1, 0, 0, 1)
@@ -378,9 +378,9 @@ function MacLib:Window(Settings)
 
 	local information = Instance.new("Frame")
 	information.Name = "Information"
-	information.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	information.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	information.BackgroundTransparency = 1
-	information.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	information.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	information.BorderSizePixel = 0
 	information.Position = UDim2.fromOffset(0, 30)
 	information.Size = UDim2.new(1, 0, 0, 60)
@@ -388,9 +388,9 @@ function MacLib:Window(Settings)
 	local divider2 = Instance.new("Frame")
 	divider2.Name = "Divider"
 	divider2.AnchorPoint = Vector2.new(0, 1)
-	divider2.BackgroundColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
-	divider2.BackgroundTransparency = 0.5
-	divider2.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	divider2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	divider2.BackgroundTransparency = 0.9
+	divider2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	divider2.BorderSizePixel = 0
 	divider2.Position = UDim2.fromScale(0, 1)
 	divider2.Size = UDim2.new(1, 0, 0, 1)
@@ -398,9 +398,9 @@ function MacLib:Window(Settings)
 
 	local informationHolder = Instance.new("Frame")
 	informationHolder.Name = "InformationHolder"
-	informationHolder.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800
+	informationHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	informationHolder.BackgroundTransparency = 1
-	informationHolder.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	informationHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	informationHolder.BorderSizePixel = 0
 	informationHolder.Size = UDim2.fromScale(1, 1)
 
@@ -417,9 +417,9 @@ function MacLib:Window(Settings)
 	globalSettingsButton.Image = assets.globe
 	globalSettingsButton.ImageTransparency = 0.5
 	globalSettingsButton.AnchorPoint = Vector2.new(1, 0.5)
-	globalSettingsButton.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+	globalSettingsButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	globalSettingsButton.BackgroundTransparency = 1
-	globalSettingsButton.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	globalSettingsButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	globalSettingsButton.BorderSizePixel = 0
 	globalSettingsButton.Position = UDim2.fromScale(1, 0.5)
 	globalSettingsButton.Size = UDim2.fromOffset(16,16)
@@ -981,21 +981,21 @@ function MacLib:Window(Settings)
 	local globalSettings = Instance.new("Frame")
 	globalSettings.Name = "GlobalSettings"
 	globalSettings.AutomaticSize = Enum.AutomaticSize.XY
-	globalSettings.BackgroundColor3 = Color3.fromRGB(24, 24, 27) -- Zinc 900 (Dark Mode)
-	globalSettings.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+	globalSettings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	globalSettings.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	globalSettings.BorderSizePixel = 0
 	globalSettings.Position = UDim2.fromScale(0.298, 0.104)
 
     local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new(Color3.fromRGB(39, 39, 42), Color3.fromRGB(24, 24, 27)) -- Zinc 800 to 900 (Dark Mode)
+    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
     gradient.Rotation = 90
     gradient.Parent = globalSettings
 
 	local globalSettingsUIStroke = Instance.new("UIStroke")
 	globalSettingsUIStroke.Name = "GlobalSettingsUIStroke"
 	globalSettingsUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	globalSettingsUIStroke.Color = Color3.fromRGB(63, 63, 70) -- Zinc 700 (Dark Mode)
-	globalSettingsUIStroke.Transparency = 0.5
+	globalSettingsUIStroke.Color = Color3.fromRGB(255, 255, 255)
+	globalSettingsUIStroke.Transparency = 0.9
 	globalSettingsUIStroke.Parent = globalSettings
 
 	local globalSettingsUICorner = Instance.new("UICorner")
@@ -1301,11 +1301,11 @@ function MacLib:Window(Settings)
 		globalSetting.Name = "GlobalSetting"
 		globalSetting.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 		globalSetting.Text = ""
-		globalSetting.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200 (Dark Mode)
+		globalSetting.TextColor3 = Color3.fromRGB(0, 0, 0)
 		globalSetting.TextSize = 14
-		globalSetting.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+		globalSetting.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		globalSetting.BackgroundTransparency = 1
-		globalSetting.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+		globalSetting.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		globalSetting.BorderSizePixel = 0
 		globalSetting.Size = UDim2.fromOffset(200, 30)
 
@@ -1319,7 +1319,7 @@ function MacLib:Window(Settings)
 		settingName.FontFace = Font.new(assets.interFont)
 		settingName.Text = Settings.Name
 		settingName.RichText = true
-		settingName.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200 (Dark Mode)
+		settingName.TextColor3 = Color3.fromRGB(255, 255, 255)
 		settingName.TextSize = 13
 		settingName.TextTransparency = 0.5
 		settingName.TextTruncate = Enum.TextTruncate.SplitWord
@@ -1327,9 +1327,9 @@ function MacLib:Window(Settings)
 		settingName.TextYAlignment = Enum.TextYAlignment.Top
 		settingName.AnchorPoint = Vector2.new(0, 0.5)
 		settingName.AutomaticSize = Enum.AutomaticSize.Y
-		settingName.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+		settingName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		settingName.BackgroundTransparency = 1
-		settingName.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+		settingName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		settingName.BorderSizePixel = 0
 		settingName.Position = UDim2.fromScale(1.3e-07, 0.5)
 		settingName.Size = UDim2.new(1,-40,0,0)
@@ -1351,16 +1351,16 @@ function MacLib:Window(Settings)
 			Enum.FontStyle.Normal
 		)
 		checkmark.Text = "✓"
-		checkmark.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200 (Dark Mode)
+		checkmark.TextColor3 = Color3.fromRGB(255, 255, 255)
 		checkmark.TextSize = 13
 		checkmark.TextTransparency = 1
 		checkmark.TextXAlignment = Enum.TextXAlignment.Left
 		checkmark.TextYAlignment = Enum.TextYAlignment.Top
 		checkmark.AnchorPoint = Vector2.new(0, 0.5)
 		checkmark.AutomaticSize = Enum.AutomaticSize.Y
-		checkmark.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+		checkmark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		checkmark.BackgroundTransparency = 1
-		checkmark.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+		checkmark.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		checkmark.BorderSizePixel = 0
 		checkmark.LayoutOrder = -1
 		checkmark.Position = UDim2.fromScale(1.3e-07, 0.5)
@@ -1697,6 +1697,74 @@ function MacLib:Window(Settings)
 				sectionUIPadding.PaddingTop = UDim.new(0, 22)
 				sectionUIPadding.Parent = section
 
+				local collapsed = false
+				local headerFrame = nil
+				local collapseIcon = nil
+				local collapseText = nil
+				local headerButton = nil
+
+				local arrowIconData = { down = nil, up = nil }
+				if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
+					arrowIconData.down = ICONS__.Icon("arrow-down") or ICONS__.Icon("chevron-down")
+					arrowIconData.up = ICONS__.Icon("arrow-up") or ICONS__.Icon("chevron-up")
+				end
+
+				local function applyCollapseIcon()
+					if collapseIcon then
+						local iconInfo = collapsed and arrowIconData.down or arrowIconData.up
+						if iconInfo then
+							collapseIcon.Image = iconInfo[1]
+							if iconInfo[2] then
+								collapseIcon.ImageRectOffset = iconInfo[2].ImageRectPosition or Vector2.zero
+								collapseIcon.ImageRectSize = iconInfo[2].ImageRectSize or Vector2.zero
+							else
+								collapseIcon.ImageRectOffset = Vector2.zero
+								collapseIcon.ImageRectSize = Vector2.zero
+							end
+							collapseIcon.ImageTransparency = 0.1
+							collapseIcon.Visible = true
+							if collapseText then
+								collapseText.Visible = false
+							end
+						else
+							collapseIcon.Visible = false
+							if collapseText then
+								collapseText.Visible = true
+								collapseText.Text = collapsed and "▼" or "▲"
+							end
+						end
+					elseif collapseText then
+						collapseText.Text = collapsed and "▼" or "▲"
+					end
+				end
+
+				local function updateSectionChildren()
+					for _, child in ipairs(section:GetChildren()) do
+						if child ~= headerFrame and child.Name ~= "Header" and child:IsA("GuiObject") then
+							child.Visible = not collapsed
+						end
+					end
+				end
+
+				local function setCollapsed(state)
+					collapsed = state
+					section:SetAttribute("Collapsed", state)
+					updateSectionChildren()
+					applyCollapseIcon()
+				end
+
+				section:SetAttribute("Collapsed", collapsed)
+
+				section.ChildAdded:Connect(function(child)
+					if child.Name == "Header" then
+						return
+					end
+
+					if child ~= headerFrame and child:IsA("GuiObject") then
+						child.Visible = not collapsed
+					end
+				end)
+
 				function SectionFunctions:Button(Settings, Flag)
 					local ButtonFunctions = {Settings = Settings}
 					local button = Instance.new("Frame")
@@ -1817,9 +1885,9 @@ function MacLib:Window(Settings)
 					toggleName.TextYAlignment = Enum.TextYAlignment.Top
 					toggleName.AnchorPoint = Vector2.new(0, 0.5)
 					toggleName.AutomaticSize = Enum.AutomaticSize.Y
-					toggleName.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+					toggleName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					toggleName.BackgroundTransparency = 1
-					toggleName.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+					toggleName.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					toggleName.BorderSizePixel = 0
 					toggleName.Position = UDim2.fromScale(0, 0.5)
 					toggleName.Size = UDim2.new(1, -50, 0, 0)
@@ -1830,7 +1898,7 @@ function MacLib:Window(Settings)
                     toggle1.Image = assets.toggleBackground
                     toggle1.AutoButtonColor = false
                     toggle1.AnchorPoint = Vector2.new(1, 0.5)
-                    toggle1.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+                    toggle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     toggle1.BackgroundTransparency = 1
                     toggle1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     toggle1.BorderSizePixel = 0
@@ -1847,8 +1915,8 @@ function MacLib:Window(Settings)
                     -- Add gradient background to toggle
                     local gradient = Instance.new("UIGradient")
                     gradient.Color = ColorSequence.new(
-                        Color3.fromRGB(52, 52, 58), -- Zinc 700-ish for dark mode
-                        Color3.fromRGB(39, 39, 42)   -- Zinc 800 for dark mode
+                        Color3.fromRGB(24, 24, 27), -- Changed to #18181B
+                        Color3.fromRGB(24, 24, 27)   -- Changed to #18181B
                     )
                     gradient.Parent = toggle1
                     gradient.Rotation = 180
@@ -1857,7 +1925,7 @@ function MacLib:Window(Settings)
                     local toggleStroke = Instance.new("UIStroke")
                     toggleStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
                     toggleStroke.LineJoinMode = Enum.LineJoinMode.Round
-                    toggleStroke.Color = Color3.fromRGB(63, 63, 70) -- Zinc 700
+                    toggleStroke.Color = Color3.fromRGB(24, 24, 27)
                     toggleStroke.Transparency = 0.5
                     toggleStroke.Parent = toggle1
 
@@ -1872,9 +1940,9 @@ function MacLib:Window(Settings)
 					local togglerHead = Instance.new("ImageLabel")
 					togglerHead.Name = "TogglerHead"
 					togglerHead.Image = assets.togglerHead
-					togglerHead.ImageColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+					togglerHead.ImageColor3 = Color3.fromRGB(255, 255, 255)
 					togglerHead.AnchorPoint = Vector2.new(1, 0.5)
-					togglerHead.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+					togglerHead.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					togglerHead.BackgroundTransparency = 1
 					togglerHead.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					togglerHead.BorderSizePixel = 0
@@ -3420,9 +3488,9 @@ function MacLib:Window(Settings)
 					colorCbg.ScaleType = Enum.ScaleType.Tile
 					colorCbg.TileSize = UDim2.fromOffset(500, 500)
 					colorCbg.AnchorPoint = Vector2.new(1, 0.5)
-					colorCbg.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+					colorCbg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					colorCbg.BackgroundTransparency = 1
-					colorCbg.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+					colorCbg.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					colorCbg.BorderSizePixel = 0
 					colorCbg.Position = UDim2.fromScale(1, 0.5)
 					colorCbg.Size = UDim2.fromOffset(21, 21)
@@ -3480,7 +3548,7 @@ function MacLib:Window(Settings)
                     local prompt = Instance.new("Frame")
                     prompt.Name = "Prompt"
                     prompt.AnchorPoint = Vector2.new(0.5, 0.5)
-                    prompt.BackgroundColor3 = Color3.fromRGB(24, 24, 27) -- Zinc 900 (Dark Mode)
+                    prompt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     prompt.BorderSizePixel = 0
                     prompt.Position = UDim2.fromScale(0.5, 0.5)
                     prompt.Size = UDim2.new(0, 374, 0, 322)  -- Pastikan ukuran positif
@@ -3493,12 +3561,12 @@ function MacLib:Window(Settings)
                     local globalSettingsUIStroke = Instance.new("UIStroke")
                     globalSettingsUIStroke.Name = "GlobalSettingsUIStroke"
                     globalSettingsUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-                    globalSettingsUIStroke.Color = Color3.fromRGB(63, 63, 70) -- Zinc 700 (Dark Mode)
-                    globalSettingsUIStroke.Transparency = 0.5
+                    globalSettingsUIStroke.Color = Color3.fromRGB(255, 255, 255)
+                    globalSettingsUIStroke.Transparency = 0.9
                     globalSettingsUIStroke.Parent = prompt  -- Letakkan setelah UICorner
                     
                     local gradient = Instance.new("UIGradient")
-                    gradient.Color = ColorSequence.new(Color3.fromRGB(39, 39, 42), Color3.fromRGB(24, 24, 27)) -- Zinc 800 to 900 (Dark Mode)
+                    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
                     gradient.Rotation = 90
                     gradient.Parent = prompt
                     
@@ -3518,9 +3586,9 @@ function MacLib:Window(Settings)
 					local colorOptions = Instance.new("Frame")
 					colorOptions.Name = "ColorOptions"
 					colorOptions.AutomaticSize = Enum.AutomaticSize.XY
-					colorOptions.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
+					colorOptions.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					colorOptions.BackgroundTransparency = 1
-					colorOptions.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+					colorOptions.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					colorOptions.BorderSizePixel = 0
 					colorOptions.LayoutOrder = 1
 					colorOptions.Size = UDim2.new(1, 0,-0.581, 0)
@@ -3529,11 +3597,11 @@ function MacLib:Window(Settings)
 					value.Name = "Value"
 					value.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
 					value.Text = ""
-					value.TextColor3 = Color3.fromRGB(228, 228, 231) -- Zinc 200
+					value.TextColor3 = Color3.fromRGB(0, 0, 0)
 					value.TextSize = 14
 					value.AutoButtonColor = false
-					value.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc 800 (Dark Mode)
-					value.BorderColor3 = Color3.fromRGB(63, 63, 70) -- Zinc 700
+					value.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					value.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					value.BorderSizePixel = 0
 					value.LayoutOrder = 1
 					value.Position = UDim2.new(0, 0,0.998, 0)
@@ -4182,7 +4250,7 @@ function MacLib:Window(Settings)
 					confirm.TextTruncate = Enum.TextTruncate.AtEnd
 					confirm.AutoButtonColor = false
 					confirm.AutomaticSize = Enum.AutomaticSize.Y
-					confirm.BackgroundColor3 = Color3.fromRGB(85, 57, 139)
+					confirm.BackgroundColor3 = Color3.fromRGB(24, 24, 27)
 					confirm.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					confirm.BorderSizePixel = 0
                     confirm.Position = UDim2.new(0, 0,-0.333, 0)
@@ -4217,7 +4285,7 @@ function MacLib:Window(Settings)
 					cancel.TextTruncate = Enum.TextTruncate.AtEnd
 					cancel.AutoButtonColor = false
 					cancel.AutomaticSize = Enum.AutomaticSize.Y
-					cancel.BackgroundColor3 = Color3.fromRGB(85, 57, 139)
+					cancel.BackgroundColor3 = Color3.fromRGB(24, 24, 27)
 					cancel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					cancel.BorderSizePixel = 0
                     cancel.Position = UDim2.new(0.516, 0,-0.333, 0)
@@ -4659,6 +4727,22 @@ function MacLib:Window(Settings)
 
 				function SectionFunctions:Header(Settings, Flag)
 					local HeaderFunctions = {Settings = Settings}
+					local hadHeader = headerFrame ~= nil
+
+					if headerFrame and headerFrame.Parent then
+						headerFrame:Destroy()
+					end
+					headerFrame = nil
+
+					if collapseIcon and collapseIcon.Parent then
+						collapseIcon:Destroy()
+					end
+					collapseIcon = nil
+
+					if collapseText and collapseText.Parent then
+						collapseText:Destroy()
+					end
+					collapseText = nil
 
 					local header = Instance.new("Frame")
 					header.Name = "Header"
@@ -4670,11 +4754,31 @@ function MacLib:Window(Settings)
 					header.LayoutOrder = 0
 					header.Size = UDim2.fromScale(1, 0)
 					header.Parent = section
+					headerFrame = header
 
 					local uIPadding = Instance.new("UIPadding")
 					uIPadding.Name = "UIPadding"
 					uIPadding.PaddingBottom = UDim.new(0, 5)
 					uIPadding.Parent = header
+
+					headerButton = Instance.new("TextButton")
+					headerButton.Name = "HeaderButton"
+					headerButton.AutoButtonColor = false
+					headerButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					headerButton.BackgroundTransparency = 1
+					headerButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					headerButton.BorderSizePixel = 0
+					headerButton.LayoutOrder = 0
+					headerButton.Size = UDim2.fromScale(1, 0)
+					headerButton.AutomaticSize = Enum.AutomaticSize.Y
+					headerButton.Text = ""
+					headerButton.Parent = header
+
+					local headerButtonPadding = Instance.new("UIPadding")
+					headerButtonPadding.Name = "HeaderButtonPadding"
+					headerButtonPadding.PaddingLeft = UDim.new(0, 0)
+					headerButtonPadding.PaddingRight = UDim.new(0, 0)
+					headerButtonPadding.Parent = headerButton
 
 					local headerText = Instance.new("TextLabel")
 					headerText.Name = "HeaderText"
@@ -4687,7 +4791,7 @@ function MacLib:Window(Settings)
 					headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
 					headerText.TextColor3 = Color3.fromRGB(240, 240, 240)
 					headerText.TextSize = 16
-					headerText.TextTransparency = 0
+					headerText.TextTransparency = 0.1
 					headerText.TextWrapped = true
 					headerText.TextXAlignment = Enum.TextXAlignment.Left
 					headerText.AutomaticSize = Enum.AutomaticSize.Y
@@ -4695,14 +4799,113 @@ function MacLib:Window(Settings)
 					headerText.BackgroundTransparency = 1
 					headerText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					headerText.BorderSizePixel = 0
-					headerText.Size = UDim2.fromScale(1, 0)
-					headerText.Parent = header
+					headerText.Size = UDim2.new(1, -28, 0, 0)
+					headerText.Parent = headerButton
+
+					collapseIcon = Instance.new("ImageLabel")
+					collapseIcon.Name = "CollapseIcon"
+					collapseIcon.AnchorPoint = Vector2.new(1, 0.5)
+					collapseIcon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					collapseIcon.BackgroundTransparency = 1
+					collapseIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					collapseIcon.BorderSizePixel = 0
+					collapseIcon.Position = UDim2.new(1, -4, 0.5, 0)
+					collapseIcon.Size = UDim2.fromOffset(16, 16)
+					collapseIcon.ImageTransparency = 0.1
+					collapseIcon.Parent = headerButton
+
+					collapseText = Instance.new("TextLabel")
+					collapseText.Name = "CollapseText"
+					collapseText.Visible = false
+					collapseText.AnchorPoint = Vector2.new(1, 0.5)
+					collapseText.BackgroundTransparency = 1
+					collapseText.BorderSizePixel = 0
+					collapseText.Position = UDim2.new(1, -4, 0.5, 0)
+					collapseText.Size = UDim2.fromOffset(16, 16)
+					collapseText.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+					collapseText.TextColor3 = Color3.fromRGB(240, 240, 240)
+					collapseText.TextSize = 16
+					collapseText.TextTransparency = 0.2
+					collapseText.Text = ""
+					collapseText.Parent = headerButton
+
+					local hoverTweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+
+					local function setHoverState(isHovering)
+						local transparency = isHovering and 0 or 0.1
+						Tween(headerText, hoverTweenInfo, { TextTransparency = transparency }):Play()
+						if collapseIcon and collapseIcon.Visible then
+							Tween(collapseIcon, hoverTweenInfo, { ImageTransparency = isHovering and 0 or 0.1 }):Play()
+						end
+						if collapseText and collapseText.Visible then
+							Tween(collapseText, hoverTweenInfo, { TextTransparency = isHovering and 0 or 0.2 }):Play()
+						end
+					end
+
+					headerButton.MouseEnter:Connect(function()
+						setHoverState(true)
+					end)
+
+					headerButton.MouseLeave:Connect(function()
+						setHoverState(false)
+					end)
+
+					local function runToggleCallback()
+						local callback = HeaderFunctions.Settings.OnToggle or HeaderFunctions.Settings.ToggleCallback or HeaderFunctions.Settings.Callback
+						if typeof(callback) == "function" then
+							task.spawn(callback, collapsed)
+						end
+					end
+
+					headerButton.MouseButton1Click:Connect(function()
+						if HeaderFunctions.Settings.Collapsible == false then
+							return
+						end
+						setCollapsed(not collapsed)
+						runToggleCallback()
+					end)
+
+					local initialState = collapsed
+					if not hadHeader and typeof(HeaderFunctions.Settings.Collapsed) == "boolean" then
+						initialState = HeaderFunctions.Settings.Collapsed
+					end
+
+					setCollapsed(initialState)
+
+					if HeaderFunctions.Settings.Collapsible == false then
+						if collapsed then
+							setCollapsed(false)
+						end
+						headerButton.Selectable = false
+						headerButton.Active = false
+						if collapseIcon then
+							collapseIcon.Visible = false
+						end
+						if collapseText then
+							collapseText.Visible = false
+						end
+					end
+
+					setHoverState(false)
 
 					function HeaderFunctions:UpdateName(New)
 						headerText.Text = New
 					end
 					function HeaderFunctions:SetVisibility(State)
 						header.Visible = State
+						updateSectionChildren()
+					end
+					function HeaderFunctions:SetCollapsed(State, silent)
+						setCollapsed(State and true or false)
+						if not silent then
+							runToggleCallback()
+						end
+					end
+					function HeaderFunctions:Toggle()
+						HeaderFunctions:SetCollapsed(not collapsed)
+					end
+					function HeaderFunctions:IsCollapsed()
+						return collapsed
 					end
 
 					if Flag then
@@ -6060,7 +6263,7 @@ function MacLib:Demo()
 	}
 
 	local sections = {
-		MainSection1 = tabs.Main:Section({ Side = "Left" }),
+		MainSection1 = tabs.Main:Section({ Side = "Left", Collapsed = true }),
 	}
 
 	sections.MainSection1:Header({
