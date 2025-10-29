@@ -1,12 +1,12 @@
 -- Fish Data Module
--- Total Fishes: 228
+-- Total Fishes: 237
 
 return {
     -- Reef Chromis (Common)
     [1] = {
         Data = {
             Id = 43,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Reef Chromis",
             Description = "",
             Icon = "rbxassetid://130761855658346",
@@ -27,7 +27,7 @@ return {
     [2] = {
         Data = {
             Id = 15,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Abyss Seahorse",
             Description = "",
             Icon = "rbxassetid://140212951494890",
@@ -48,7 +48,7 @@ return {
     [3] = {
         Data = {
             Id = 20,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ash Basslet",
             Description = "",
             Icon = "rbxassetid://89467763428838",
@@ -69,7 +69,7 @@ return {
     [4] = {
         Data = {
             Id = 17,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Astra Damsel",
             Description = "",
             Icon = "rbxassetid://80597542368624",
@@ -90,7 +90,7 @@ return {
     [5] = {
         Data = {
             Id = 66,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Azure Damsel",
             Description = "",
             Icon = "rbxassetid://82037285284063",
@@ -111,7 +111,7 @@ return {
     [6] = {
         Data = {
             Id = 44,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Banded Butterfly",
             Description = "",
             Icon = "rbxassetid://108599906664305",
@@ -132,7 +132,7 @@ return {
     [7] = {
         Data = {
             Id = 22,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blue Lobster",
             Description = "",
             Icon = "rbxassetid://79569787883962",
@@ -153,7 +153,7 @@ return {
     [8] = {
         Data = {
             Id = 47,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blueflame Ray",
             Description = "",
             Icon = "rbxassetid://113303332536600",
@@ -174,7 +174,7 @@ return {
     [9] = {
         Data = {
             Id = 45,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Boa Angelfish",
             Description = "",
             Icon = "rbxassetid://132840818442941",
@@ -195,7 +195,7 @@ return {
     [10] = {
         Data = {
             Id = 37,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Bumblebee Grouper",
             Description = "",
             Icon = "rbxassetid://138718017852833",
@@ -216,7 +216,7 @@ return {
     [11] = {
         Data = {
             Id = 59,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Candy Butterfly",
             Description = "",
             Icon = "rbxassetid://118627817589849",
@@ -237,7 +237,7 @@ return {
     [12] = {
         Data = {
             Id = 18,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Charmed Tang",
             Description = "",
             Icon = "rbxassetid://115703943090504",
@@ -258,7 +258,7 @@ return {
     [13] = {
         Data = {
             Id = 53,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Chrome Tuna",
             Description = "",
             Icon = "rbxassetid://103021560011734",
@@ -279,7 +279,7 @@ return {
     [14] = {
         Data = {
             Id = 64,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Clownfish",
             Description = "",
             Icon = "rbxassetid://98117815811053",
@@ -300,7 +300,7 @@ return {
     [15] = {
         Data = {
             Id = 19,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Coal Tang",
             Description = "",
             Icon = "rbxassetid://92488575546885",
@@ -321,7 +321,7 @@ return {
     [16] = {
         Data = {
             Id = 67,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Copperband Butterfly",
             Description = "",
             Icon = "rbxassetid://79518413256091",
@@ -342,7 +342,7 @@ return {
     [17] = {
         Data = {
             Id = 31,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Corazon Damsel",
             Description = "",
             Icon = "rbxassetid://117026260439113",
@@ -363,7 +363,7 @@ return {
     [18] = {
         Data = {
             Id = 57,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Cow Clownfish",
             Description = "",
             Icon = "rbxassetid://88952725333000",
@@ -384,7 +384,7 @@ return {
     [19] = {
         Data = {
             Id = 71,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Darwin Clownfish",
             Description = "",
             Icon = "rbxassetid://109996187340520",
@@ -405,7 +405,7 @@ return {
     [20] = {
         Data = {
             Id = 26,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Domino Damsel",
             Description = "",
             Icon = "rbxassetid://100965955122629",
@@ -426,7 +426,7 @@ return {
     [21] = {
         Data = {
             Id = 70,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dorhey Tang",
             Description = "",
             Icon = "rbxassetid://136891625122640",
@@ -447,7 +447,7 @@ return {
     [22] = {
         Data = {
             Id = 75,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dotted Stingray",
             Description = "",
             Icon = "rbxassetid://132465838670740",
@@ -468,7 +468,7 @@ return {
     [23] = {
         Data = {
             Id = 14,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Enchanted Angelfish",
             Description = "",
             Icon = "rbxassetid://108347802265821",
@@ -489,7 +489,7 @@ return {
     [24] = {
         Data = {
             Id = 41,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Fire Goby",
             Description = "",
             Icon = "rbxassetid://94533805203782",
@@ -510,7 +510,7 @@ return {
     [25] = {
         Data = {
             Id = 49,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Firecoal Damsel",
             Description = "",
             Icon = "rbxassetid://108870635586928",
@@ -531,7 +531,7 @@ return {
     [26] = {
         Data = {
             Id = 68,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Flame Angelfish",
             Description = "",
             Icon = "rbxassetid://128385926161840",
@@ -552,7 +552,7 @@ return {
     [27] = {
         Data = {
             Id = 25,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Greenbee Grouper",
             Description = "",
             Icon = "rbxassetid://79015880866732",
@@ -573,7 +573,7 @@ return {
     [28] = {
         Data = {
             Id = 52,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Hammerhead Shark",
             Description = "",
             Icon = "rbxassetid://91373020648344",
@@ -596,7 +596,7 @@ return {
     [29] = {
         Data = {
             Id = 21,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Hawks Turtle",
             Description = "",
             Icon = "rbxassetid://129453304232199",
@@ -617,7 +617,7 @@ return {
     [30] = {
         Data = {
             Id = 24,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Starjam Tang",
             Description = "",
             Icon = "rbxassetid://129447526017878",
@@ -638,7 +638,7 @@ return {
     [31] = {
         Data = {
             Id = 46,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Jennifer Dottyback",
             Description = "",
             Icon = "rbxassetid://82888113748973",
@@ -659,7 +659,7 @@ return {
     [32] = {
         Data = {
             Id = 60,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Jewel Tang",
             Description = "",
             Icon = "rbxassetid://130344776739450",
@@ -680,7 +680,7 @@ return {
     [33] = {
         Data = {
             Id = 40,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Kau Cardinal",
             Description = "",
             Icon = "rbxassetid://120735400809864",
@@ -701,7 +701,7 @@ return {
     [34] = {
         Data = {
             Id = 72,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Korean Angelfish",
             Description = "",
             Icon = "rbxassetid://134484917450451",
@@ -722,7 +722,7 @@ return {
     [35] = {
         Data = {
             Id = 48,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lavafin Tuna",
             Description = "",
             Icon = "rbxassetid://96111934641941",
@@ -743,7 +743,7 @@ return {
     [36] = {
         Data = {
             Id = 36,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lobster",
             Description = "",
             Icon = "rbxassetid://106973499045957",
@@ -764,7 +764,7 @@ return {
     [37] = {
         Data = {
             Id = 34,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Loggerhead Turtle",
             Description = "",
             Icon = "rbxassetid://91953712080535",
@@ -785,7 +785,7 @@ return {
     [38] = {
         Data = {
             Id = 38,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Longnose Butterfly",
             Description = "",
             Icon = "rbxassetid://78488362036598",
@@ -806,7 +806,7 @@ return {
     [39] = {
         Data = {
             Id = 16,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Magic Tang",
             Description = "",
             Icon = "rbxassetid://88573644059627",
@@ -827,7 +827,7 @@ return {
     [40] = {
         Data = {
             Id = 50,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Magma Goby",
             Description = "",
             Icon = "rbxassetid://136836819813966",
@@ -848,7 +848,7 @@ return {
     [41] = {
         Data = {
             Id = 54,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Manta Ray",
             Description = "",
             Icon = "rbxassetid://88385941559907",
@@ -869,7 +869,7 @@ return {
     [42] = {
         Data = {
             Id = 56,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Maroon Butterfly",
             Description = "",
             Icon = "rbxassetid://0",
@@ -890,7 +890,7 @@ return {
     [43] = {
         Data = {
             Id = 23,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Maze Angelfish",
             Description = "",
             Icon = "rbxassetid://133123622412997",
@@ -911,7 +911,7 @@ return {
     [44] = {
         Data = {
             Id = 55,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Moorish Idol",
             Description = "",
             Icon = "rbxassetid://99527607304877",
@@ -932,7 +932,7 @@ return {
     [45] = {
         Data = {
             Id = 117,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Bandit Angelfish",
             Description = "",
             Icon = "rbxassetid://86776001616210",
@@ -953,7 +953,7 @@ return {
     [46] = {
         Data = {
             Id = 116,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Zoster Butterfly",
             Description = "",
             Icon = "rbxassetid://80869011808607",
@@ -974,7 +974,7 @@ return {
     [47] = {
         Data = {
             Id = 32,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Orangy Goby",
             Description = "",
             Icon = "rbxassetid://80870534603019",
@@ -995,7 +995,7 @@ return {
     [48] = {
         Data = {
             Id = 27,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Panther Grouper",
             Description = "",
             Icon = "rbxassetid://110559683316227",
@@ -1016,7 +1016,7 @@ return {
     [49] = {
         Data = {
             Id = 35,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Prismy Seahorse",
             Description = "",
             Icon = "rbxassetid://105300029672501",
@@ -1037,7 +1037,7 @@ return {
     [50] = {
         Data = {
             Id = 29,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Scissortail Dartfish",
             Description = "",
             Icon = "rbxassetid://90918658215983",
@@ -1058,7 +1058,7 @@ return {
     [51] = {
         Data = {
             Id = 42,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Shrimp Goby",
             Description = "",
             Icon = "rbxassetid://79722493639079",
@@ -1079,7 +1079,7 @@ return {
     [52] = {
         Data = {
             Id = 63,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Skunk Tilefish",
             Description = "",
             Icon = "rbxassetid://117649671337741",
@@ -1100,7 +1100,7 @@ return {
     [53] = {
         Data = {
             Id = 33,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Specked Butterfly",
             Description = "",
             Icon = "rbxassetid://116155560772333",
@@ -1121,7 +1121,7 @@ return {
     [54] = {
         Data = {
             Id = 65,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Strawberry Dotty",
             Description = "",
             Icon = "rbxassetid://113189737934915",
@@ -1142,7 +1142,7 @@ return {
     [55] = {
         Data = {
             Id = 39,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sushi Cardinal",
             Description = "",
             Icon = "rbxassetid://104436232234256",
@@ -1163,7 +1163,7 @@ return {
     [56] = {
         Data = {
             Id = 30,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Tricolore Butterfly",
             Description = "",
             Icon = "rbxassetid://138769463668635",
@@ -1184,7 +1184,7 @@ return {
     [57] = {
         Data = {
             Id = 74,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Unicorn Tang",
             Description = "",
             Icon = "rbxassetid://85435653124474",
@@ -1205,7 +1205,7 @@ return {
     [58] = {
         Data = {
             Id = 62,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Vintage Blue Tang",
             Description = "",
             Icon = "rbxassetid://136876564868613",
@@ -1226,7 +1226,7 @@ return {
     [59] = {
         Data = {
             Id = 58,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Vintage Damsel",
             Description = "",
             Icon = "rbxassetid://135465556501628",
@@ -1247,7 +1247,7 @@ return {
     [60] = {
         Data = {
             Id = 51,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Volcanic Basslet",
             Description = "",
             Icon = "rbxassetid://73441603866106",
@@ -1268,7 +1268,7 @@ return {
     [61] = {
         Data = {
             Id = 28,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "White Clownfish",
             Description = "",
             Icon = "rbxassetid://94709558139061",
@@ -1289,7 +1289,7 @@ return {
     [62] = {
         Data = {
             Id = 69,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Yello Damselfish",
             Description = "",
             Icon = "rbxassetid://125066072333378",
@@ -1310,7 +1310,7 @@ return {
     [63] = {
         Data = {
             Id = 73,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Yellowfin Tuna",
             Description = "",
             Icon = "rbxassetid://86565235696991",
@@ -1331,7 +1331,7 @@ return {
     [64] = {
         Data = {
             Id = 61,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Yellowstate Angelfish",
             Description = "",
             Icon = "rbxassetid://82807541331151",
@@ -1352,7 +1352,7 @@ return {
     [65] = {
         Data = {
             Id = 190,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Salmon",
             Description = "",
             Icon = "rbxassetid://125238936461158",
@@ -1373,7 +1373,7 @@ return {
     [66] = {
         Data = {
             Id = 82,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blob Shark",
             Description = "",
             Icon = "rbxassetid://120294742064292",
@@ -1396,7 +1396,7 @@ return {
     [67] = {
         Data = {
             Id = 89,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Volsail Tang",
             Description = "",
             Icon = "rbxassetid://129946055426678",
@@ -1417,7 +1417,7 @@ return {
     [68] = {
         Data = {
             Id = 88,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Rockform Cardianl",
             Description = "",
             Icon = "rbxassetid://120329148296828",
@@ -1438,7 +1438,7 @@ return {
     [69] = {
         Data = {
             Id = 87,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lava Butterfly",
             Description = "",
             Icon = "rbxassetid://121441755541039",
@@ -1459,7 +1459,7 @@ return {
     [70] = {
         Data = {
             Id = 86,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Slurpfish Chromis",
             Description = "",
             Icon = "rbxassetid://73157781682607",
@@ -1480,7 +1480,7 @@ return {
     [71] = {
         Data = {
             Id = 92,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Festive Goby",
             Description = "",
             Icon = "rbxassetid://131719468046777",
@@ -1501,7 +1501,7 @@ return {
     [72] = {
         Data = {
             Id = 91,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Mistletoe Damsel",
             Description = "",
             Icon = "rbxassetid://119896827350397",
@@ -1522,7 +1522,7 @@ return {
     [73] = {
         Data = {
             Id = 90,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Gingerbread Tang",
             Description = "",
             Icon = "rbxassetid://81165959957452",
@@ -1543,7 +1543,7 @@ return {
     [74] = {
         Data = {
             Id = 99,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Great Christmas Whale",
             Description = "",
             Icon = "rbxassetid://71302255255094",
@@ -1564,7 +1564,7 @@ return {
     [75] = {
         Data = {
             Id = 94,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Gingerbread Clownfish",
             Description = "",
             Icon = "rbxassetid://76627481663195",
@@ -1585,7 +1585,7 @@ return {
     [76] = {
         Data = {
             Id = 97,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Gingerbread Turtle",
             Description = "",
             Icon = "rbxassetid://105391647263950",
@@ -1606,7 +1606,7 @@ return {
     [77] = {
         Data = {
             Id = 98,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Gingerbread Shark",
             Description = "",
             Icon = "rbxassetid://134485196164902",
@@ -1629,7 +1629,7 @@ return {
     [78] = {
         Data = {
             Id = 93,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Christmastree Longnose",
             Description = "",
             Icon = "rbxassetid://121538254026074",
@@ -1650,7 +1650,7 @@ return {
     [79] = {
         Data = {
             Id = 95,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Candycane Lobster",
             Description = "",
             Icon = "rbxassetid://81306607650028",
@@ -1671,7 +1671,7 @@ return {
     [80] = {
         Data = {
             Id = 96,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Festive Pufferfish",
             Description = "",
             Icon = "rbxassetid://111730193849173",
@@ -1692,7 +1692,7 @@ return {
     [81] = {
         Data = {
             Id = 106,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blue-Banded Goby",
             Description = "",
             Icon = "rbxassetid://137187691311291",
@@ -1713,7 +1713,7 @@ return {
     [82] = {
         Data = {
             Id = 107,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blumato Clownfish",
             Description = "",
             Icon = "rbxassetid://135433263876257",
@@ -1734,7 +1734,7 @@ return {
     [83] = {
         Data = {
             Id = 108,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Conspi Angelfish",
             Description = "",
             Icon = "rbxassetid://70666845671780",
@@ -1755,7 +1755,7 @@ return {
     [84] = {
         Data = {
             Id = 109,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Fade Tang",
             Description = "",
             Icon = "rbxassetid://99713500880459",
@@ -1776,7 +1776,7 @@ return {
     [85] = {
         Data = {
             Id = 110,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lined Cardinal Fish",
             Description = "",
             Icon = "rbxassetid://96973556889996",
@@ -1797,7 +1797,7 @@ return {
     [86] = {
         Data = {
             Id = 111,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Masked Angelfish",
             Description = "",
             Icon = "rbxassetid://85192354177842",
@@ -1818,7 +1818,7 @@ return {
     [87] = {
         Data = {
             Id = 112,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pygmy Goby",
             Description = "",
             Icon = "rbxassetid://128173847216247",
@@ -1839,7 +1839,7 @@ return {
     [88] = {
         Data = {
             Id = 113,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sail Tang",
             Description = "",
             Icon = "rbxassetid://86089485683202",
@@ -1860,7 +1860,7 @@ return {
     [89] = {
         Data = {
             Id = 114,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Watanabei Angelfish",
             Description = "",
             Icon = "rbxassetid://133021124365377",
@@ -1881,7 +1881,7 @@ return {
     [90] = {
         Data = {
             Id = 115,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "White Tang",
             Description = "",
             Icon = "rbxassetid://138516719984773",
@@ -1902,7 +1902,7 @@ return {
     [91] = {
         Data = {
             Id = 119,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ballina Angelfish",
             Description = "",
             Icon = "rbxassetid://99236757363784",
@@ -1923,7 +1923,7 @@ return {
     [92] = {
         Data = {
             Id = 121,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Bleekers Damsel",
             Description = "",
             Icon = "rbxassetid://116977046936052",
@@ -1944,7 +1944,7 @@ return {
     [93] = {
         Data = {
             Id = 122,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Loving Shark",
             Description = "",
             Icon = "rbxassetid://119173750281399",
@@ -1967,7 +1967,7 @@ return {
     [94] = {
         Data = {
             Id = 120,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pink Smith Damsel",
             Description = "",
             Icon = "rbxassetid://76606007357699",
@@ -1988,7 +1988,7 @@ return {
     [95] = {
         Data = {
             Id = 138,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Axolotl",
             Description = "",
             Icon = "rbxassetid://76558551981982",
@@ -2009,7 +2009,7 @@ return {
     [96] = {
         Data = {
             Id = 139,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Silver Tuna",
             Description = "",
             Icon = "rbxassetid://84055400571306",
@@ -2030,7 +2030,7 @@ return {
     [97] = {
         Data = {
             Id = 140,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pilot Fish",
             Description = "",
             Icon = "rbxassetid://114269547366510",
@@ -2051,7 +2051,7 @@ return {
     [98] = {
         Data = {
             Id = 135,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Patriot Tang",
             Description = "",
             Icon = "rbxassetid://118534942671075",
@@ -2072,7 +2072,7 @@ return {
     [99] = {
         Data = {
             Id = 136,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Frostborn Shark",
             Description = "",
             Icon = "rbxassetid://125463067542850",
@@ -2095,7 +2095,7 @@ return {
     [100] = {
         Data = {
             Id = 137,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Plasma Shark",
             Description = "",
             Icon = "rbxassetid://88847410678758",
@@ -2118,7 +2118,7 @@ return {
     [101] = {
         Data = {
             Id = 143,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pufferfish",
             Description = "",
             Icon = "rbxassetid://88950964359044",
@@ -2139,7 +2139,7 @@ return {
     [102] = {
         Data = {
             Id = 144,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Racoon Butterfly Fish",
             Description = "",
             Icon = "rbxassetid://92680808637130",
@@ -2160,7 +2160,7 @@ return {
     [103] = {
         Data = {
             Id = 142,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Orange Basslet",
             Description = "",
             Icon = "rbxassetid://129792505755834",
@@ -2181,7 +2181,7 @@ return {
     [104] = {
         Data = {
             Id = 146,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Strippled Seahorse",
             Description = "",
             Icon = "rbxassetid://120444751052938",
@@ -2202,7 +2202,7 @@ return {
     [105] = {
         Data = {
             Id = 147,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Thresher Shark",
             Description = "",
             Icon = "rbxassetid://70681751795899",
@@ -2225,7 +2225,7 @@ return {
     [106] = {
         Data = {
             Id = 141,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Great Whale",
             Description = "",
             Icon = "rbxassetid://110349456710432",
@@ -2246,7 +2246,7 @@ return {
     [107] = {
         Data = {
             Id = 163,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Viperfish",
             Description = "",
             Icon = "rbxassetid://132331063285672",
@@ -2267,7 +2267,7 @@ return {
     [108] = {
         Data = {
             Id = 152,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Deep Sea Crab",
             Description = "",
             Icon = "rbxassetid://107492220673765",
@@ -2288,7 +2288,7 @@ return {
     [109] = {
         Data = {
             Id = 161,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Spotted Lantern Fish",
             Description = "",
             Icon = "rbxassetid://121295544969455",
@@ -2309,7 +2309,7 @@ return {
     [110] = {
         Data = {
             Id = 159,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Robot Kraken",
             Description = "",
             Icon = "rbxassetid://80927639907406",
@@ -2330,7 +2330,7 @@ return {
     [111] = {
         Data = {
             Id = 160,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Monk Fish",
             Description = "",
             Icon = "rbxassetid://117683281700675",
@@ -2351,7 +2351,7 @@ return {
     [112] = {
         Data = {
             Id = 158,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "King Crab",
             Description = "",
             Icon = "rbxassetid://136951139611035",
@@ -2372,7 +2372,7 @@ return {
     [113] = {
         Data = {
             Id = 157,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Jellyfish",
             Description = "",
             Icon = "rbxassetid://115477999636961",
@@ -2393,7 +2393,7 @@ return {
     [114] = {
         Data = {
             Id = 156,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Giant Squid",
             Description = "",
             Icon = "rbxassetid://135470649745250",
@@ -2414,7 +2414,7 @@ return {
     [115] = {
         Data = {
             Id = 155,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Fangtooth",
             Description = "",
             Icon = "rbxassetid://82285034746187",
@@ -2435,7 +2435,7 @@ return {
     [116] = {
         Data = {
             Id = 154,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Electric Eel",
             Description = "",
             Icon = "rbxassetid://112551199622795",
@@ -2456,7 +2456,7 @@ return {
     [117] = {
         Data = {
             Id = 162,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Vampire Squid",
             Description = "",
             Icon = "rbxassetid://87203317027314",
@@ -2477,7 +2477,7 @@ return {
     [118] = {
         Data = {
             Id = 153,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dark Eel",
             Description = "",
             Icon = "rbxassetid://135880333888900",
@@ -2498,7 +2498,7 @@ return {
     [119] = {
         Data = {
             Id = 151,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Boar Fish",
             Description = "",
             Icon = "rbxassetid://114009571858522",
@@ -2519,7 +2519,7 @@ return {
     [120] = {
         Data = {
             Id = 150,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blob Fish",
             Description = "",
             Icon = "rbxassetid://109329387304752",
@@ -2540,7 +2540,7 @@ return {
     [121] = {
         Data = {
             Id = 149,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Angler Fish",
             Description = "",
             Icon = "rbxassetid://95565358831204",
@@ -2561,7 +2561,7 @@ return {
     [122] = {
         Data = {
             Id = 166,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dead Fish",
             Description = "",
             Icon = "rbxassetid://72777968915255",
@@ -2582,7 +2582,7 @@ return {
     [123] = {
         Data = {
             Id = 165,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Skeleton Fish",
             Description = "",
             Icon = "rbxassetid://110090152643341",
@@ -2603,7 +2603,7 @@ return {
     [124] = {
         Data = {
             Id = 164,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Swordfish",
             Description = "",
             Icon = "rbxassetid://105539179190905",
@@ -2624,7 +2624,7 @@ return {
     [125] = {
         Data = {
             Id = 145,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Worm Fish",
             Description = "",
             Icon = "rbxassetid://88157067345872",
@@ -2645,7 +2645,7 @@ return {
     [126] = {
         Data = {
             Id = 189,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Rockfish",
             Description = "",
             Icon = "rbxassetid://88961987133136",
@@ -2666,7 +2666,7 @@ return {
     [127] = {
         Data = {
             Id = 191,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sheepshead Fish",
             Description = "",
             Icon = "rbxassetid://112711438552296",
@@ -2687,7 +2687,7 @@ return {
     [128] = {
         Data = {
             Id = 182,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Blackcap Basslet",
             Description = "",
             Icon = "rbxassetid://95659897738388",
@@ -2708,7 +2708,7 @@ return {
     [129] = {
         Data = {
             Id = 183,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Catfish",
             Description = "",
             Icon = "rbxassetid://98970734819318",
@@ -2729,7 +2729,7 @@ return {
     [130] = {
         Data = {
             Id = 184,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Coney Fish",
             Description = "",
             Icon = "rbxassetid://126049387807805",
@@ -2750,7 +2750,7 @@ return {
     [131] = {
         Data = {
             Id = 185,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Hermit Crab",
             Description = "",
             Icon = "rbxassetid://84444153694943",
@@ -2771,7 +2771,7 @@ return {
     [132] = {
         Data = {
             Id = 186,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Parrot Fish",
             Description = "",
             Icon = "rbxassetid://101895900955177",
@@ -2792,7 +2792,7 @@ return {
     [133] = {
         Data = {
             Id = 187,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Queen Crab",
             Description = "",
             Icon = "rbxassetid://73709080100110",
@@ -2813,7 +2813,7 @@ return {
     [134] = {
         Data = {
             Id = 188,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Red Snapper",
             Description = "",
             Icon = "rbxassetid://70818316245817",
@@ -2834,7 +2834,7 @@ return {
     [135] = {
         Data = {
             Id = 199,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lake Sturgeon",
             Description = "",
             Icon = "rbxassetid://91608917361161",
@@ -2855,7 +2855,7 @@ return {
     [136] = {
         Data = {
             Id = 200,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Orca",
             Description = "",
             Icon = "rbxassetid://120876783250189",
@@ -2876,7 +2876,7 @@ return {
     [137] = {
         Data = {
             Id = 194,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Barracuda Fish",
             Description = "",
             Icon = "rbxassetid://109111807975453",
@@ -2897,7 +2897,7 @@ return {
     [138] = {
         Data = {
             Id = 195,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Crystal Crab",
             Description = "",
             Icon = "rbxassetid://110188263756245",
@@ -2918,7 +2918,7 @@ return {
     [139] = {
         Data = {
             Id = 196,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Frog",
             Description = "",
             Icon = "rbxassetid://71290852112649",
@@ -2939,7 +2939,7 @@ return {
     [140] = {
         Data = {
             Id = 197,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Gar Fish",
             Description = "",
             Icon = "rbxassetid://116893747982628",
@@ -2960,7 +2960,7 @@ return {
     [141] = {
         Data = {
             Id = 198,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Herring Fish",
             Description = "",
             Icon = "rbxassetid://83087225269219",
@@ -2981,7 +2981,7 @@ return {
     [142] = {
         Data = {
             Id = 210,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dark Tentacle",
             Description = "",
             Icon = "rbxassetid://82928155035287",
@@ -3002,7 +3002,7 @@ return {
     [143] = {
         Data = {
             Id = 202,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Flat Fish",
             Description = "",
             Icon = "rbxassetid://72446028934813",
@@ -3023,7 +3023,7 @@ return {
     [144] = {
         Data = {
             Id = 203,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Flying Fish",
             Description = "",
             Icon = "rbxassetid://76398271598694",
@@ -3044,7 +3044,7 @@ return {
     [145] = {
         Data = {
             Id = 204,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lion Fish",
             Description = "",
             Icon = "rbxassetid://92595165502684",
@@ -3065,7 +3065,7 @@ return {
     [146] = {
         Data = {
             Id = 209,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Starfish",
             Description = "",
             Icon = "rbxassetid://93878183859150",
@@ -3086,7 +3086,7 @@ return {
     [147] = {
         Data = {
             Id = 211,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Wahoo",
             Description = "",
             Icon = "rbxassetid://88311721896238",
@@ -3107,7 +3107,7 @@ return {
     [148] = {
         Data = {
             Id = 208,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Saw Fish",
             Description = "",
             Icon = "rbxassetid://102132456822726",
@@ -3128,7 +3128,7 @@ return {
     [149] = {
         Data = {
             Id = 207,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pink Dolphin",
             Description = "",
             Icon = "rbxassetid://86256600614394",
@@ -3149,7 +3149,7 @@ return {
     [150] = {
         Data = {
             Id = 206,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Monster Shark",
             Description = "",
             Icon = "rbxassetid://109551787474599",
@@ -3172,7 +3172,7 @@ return {
     [151] = {
         Data = {
             Id = 205,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Luminous Fish",
             Description = "",
             Icon = "rbxassetid://78374908088019",
@@ -3193,14 +3193,14 @@ return {
     [152] = {
         Data = {
             Id = 201,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Eerie Shark",
             Description = "",
             Icon = "rbxassetid://114252804065144",
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 88500,
+        SellPrice = 92500,
         Variants = {
             [1] = "Color Burn",
         },
@@ -3216,7 +3216,7 @@ return {
     [153] = {
         Data = {
             Id = 225,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Scare",
             Description = "",
             Icon = "rbxassetid://76893887663677",
@@ -3237,7 +3237,7 @@ return {
     [154] = {
         Data = {
             Id = 224,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Synodontis",
             Description = "",
             Icon = "rbxassetid://115468864043768",
@@ -3258,7 +3258,7 @@ return {
     [155] = {
         Data = {
             Id = 215,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Armor Catfish",
             Description = "",
             Icon = "rbxassetid://130020230064983",
@@ -3279,7 +3279,7 @@ return {
     [156] = {
         Data = {
             Id = 218,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Thin Armor Shark",
             Description = "",
             Icon = "rbxassetid://123540389497955",
@@ -3302,7 +3302,7 @@ return {
     [157] = {
         Data = {
             Id = 227,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Narwhal",
             Description = "",
             Icon = "rbxassetid://128440123940426",
@@ -3323,7 +3323,7 @@ return {
     [158] = {
         Data = {
             Id = 228,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Lochness Monster",
             Description = "",
             Icon = "rbxassetid://88964613838360",
@@ -3344,7 +3344,7 @@ return {
     [159] = {
         Data = {
             Id = 239,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Antique Cup",
             Description = "",
             Icon = "rbxassetid://82143322416088",
@@ -3365,7 +3365,7 @@ return {
     [160] = {
         Data = {
             Id = 238,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Antique Watch",
             Description = "",
             Icon = "rbxassetid://93941516308809",
@@ -3386,7 +3386,7 @@ return {
     [161] = {
         Data = {
             Id = 232,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sea Shell",
             Description = "",
             Icon = "rbxassetid://140728296641493",
@@ -3407,7 +3407,7 @@ return {
     [162] = {
         Data = {
             Id = 235,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pearl",
             Description = "",
             Icon = "rbxassetid://83797707479837",
@@ -3428,7 +3428,7 @@ return {
     [163] = {
         Data = {
             Id = 234,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Old Boot",
             Description = "",
             Icon = "rbxassetid://128215101057455",
@@ -3449,7 +3449,7 @@ return {
     [164] = {
         Data = {
             Id = 233,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Expensive Chain",
             Description = "",
             Icon = "rbxassetid://110245463690177",
@@ -3470,7 +3470,7 @@ return {
     [165] = {
         Data = {
             Id = 236,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Diamond Ring",
             Description = "",
             Icon = "rbxassetid://110991359455743",
@@ -3491,7 +3491,7 @@ return {
     [166] = {
         Data = {
             Id = 237,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Conch Shell",
             Description = "",
             Icon = "rbxassetid://139285110672806",
@@ -3512,7 +3512,7 @@ return {
     [167] = {
         Data = {
             Id = 226,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Megalodon",
             Description = "",
             Icon = "rbxassetid://126066407227328",
@@ -3535,7 +3535,7 @@ return {
     [168] = {
         Data = {
             Id = 242,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Arowana",
             Description = "",
             Icon = "rbxassetid://81593253309929",
@@ -3556,7 +3556,7 @@ return {
     [169] = {
         Data = {
             Id = 241,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "King Mackerel",
             Description = "",
             Icon = "rbxassetid://86941108969730",
@@ -3577,7 +3577,7 @@ return {
     [170] = {
         Data = {
             Id = 240,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Magma Shark",
             Description = "",
             Icon = "rbxassetid://133485972581430",
@@ -3600,7 +3600,7 @@ return {
     [171] = {
         Data = {
             Id = 243,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ruby",
             Description = "",
             Icon = "rbxassetid://91295888272023",
@@ -3621,7 +3621,7 @@ return {
     [172] = {
         Data = {
             Id = 280,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Abyshorn Fish",
             Description = "",
             Icon = "rbxassetid://79899223576801",
@@ -3642,7 +3642,7 @@ return {
     [173] = {
         Data = {
             Id = 247,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sharp One",
             Description = "",
             Icon = "rbxassetid://84629313345829",
@@ -3663,7 +3663,7 @@ return {
     [174] = {
         Data = {
             Id = 249,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Hybodus Shark",
             Description = "",
             Icon = "rbxassetid://97369977225977",
@@ -3684,7 +3684,7 @@ return {
     [175] = {
         Data = {
             Id = 248,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Panther Eel",
             Description = "",
             Icon = "rbxassetid://101328665301159",
@@ -3705,7 +3705,7 @@ return {
     [176] = {
         Data = {
             Id = 83,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ghost Shark",
             Description = "",
             Icon = "rbxassetid://102028503382077",
@@ -3728,7 +3728,7 @@ return {
     [177] = {
         Data = {
             Id = 176,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ghost Worm Fish",
             Description = "",
             Icon = "rbxassetid://107896897205452",
@@ -3749,7 +3749,7 @@ return {
     [178] = {
         Data = {
             Id = 287,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Zebra Snakehead",
             Description = "",
             Icon = "rbxassetid://122319387402990",
@@ -3770,7 +3770,7 @@ return {
     [179] = {
         Data = {
             Id = 281,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Waveback Fish",
             Description = "",
             Icon = "rbxassetid://96051341080933",
@@ -3791,7 +3791,7 @@ return {
     [180] = {
         Data = {
             Id = 263,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Crocodile",
             Description = "",
             Icon = "rbxassetid://89886287478220",
@@ -3812,7 +3812,7 @@ return {
     [181] = {
         Data = {
             Id = 278,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Viperangler Fish",
             Description = "",
             Icon = "rbxassetid://134552782408906",
@@ -3833,7 +3833,7 @@ return {
     [182] = {
         Data = {
             Id = 286,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Temple Spokes Tuna",
             Description = "",
             Icon = "rbxassetid://85353973924965",
@@ -3854,7 +3854,7 @@ return {
     [183] = {
         Data = {
             Id = 276,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Spear Guardian",
             Description = "",
             Icon = "rbxassetid://98723587624430",
@@ -3875,7 +3875,7 @@ return {
     [184] = {
         Data = {
             Id = 268,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Skeleton Angler Fish",
             Description = "",
             Icon = "rbxassetid://72285613528111",
@@ -3896,7 +3896,7 @@ return {
     [185] = {
         Data = {
             Id = 275,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sail Fish",
             Description = "",
             Icon = "rbxassetid://86952015220017",
@@ -3917,7 +3917,7 @@ return {
     [186] = {
         Data = {
             Id = 283,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Sacred Guardian Squid",
             Description = "",
             Icon = "rbxassetid://129358445149074",
@@ -3938,7 +3938,7 @@ return {
     [187] = {
         Data = {
             Id = 279,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Runic Wispeye",
             Description = "",
             Icon = "rbxassetid://97194596437636",
@@ -3959,7 +3959,7 @@ return {
     [188] = {
         Data = {
             Id = 285,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Red Goatfish",
             Description = "",
             Icon = "rbxassetid://87364367503847",
@@ -3980,7 +3980,7 @@ return {
     [189] = {
         Data = {
             Id = 282,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Parrot Fish",
             Description = "",
             Icon = "rbxassetid://90145730610071",
@@ -4001,7 +4001,7 @@ return {
     [190] = {
         Data = {
             Id = 277,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Mossy Fishlet",
             Description = "",
             Icon = "rbxassetid://138560606706748",
@@ -4022,7 +4022,7 @@ return {
     [191] = {
         Data = {
             Id = 262,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ancient Arapaima",
             Description = "",
             Icon = "rbxassetid://83287284251523",
@@ -4043,7 +4043,7 @@ return {
     [192] = {
         Data = {
             Id = 274,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Manoai Statue Fish",
             Description = "",
             Icon = "rbxassetid://112056031966357",
@@ -4064,7 +4064,7 @@ return {
     [193] = {
         Data = {
             Id = 273,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Mammoth Appafish",
             Description = "",
             Icon = "rbxassetid://113683047681103",
@@ -4085,7 +4085,7 @@ return {
     [194] = {
         Data = {
             Id = 270,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Goliath Tiger",
             Description = "",
             Icon = "rbxassetid://79451780989889",
@@ -4106,7 +4106,7 @@ return {
     [195] = {
         Data = {
             Id = 284,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Freshwater Piranha",
             Description = "",
             Icon = "rbxassetid://133381366802339",
@@ -4127,7 +4127,7 @@ return {
     [196] = {
         Data = {
             Id = 288,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Drippy Tucanare",
             Description = "",
             Icon = "rbxassetid://88963984435830",
@@ -4148,7 +4148,7 @@ return {
     [197] = {
         Data = {
             Id = 292,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "King Jelly",
             Description = "",
             Icon = "rbxassetid://104757933481327",
@@ -4169,7 +4169,7 @@ return {
     [198] = {
         Data = {
             Id = 290,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Beanie Leedsicheye",
             Description = "",
             Icon = "rbxassetid://85346893566616",
@@ -4190,7 +4190,7 @@ return {
     [199] = {
         Data = {
             Id = 264,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ancient Relic Crocodile",
             Description = "",
             Icon = "rbxassetid://131025252592514",
@@ -4211,7 +4211,7 @@ return {
     [200] = {
         Data = {
             Id = 293,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Bone Whale",
             Description = "",
             Icon = "rbxassetid://99804145194043",
@@ -4232,7 +4232,7 @@ return {
     [201] = {
         Data = {
             Id = 272,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Mosasaur Shark",
             Description = "",
             Icon = "rbxassetid://119021943786069",
@@ -4255,7 +4255,7 @@ return {
     [202] = {
         Data = {
             Id = 269,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Elshark Gran Maja",
             Description = "",
             Icon = "rbxassetid://115522161459382",
@@ -4278,7 +4278,7 @@ return {
     [203] = {
         Data = {
             Id = 289,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Water Snake",
             Description = "",
             Icon = "rbxassetid://118434158055629",
@@ -4299,7 +4299,7 @@ return {
     [204] = {
         Data = {
             Id = 295,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ancient Whale",
             Description = "",
             Icon = "rbxassetid://106712272327597",
@@ -4320,7 +4320,7 @@ return {
     [205] = {
         Data = {
             Id = 296,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Crystal Salamander",
             Description = "",
             Icon = "rbxassetid://129118256536866",
@@ -4341,7 +4341,7 @@ return {
     [206] = {
         Data = {
             Id = 301,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dead Scary Clownfish",
             Description = "",
             Icon = "rbxassetid://130326949380133",
@@ -4362,7 +4362,7 @@ return {
     [207] = {
         Data = {
             Id = 303,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dead Spooky Koi Fish",
             Description = "",
             Icon = "rbxassetid://94754294966347",
@@ -4383,7 +4383,7 @@ return {
     [208] = {
         Data = {
             Id = 302,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dead Zombie Shark",
             Description = "",
             Icon = "rbxassetid://74502211632455",
@@ -4406,7 +4406,7 @@ return {
     [209] = {
         Data = {
             Id = 299,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Jellyfish",
             Description = "",
             Icon = "rbxassetid://110367503006917",
@@ -4427,7 +4427,7 @@ return {
     [210] = {
         Data = {
             Id = 300,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Scary Clownfish",
             Description = "",
             Icon = "rbxassetid://118734586270295",
@@ -4448,7 +4448,7 @@ return {
     [211] = {
         Data = {
             Id = 298,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Spooky Koi Fish",
             Description = "",
             Icon = "rbxassetid://71760590403389",
@@ -4469,7 +4469,7 @@ return {
     [212] = {
         Data = {
             Id = 304,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Toxic Jellyfish",
             Description = "",
             Icon = "rbxassetid://128554473363426",
@@ -4490,7 +4490,7 @@ return {
     [213] = {
         Data = {
             Id = 297,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Zombie Shark",
             Description = "",
             Icon = "rbxassetid://118840558184490",
@@ -4513,7 +4513,7 @@ return {
     [214] = {
         Data = {
             Id = 310,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Baby Pumpkin Shark",
             Description = "",
             Icon = "rbxassetid://92277291116292",
@@ -4534,7 +4534,7 @@ return {
     [215] = {
         Data = {
             Id = 316,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Dark Pumpkin Appafish",
             Description = "",
             Icon = "rbxassetid://128070497580785",
@@ -4555,7 +4555,7 @@ return {
     [216] = {
         Data = {
             Id = 308,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Frankenstein Longsnapper",
             Description = "",
             Icon = "rbxassetid://82325364028304",
@@ -4576,7 +4576,7 @@ return {
     [217] = {
         Data = {
             Id = 313,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Ghost Spiralfish",
             Description = "",
             Icon = "rbxassetid://131024392032651",
@@ -4597,7 +4597,7 @@ return {
     [218] = {
         Data = {
             Id = 315,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Mossy Vampire Fish",
             Description = "",
             Icon = "rbxassetid://123289074389407",
@@ -4618,7 +4618,7 @@ return {
     [219] = {
         Data = {
             Id = 309,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Angler Fish",
             Description = "",
             Icon = "rbxassetid://123751784377518",
@@ -4639,7 +4639,7 @@ return {
     [220] = {
         Data = {
             Id = 312,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Butterfly Fish",
             Description = "",
             Icon = "rbxassetid://129107539280642",
@@ -4660,7 +4660,7 @@ return {
     [221] = {
         Data = {
             Id = 307,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Carved Shark",
             Description = "",
             Icon = "rbxassetid://112304908829218",
@@ -4681,7 +4681,7 @@ return {
     [222] = {
         Data = {
             Id = 305,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Hermit Crab",
             Description = "",
             Icon = "rbxassetid://128748768092216",
@@ -4702,7 +4702,7 @@ return {
     [223] = {
         Data = {
             Id = 314,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin Ray",
             Description = "",
             Icon = "rbxassetid://103346973064613",
@@ -4723,7 +4723,7 @@ return {
     [224] = {
         Data = {
             Id = 317,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Pumpkin StoneTurtle",
             Description = "",
             Icon = "rbxassetid://119502983826514",
@@ -4744,7 +4744,7 @@ return {
     [225] = {
         Data = {
             Id = 318,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Spooky Peafish",
             Description = "",
             Icon = "rbxassetid://126789494167977",
@@ -4765,7 +4765,7 @@ return {
     [226] = {
         Data = {
             Id = 306,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Witch Fish",
             Description = "",
             Icon = "rbxassetid://72770544702627",
@@ -4786,7 +4786,7 @@ return {
     [227] = {
         Data = {
             Id = 311,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Wizard Stingray",
             Description = "",
             Icon = "rbxassetid://102291521716919",
@@ -4807,7 +4807,7 @@ return {
     [228] = {
         Data = {
             Id = 319,
-            Type = "Fishes",
+            Type = "Fish",
             Name = "Zombie Megalodon",
             Description = "",
             Icon = "rbxassetid://110861329686146",
@@ -4822,6 +4822,195 @@ return {
         },
         Probability = {
             Chance = 2.50E-07
+        }
+    },
+    -- Candy Corn Eel (Uncommon)
+    [229] = {
+        Data = {
+            Id = 333,
+            Type = "Fish",
+            Name = "Candy Corn Eel",
+            Description = "",
+            Icon = "rbxassetid://93259170550129",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 65,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(7.800000190734863, 9.199999809265137),
+            Default = NumberRange.new(5.300000190734863, 7)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Ghastly Crab (Legendary)
+    [230] = {
+        Data = {
+            Id = 334,
+            Type = "Fish",
+            Name = "Ghastly Crab",
+            Description = "",
+            Icon = "rbxassetid://76282468756263",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 11111,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(90, 110),
+            Default = NumberRange.new(60, 80)
+        },
+        Probability = {
+            Chance = 0.0001
+        }
+    },
+    -- Ghastly Hermit Crab (Legendary)
+    [231] = {
+        Data = {
+            Id = 338,
+            Type = "Fish",
+            Name = "Ghastly Hermit Crab",
+            Description = "",
+            Icon = "rbxassetid://137125780150376",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 4266,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(48, 55),
+            Default = NumberRange.new(37, 44)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Hammerhead Mummy (Mythic)
+    [232] = {
+        Data = {
+            Id = 336,
+            Type = "Fish",
+            Name = "Hammerhead Mummy",
+            Description = "",
+            Icon = "rbxassetid://115062339542534",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 100000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(41666, 47474),
+            Default = NumberRange.new(26666, 36666)
+        },
+        Probability = {
+            Chance = 4.08E-06
+        }
+    },
+    -- Skeleton Narwhal (SECRET)
+    [233] = {
+        Data = {
+            Id = 339,
+            Type = "Fish",
+            Name = "Skeleton Narwhal",
+            Description = "",
+            Icon = "rbxassetid://72248976760148",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 135000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(620, 700),
+            Default = NumberRange.new(339, 509)
+        },
+        Probability = {
+            Chance = 2.00E-06
+        }
+    },
+    -- Talon Serpent (SECRET)
+    [234] = {
+        Data = {
+            Id = 341,
+            Type = "Fish",
+            Name = "Talon Serpent",
+            Description = "",
+            Icon = "rbxassetid://108665275325646",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 0,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(21111, 22222),
+            Default = NumberRange.new(20000, 20150)
+        },
+        Probability = {
+            Chance = 1.00E-06
+        }
+    },
+    -- Wild Serpent (SECRET)
+    [235] = {
+        Data = {
+            Id = 340,
+            Type = "Fish",
+            Name = "Wild Serpent",
+            Description = "",
+            Icon = "rbxassetid://105102846577855",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 0,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(21111, 23333),
+            Default = NumberRange.new(20000, 20130)
+        },
+        Probability = {
+            Chance = 1.00E-06
+        }
+    },
+    -- Witch Koi Fish (Rare)
+    [236] = {
+        Data = {
+            Id = 335,
+            Type = "Fish",
+            Name = "Witch Koi Fish",
+            Description = "",
+            Icon = "rbxassetid://121441191255890",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 575,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(20, 24),
+            Default = NumberRange.new(14, 18)
+        },
+        Probability = {
+            Chance = 0.002
+        }
+    },
+    -- Wraithfin Abyssal (Epic)
+    [237] = {
+        Data = {
+            Id = 337,
+            Type = "Fish",
+            Name = "Wraithfin Abyssal",
+            Description = "",
+            Icon = "rbxassetid://127594101212560",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1125,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.199999809265137, 4.800000190734863),
+            Default = NumberRange.new(2, 3.5999999046325684)
+        },
+        Probability = {
+            Chance = 0.001
         }
     }
 }
