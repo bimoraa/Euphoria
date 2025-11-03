@@ -1,5 +1,4 @@
--- Fish Data Module
--- Total Fishes: 237
+-- discord.gg/getsades-- Total Fishes: 238
 
 return {
     -- Reef Chromis (Common)
@@ -3435,14 +3434,14 @@ return {
             Tier = 1,
             TierName = "Common"
         },
-        SellPrice = 19,
+        SellPrice = 27,
         Variants = {},
         Weight = {
             Big = NumberRange.new(0.20000000298023224, 0.25),
             Default = NumberRange.new(0.10999999940395355, 0.15000000596046448)
         },
         Probability = {
-            Chance = 0.3333333333333333
+            Chance = 0.04
         }
     },
     -- Expensive Chain (Epic)
@@ -4815,7 +4814,9 @@ return {
             TierName = "SECRET"
         },
         SellPrice = 345000,
-        Variants = {},
+        Variants = {
+            [1] = "Color Burn",
+        },
         Weight = {
             Big = NumberRange.new(395000, 450000),
             Default = NumberRange.new(305000, 365000)
@@ -4899,7 +4900,9 @@ return {
             TierName = "Mythic"
         },
         SellPrice = 100000,
-        Variants = {},
+        Variants = {
+            [1] = "Color Burn",
+        },
         Weight = {
             Big = NumberRange.new(41666, 47474),
             Default = NumberRange.new(26666, 36666)
@@ -4926,7 +4929,7 @@ return {
             Default = NumberRange.new(339, 509)
         },
         Probability = {
-            Chance = 2.00E-06
+            Chance = 1.67E-06
         }
     },
     -- Talon Serpent (SECRET)
@@ -5011,6 +5014,27 @@ return {
         },
         Probability = {
             Chance = 0.001
+        }
+    },
+    -- Bloodmoon Whale (SECRET)
+    [238] = {
+        Data = {
+            Id = 342,
+            Type = "Fish",
+            Name = "Bloodmoon Whale",
+            Description = "",
+            Icon = "rbxassetid://113886190969614",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 500000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(472112, 525584),
+            Default = NumberRange.new(362784, 464176)
+        },
+        Probability = {
+            Chance = 2.00E-07
         }
     }
 }
