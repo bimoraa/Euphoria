@@ -37,6 +37,10 @@ local assets = {
 	dropdown = "rbxassetid://18865373378",
 	sliderbar = "rbxassetid://18772615246",
 	sliderhead = "rbxassetid://18772834246",
+	-- Component assets
+	roundTop = "rbxassetid://16287196357",
+	box = "rbxassetid://16286719854",
+	roundBottom = "rbxassetid://16287194510",
 }
 
 local ICONS__ = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Footagesus/Icons/main/Main.lua"))()
@@ -93,7 +97,7 @@ function MacLib:Window(Settings)
 	local base = Instance.new("Frame")
     base.Name = "Base"
     base.AnchorPoint = Vector2.new(0.5, 0.5)
-    base.BackgroundColor3 = Color3.fromRGB(24, 24, 27) -- Zinc 900 Zinc 900
+    base.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- #27272A
     base.ClipsDescendants = true
     base.BackgroundTransparency = Settings.AcrylicBlur and 0.2 or 0
     base.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -102,10 +106,14 @@ function MacLib:Window(Settings)
     base.Size = Settings.Size or UDim2.fromOffset(868, 650)
     base.Visible = false
     
-    -- Add gradient background
+    -- Add modern gradient background with subtle effect
     local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
-    gradient.Rotation = 90
+    gradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 48)),
+        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(39, 39, 42)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(42, 42, 45))
+    }
+    gradient.Rotation = 135
     gradient.Parent = base
 
 	local function playBootAnimation()
@@ -185,14 +193,15 @@ function MacLib:Window(Settings)
 
 	local baseUICorner = Instance.new("UICorner")
 	baseUICorner.Name = "BaseUICorner"
-	baseUICorner.CornerRadius = UDim.new(0, 12)
+	baseUICorner.CornerRadius = UDim.new(0, 16)
 	baseUICorner.Parent = base
 
 	local baseUIStroke = Instance.new("UIStroke")
 	baseUIStroke.Name = "BaseUIStroke"
 	baseUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	baseUIStroke.Color = Color3.fromRGB(255, 255, 255)
-	baseUIStroke.Transparency = 0.9
+	baseUIStroke.Color = Color3.fromRGB(70, 70, 75)
+	baseUIStroke.Transparency = 0.5
+	baseUIStroke.Thickness = 1.5
 	baseUIStroke.Parent = base
 
 	local sidebar = Instance.new("Frame")
@@ -679,11 +688,13 @@ function MacLib:Window(Settings)
 	local tabSwitchersScrollingFrame = Instance.new("ScrollingFrame")
 	tabSwitchersScrollingFrame.Name = "TabSwitchersScrollingFrame"
 	tabSwitchersScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
-	tabSwitchersScrollingFrame.BottomImage = ""
+	tabSwitchersScrollingFrame.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
 	tabSwitchersScrollingFrame.CanvasSize = UDim2.new()
-	tabSwitchersScrollingFrame.ScrollBarImageTransparency = 0.8
-	tabSwitchersScrollingFrame.ScrollBarThickness = 1
-	tabSwitchersScrollingFrame.TopImage = ""
+	tabSwitchersScrollingFrame.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	tabSwitchersScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(113, 113, 122)
+	tabSwitchersScrollingFrame.ScrollBarImageTransparency = 0.4
+	tabSwitchersScrollingFrame.ScrollBarThickness = 6
+	tabSwitchersScrollingFrame.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
 	tabSwitchersScrollingFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	tabSwitchersScrollingFrame.BackgroundTransparency = 1
 	tabSwitchersScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -981,37 +992,45 @@ function MacLib:Window(Settings)
 	local globalSettings = Instance.new("Frame")
 	globalSettings.Name = "GlobalSettings"
 	globalSettings.AutomaticSize = Enum.AutomaticSize.XY
-	globalSettings.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	globalSettings.BackgroundColor3 = Color3.fromRGB(20, 20, 23)
+	globalSettings.BackgroundTransparency = 0.05
 	globalSettings.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	globalSettings.BorderSizePixel = 0
 	globalSettings.Position = UDim2.fromScale(0.298, 0.104)
 
     local gradient = Instance.new("UIGradient")
-    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
-    gradient.Rotation = 90
+    gradient.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 25, 28)),
+        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(20, 20, 23)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(22, 22, 26))
+    }
+    gradient.Rotation = 135
     gradient.Parent = globalSettings
 
 	local globalSettingsUIStroke = Instance.new("UIStroke")
 	globalSettingsUIStroke.Name = "GlobalSettingsUIStroke"
 	globalSettingsUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	globalSettingsUIStroke.Color = Color3.fromRGB(255, 255, 255)
-	globalSettingsUIStroke.Transparency = 0.9
+	globalSettingsUIStroke.Color = Color3.fromRGB(70, 70, 80)
+	globalSettingsUIStroke.Transparency = 0.4
+	globalSettingsUIStroke.Thickness = 1.5
 	globalSettingsUIStroke.Parent = globalSettings
 
 	local globalSettingsUICorner = Instance.new("UICorner")
 	globalSettingsUICorner.Name = "GlobalSettingsUICorner"
-	globalSettingsUICorner.CornerRadius = UDim.new(0, 10)
+	globalSettingsUICorner.CornerRadius = UDim.new(0, 14)
 	globalSettingsUICorner.Parent = globalSettings
 
 	local globalSettingsUIPadding = Instance.new("UIPadding")
 	globalSettingsUIPadding.Name = "GlobalSettingsUIPadding"
-	globalSettingsUIPadding.PaddingBottom = UDim.new(0, 10)
-	globalSettingsUIPadding.PaddingTop = UDim.new(0, 10)
+	globalSettingsUIPadding.PaddingBottom = UDim.new(0, 12)
+	globalSettingsUIPadding.PaddingTop = UDim.new(0, 12)
+	globalSettingsUIPadding.PaddingLeft = UDim.new(0, 4)
+	globalSettingsUIPadding.PaddingRight = UDim.new(0, 4)
 	globalSettingsUIPadding.Parent = globalSettings
 
 	local globalSettingsUIListLayout = Instance.new("UIListLayout")
 	globalSettingsUIListLayout.Name = "GlobalSettingsUIListLayout"
-	globalSettingsUIListLayout.Padding = UDim.new(0, 5)
+	globalSettingsUIListLayout.Padding = UDim.new(0, 2)
 	globalSettingsUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	globalSettingsUIListLayout.Parent = globalSettings
 
@@ -1020,6 +1039,100 @@ function MacLib:Window(Settings)
 	globalSettingsUIScale.Scale = 1e-07
 	globalSettingsUIScale.Parent = globalSettings
 	globalSettings.Parent = base
+	
+	-- Resize handle at bottom right corner
+	local resizeHandle = Instance.new("TextButton")
+	resizeHandle.Name = "ResizeHandle"
+	resizeHandle.AnchorPoint = Vector2.new(1, 1)
+	resizeHandle.Position = UDim2.new(1, -6, 1, -6)
+	resizeHandle.Size = UDim2.fromOffset(24, 24)
+	resizeHandle.BackgroundTransparency = 1
+	resizeHandle.Text = ""
+	resizeHandle.ZIndex = 1000
+	resizeHandle.Parent = base
+	
+	-- Use lucide scaling icon
+	local resizeIcon = Instance.new("ImageLabel")
+	resizeIcon.Name = "ResizeIcon"
+	resizeIcon.AnchorPoint = Vector2.new(0.5, 0.5)
+	resizeIcon.Position = UDim2.fromScale(0.5, 0.5)
+	resizeIcon.Size = UDim2.fromOffset(16, 16)
+	resizeIcon.BackgroundTransparency = 1
+	resizeIcon.ImageColor3 = Color3.fromRGB(150, 150, 160)
+	resizeIcon.ImageTransparency = 0.5
+	resizeIcon.Parent = resizeHandle
+	
+	-- Get scaling icon from lucide
+	if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
+		local scalingIcon = ICONS__.Icon("scaling") or ICONS__.Icon("maximize-2") or ICONS__.Icon("expand")
+		if scalingIcon then
+			resizeIcon.Image = scalingIcon[1]
+			if scalingIcon[2] then
+				resizeIcon.ImageRectOffset = scalingIcon[2].ImageRectPosition or Vector2.zero
+				resizeIcon.ImageRectSize = scalingIcon[2].ImageRectSize or Vector2.zero
+			end
+		end
+	end
+	
+	-- Resize functionality
+	local resizing = false
+	local initialMousePos, initialBaseSize
+	
+	resizeHandle.MouseEnter:Connect(function()
+		Tween(resizeIcon, TweenInfo.new(0.15, Enum.EasingStyle.Quint), {
+			ImageTransparency = 0.2,
+			ImageColor3 = Color3.fromRGB(200, 200, 210)
+		}):Play()
+	end)
+	
+	resizeHandle.MouseLeave:Connect(function()
+		if not resizing then
+			Tween(resizeIcon, TweenInfo.new(0.15, Enum.EasingStyle.Quint), {
+				ImageTransparency = 0.5,
+				ImageColor3 = Color3.fromRGB(150, 150, 160)
+			}):Play()
+		end
+	end)
+	
+	resizeHandle.MouseButton1Down:Connect(function()
+		resizing = true
+		initialMousePos = UserInputService:GetMouseLocation()
+		initialBaseSize = base.AbsoluteSize
+	end)
+	
+	UserInputService.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			if resizing then
+				resizing = false
+				Tween(resizeIcon, TweenInfo.new(0.15, Enum.EasingStyle.Quint), {
+					ImageTransparency = 0.5,
+					ImageColor3 = Color3.fromRGB(150, 150, 160)
+				}):Play()
+			end
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if resizing and input.UserInputType == Enum.UserInputType.MouseMovement then
+			local mousePos = UserInputService:GetMouseLocation()
+			local delta = mousePos - initialMousePos
+			
+			-- Minimum size constraint
+			local minWidth = 423
+			local minHeight = 285
+			
+			local newWidth = math.max(minWidth, initialBaseSize.X + delta.X)
+			local newHeight = math.max(minHeight, initialBaseSize.Y + delta.Y)
+			
+			base.Size = UDim2.fromOffset(newWidth, newHeight)
+			
+			-- Update content size dynamically
+			if content and sidebar then
+				content.Size = UDim2.new(0, (base.AbsoluteSize.X - sidebar.AbsoluteSize.X), 1, 0)
+			end
+		end
+	end)
+	
 	base.Parent = macLib
 
 	spawn(function()
@@ -1440,6 +1553,91 @@ function MacLib:Window(Settings)
 		return GlobalSettingFunctions
 	end
 
+	function WindowFunctions:GlobalButton(Settings)
+		hasGlobalSetting = true
+		local GlobalButtonFunctions = {Settings = Settings}
+		
+		local globalButton = Instance.new("TextButton")
+		globalButton.Name = "GlobalButton"
+		globalButton.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+		globalButton.Text = Settings.Name
+		globalButton.RichText = true
+		globalButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		globalButton.TextSize = 13
+		globalButton.TextTransparency = 0
+		globalButton.TextXAlignment = Enum.TextXAlignment.Center
+		globalButton.AutoButtonColor = false
+		globalButton.BackgroundColor3 = Color3.fromRGB(82, 82, 91) -- Zinc-600
+		globalButton.BackgroundTransparency = 0
+		globalButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		globalButton.BorderSizePixel = 0
+		globalButton.Size = UDim2.fromOffset(200, 32)
+		globalButton.Parent = globalSettings
+
+		local globalButtonUICorner = Instance.new("UICorner")
+		globalButtonUICorner.Name = "GlobalButtonUICorner"
+		globalButtonUICorner.CornerRadius = UDim.new(0, 8)
+		globalButtonUICorner.Parent = globalButton
+
+		local globalButtonUIStroke = Instance.new("UIStroke")
+		globalButtonUIStroke.Name = "GlobalButtonUIStroke"
+		globalButtonUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+		globalButtonUIStroke.Color = Color3.fromRGB(113, 113, 122) -- Zinc-500
+		globalButtonUIStroke.Transparency = 0.6
+		globalButtonUIStroke.Thickness = 1
+		globalButtonUIStroke.Parent = globalButton
+
+		local TweenSettings = {
+			DefaultColor = Color3.fromRGB(82, 82, 91),
+			HoverColor = Color3.fromRGB(113, 113, 122),
+			PressColor = Color3.fromRGB(63, 63, 70),
+			EasingStyle = Enum.EasingStyle.Quint
+		}
+
+		local function ChangeState(State)
+			if State == "Idle" then
+				Tween(globalButton, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
+					BackgroundColor3 = TweenSettings.DefaultColor
+				}):Play()
+			elseif State == "Hover" then
+				Tween(globalButton, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
+					BackgroundColor3 = TweenSettings.HoverColor
+				}):Play()
+			elseif State == "Press" then
+				Tween(globalButton, TweenInfo.new(0.1, TweenSettings.EasingStyle), {
+					BackgroundColor3 = TweenSettings.PressColor
+				}):Play()
+			end
+		end
+
+		globalButton.MouseEnter:Connect(function()
+			ChangeState("Hover")
+		end)
+		globalButton.MouseLeave:Connect(function()
+			ChangeState("Idle")
+		end)
+		globalButton.MouseButton1Down:Connect(function()
+			ChangeState("Press")
+		end)
+		globalButton.MouseButton1Up:Connect(function()
+			ChangeState("Hover")
+		end)
+
+		globalButton.MouseButton1Click:Connect(function()
+			task.spawn(function()
+				if Settings.Callback then
+					Settings.Callback()
+				end
+			end)
+		end)
+
+		function GlobalButtonFunctions:UpdateName(NewName)
+			globalButton.Text = NewName
+		end
+
+		return GlobalButtonFunctions
+	end
+
 	function WindowFunctions:TabGroup()
 		local SectionFunctions = {}
 
@@ -1505,16 +1703,17 @@ function MacLib:Window(Settings)
 			tabIndex += 1
 			tabSwitcher.LayoutOrder = tabIndex
 
-			local tabSwitcherUICorner = Instance.new("UICorner")
-			tabSwitcherUICorner.Name = "TabSwitcherUICorner"
-			tabSwitcherUICorner.CornerRadius = UDim.new(0, 6)
-			tabSwitcherUICorner.Parent = tabSwitcher
+		local tabSwitcherUICorner = Instance.new("UICorner")
+		tabSwitcherUICorner.Name = "TabSwitcherUICorner"
+		tabSwitcherUICorner.CornerRadius = UDim.new(0, 10)
+		tabSwitcherUICorner.Parent = tabSwitcher
 
 			local tabSwitcherUIStroke = Instance.new("UIStroke")
 			tabSwitcherUIStroke.Name = "TabSwitcherUIStroke"
 			tabSwitcherUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-			tabSwitcherUIStroke.Color = Color3.fromRGB(255, 255, 255)
+			tabSwitcherUIStroke.Color = Color3.fromRGB(139, 92, 246) -- Purple-500
 			tabSwitcherUIStroke.Transparency = 1
+			tabSwitcherUIStroke.Thickness = 1.5
 			tabSwitcherUIStroke.Parent = tabSwitcher
 
 			local tabSwitcherUIListLayout = Instance.new("UIListLayout")
@@ -1600,21 +1799,23 @@ function MacLib:Window(Settings)
 			elements1.Size = UDim2.new(1, 0, 1, -50)
 			elements1.ClipsDescendants = true
 
-			local elementsUIPadding = Instance.new("UIPadding")
-			elementsUIPadding.Name = "ElementsUIPadding"
-			elementsUIPadding.PaddingRight = UDim.new(0, 5)
-			elementsUIPadding.PaddingTop = UDim.new(0, 10)
-			elementsUIPadding.PaddingBottom = UDim.new(0, 10)
-			elementsUIPadding.Parent = elements1
+		local elementsUIPadding = Instance.new("UIPadding")
+		elementsUIPadding.Name = "ElementsUIPadding"
+		elementsUIPadding.PaddingRight = UDim.new(0, 0)
+		elementsUIPadding.PaddingTop = UDim.new(0, 10)
+		elementsUIPadding.PaddingBottom = UDim.new(0, 10)
+		elementsUIPadding.Parent = elements1
 
 			local elementsScrolling = Instance.new("ScrollingFrame")
 			elementsScrolling.Name = "ElementsScrolling"
 			elementsScrolling.AutomaticCanvasSize = Enum.AutomaticSize.Y
-			elementsScrolling.BottomImage = ""
+			elementsScrolling.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
 			elementsScrolling.CanvasSize = UDim2.new()
-			elementsScrolling.ScrollBarImageTransparency = 0.5
-			elementsScrolling.ScrollBarThickness = 0
-			elementsScrolling.TopImage = ""
+			elementsScrolling.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+			elementsScrolling.ScrollBarImageColor3 = Color3.fromRGB(113, 113, 122)
+			elementsScrolling.ScrollBarImageTransparency = 0.4
+			elementsScrolling.ScrollBarThickness = 6
+			elementsScrolling.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
 			elementsScrolling.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			elementsScrolling.BackgroundTransparency = 1
 			elementsScrolling.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1622,13 +1823,13 @@ function MacLib:Window(Settings)
 			elementsScrolling.Size = UDim2.fromScale(1, 1)
 			elementsScrolling.ClipsDescendants = false
 
-			local elementsScrollingUIPadding = Instance.new("UIPadding")
-			elementsScrollingUIPadding.Name = "ElementsScrollingUIPadding"
-			elementsScrollingUIPadding.PaddingBottom = UDim.new(0, 5)
-			elementsScrollingUIPadding.PaddingLeft = UDim.new(0, 11)
-			elementsScrollingUIPadding.PaddingRight = UDim.new(0, 7)
-			elementsScrollingUIPadding.PaddingTop = UDim.new(0, 5)
-			elementsScrollingUIPadding.Parent = elementsScrolling
+		local elementsScrollingUIPadding = Instance.new("UIPadding")
+		elementsScrollingUIPadding.Name = "ElementsScrollingUIPadding"
+		elementsScrollingUIPadding.PaddingBottom = UDim.new(0, 5)
+		elementsScrollingUIPadding.PaddingLeft = UDim.new(0, 11)
+		elementsScrollingUIPadding.PaddingRight = UDim.new(0, 10)
+		elementsScrollingUIPadding.PaddingTop = UDim.new(0, 5)
+		elementsScrollingUIPadding.Parent = elementsScrolling
 
 			local elementsScrollingUIListLayout = Instance.new("UIListLayout")
 			elementsScrollingUIListLayout.Name = "ElementsScrollingUIListLayout"
@@ -1662,8 +1863,8 @@ function MacLib:Window(Settings)
 				local section = Instance.new("Frame")
 				section.Name = "Section"
 				section.AutomaticSize = Enum.AutomaticSize.Y
-				section.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				section.BackgroundTransparency = 0.98
+				section.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc-800
+				section.BackgroundTransparency = 0
 				section.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				section.BorderSizePixel = 0
 				section.Position = UDim2.fromScale(0, 6.78e-08)
@@ -1673,27 +1874,28 @@ function MacLib:Window(Settings)
 
 				local sectionUICorner = Instance.new("UICorner")
 				sectionUICorner.Name = "SectionUICorner"
-				sectionUICorner.CornerRadius = UDim.new(0, 6)
+				sectionUICorner.CornerRadius = UDim.new(0, 16)
 				sectionUICorner.Parent = section
 
 				local sectionUIStroke = Instance.new("UIStroke")
 				sectionUIStroke.Name = "SectionUIStroke"
 				sectionUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-				sectionUIStroke.Color = Color3.fromRGB(255, 255, 255)
-				sectionUIStroke.Transparency = 0.95
+				sectionUIStroke.Color = Color3.fromRGB(82, 82, 91) -- Zinc-600
+				sectionUIStroke.Transparency = 0.7
+				sectionUIStroke.Thickness = 1
 				sectionUIStroke.Parent = section
 
 				local sectionUIListLayout = Instance.new("UIListLayout")
 				sectionUIListLayout.Name = "SectionUIListLayout"
-				sectionUIListLayout.Padding = UDim.new(0, 10)
+				sectionUIListLayout.Padding = UDim.new(0, 14)
 				sectionUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 				sectionUIListLayout.Parent = section
 
 				local sectionUIPadding = Instance.new("UIPadding")
 				sectionUIPadding.Name = "SectionUIPadding"
-				sectionUIPadding.PaddingBottom = UDim.new(0, 20)
-				sectionUIPadding.PaddingLeft = UDim.new(0, 20)
-				sectionUIPadding.PaddingRight = UDim.new(0, 18)
+				sectionUIPadding.PaddingBottom = UDim.new(0, 24)
+				sectionUIPadding.PaddingLeft = UDim.new(0, 24)
+				sectionUIPadding.PaddingRight = UDim.new(0, 24)
 				sectionUIPadding.PaddingTop = UDim.new(0, 22)
 				sectionUIPadding.Parent = section
 
@@ -1738,13 +1940,13 @@ function MacLib:Window(Settings)
 					end
 				end
 
-				local function updateSectionChildren()
-					for _, child in ipairs(section:GetChildren()) do
-						if child ~= headerFrame and child.Name ~= "Header" and child:IsA("GuiObject") then
-							child.Visible = not collapsed
-						end
+			local function updateSectionChildren()
+				for _, child in ipairs(section:GetChildren()) do
+					if child ~= headerFrame and child:IsA("GuiObject") then
+						child.Visible = not collapsed
 					end
 				end
+			end
 
 				local function setCollapsed(state)
 					collapsed = state
@@ -1753,17 +1955,13 @@ function MacLib:Window(Settings)
 					applyCollapseIcon()
 				end
 
-				section:SetAttribute("Collapsed", collapsed)
+			section:SetAttribute("Collapsed", collapsed)
 
-				section.ChildAdded:Connect(function(child)
-					if child.Name == "Header" then
-						return
-					end
-
-					if child ~= headerFrame and child:IsA("GuiObject") then
-						child.Visible = not collapsed
-					end
-				end)
+			section.ChildAdded:Connect(function(child)
+				if child ~= headerFrame and child:IsA("GuiObject") then
+					child.Visible = not collapsed
+				end
+			end)
 
 				function SectionFunctions:Button(Settings, Flag)
 					local ButtonFunctions = {Settings = Settings}
@@ -1774,61 +1972,75 @@ function MacLib:Window(Settings)
 					button.BackgroundTransparency = 1
 					button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					button.BorderSizePixel = 0
-					button.Size = UDim2.new(1, 0, 0, 38)
+					button.Size = UDim2.new(1, 0, 0, 44)
 					button.Parent = section
                 
                     local buttonInteract = Instance.new("TextButton")
                     buttonInteract.Name = "ButtonInteract"
-                    buttonInteract.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+                    buttonInteract.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
                     buttonInteract.RichText = true
-                    buttonInteract.TextColor3 = Color3.fromRGB(240, 240, 240)
+                    buttonInteract.TextColor3 = Color3.fromRGB(255, 255, 255)
                     buttonInteract.TextSize = 14.5
-                    buttonInteract.TextTransparency = 0.1
-                    buttonInteract.TextXAlignment = Enum.TextXAlignment.Left
-                    buttonInteract.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    buttonInteract.BackgroundTransparency = 1
+                    buttonInteract.TextTransparency = 0
+                    buttonInteract.TextXAlignment = Enum.TextXAlignment.Center
+                    buttonInteract.BackgroundColor3 = Color3.fromRGB(82, 82, 91) -- Zinc-600 (more visible)
+                    buttonInteract.BackgroundTransparency = 0
                     buttonInteract.TextStrokeTransparency = 1
                     buttonInteract.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     buttonInteract.BorderSizePixel = 0
-                    buttonInteract.Size = UDim2.fromScale(1, 1)
-                    buttonInteract.ClipsDescendants = true
+                    buttonInteract.Size = UDim2.new(1, 0, 1, 0)
+                    buttonInteract.ClipsDescendants = false
+                    buttonInteract.AutoButtonColor = false
                     buttonInteract.Parent = button
-                    buttonInteract.Text = ButtonFunctions.Settings.Name                    
+                    buttonInteract.Text = ButtonFunctions.Settings.Name
+                    
+                    -- Add rounded corners
+                    local buttonCorner = Instance.new("UICorner")
+                    buttonCorner.CornerRadius = UDim.new(0, 10)
+                    buttonCorner.Parent = buttonInteract
+                    
+                    -- Add stroke/border
+                    local buttonStroke = Instance.new("UIStroke")
+                    buttonStroke.Color = Color3.fromRGB(113, 113, 122) -- Zinc-500
+                    buttonStroke.Transparency = 0.6
+                    buttonStroke.Thickness = 1
+                    buttonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                    buttonStroke.Parent = buttonInteract
 
 					local buttonImage = Instance.new("ImageLabel")
 					buttonImage.Name = "ButtonImage"
 					buttonImage.Image = assets.buttonImage
-					buttonImage.ImageTransparency = 0.5
+					buttonImage.ImageTransparency = 0.3
+					buttonImage.ImageColor3 = Color3.fromRGB(250, 250, 250)
 					buttonImage.AnchorPoint = Vector2.new(1, 0.5)
 					buttonImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					buttonImage.BackgroundTransparency = 1
 					buttonImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					buttonImage.BorderSizePixel = 0
-					buttonImage.Position = UDim2.fromScale(1, 0.5)
-					buttonImage.Size = UDim2.fromOffset(15, 15)
-					buttonImage.Parent = button
+					buttonImage.Position = UDim2.new(1, -8, 0.5, 0)
+					buttonImage.Size = UDim2.fromOffset(16, 16)
+					buttonImage.Parent = buttonInteract
 
 					local TweenSettings = {
-						DefaultTransparency = 0.1,
-						HoverTransparency = 0.5,
+						DefaultColor = Color3.fromRGB(82, 82, 91),
+						HoverColor = Color3.fromRGB(113, 113, 122),
+						PressColor = Color3.fromRGB(63, 63, 70),
 
-						EasingStyle = Enum.EasingStyle.Sine
+						EasingStyle = Enum.EasingStyle.Quint
 					}
 
 					local function ChangeState(State)
 						if State == "Idle" then
 							Tween(buttonInteract, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-								TextTransparency = TweenSettings.DefaultTransparency
-							}):Play()
-							Tween(buttonImage, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-								ImageTransparency = TweenSettings.DefaultTransparency
+								BackgroundColor3 = TweenSettings.DefaultColor
 							}):Play()
 						elseif State == "Hover" then
 							Tween(buttonInteract, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-								TextTransparency = TweenSettings.HoverTransparency
+								BackgroundColor3 = TweenSettings.HoverColor
 							}):Play()
-							Tween(buttonImage, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-								ImageTransparency = TweenSettings.HoverTransparency
+						elseif State == "Press" then
+							Tween(buttonInteract, TweenInfo.new(0.1, TweenSettings.EasingStyle), {
+								BackgroundColor3 = TweenSettings.PressColor
 							}):Play()
 						end
 					end
@@ -1844,6 +2056,12 @@ function MacLib:Window(Settings)
 					end)
 					buttonInteract.MouseLeave:Connect(function()
 						ChangeState("Idle")
+					end)
+					buttonInteract.MouseButton1Down:Connect(function()
+						ChangeState("Press")
+					end)
+					buttonInteract.MouseButton1Up:Connect(function()
+						ChangeState("Hover")
 					end)
 
 					buttonInteract.MouseButton1Click:Connect(Callback)
@@ -1893,99 +2111,94 @@ function MacLib:Window(Settings)
 					toggleName.Size = UDim2.new(1, -50, 0, 0)
 					toggleName.Parent = toggle
 
-                    local toggle1 = Instance.new("ImageButton")
+                    local toggle1 = Instance.new("TextButton")
                     toggle1.Name = "Toggle"
-                    toggle1.Image = assets.toggleBackground
+                    toggle1.Text = ""
                     toggle1.AutoButtonColor = false
                     toggle1.AnchorPoint = Vector2.new(1, 0.5)
-                    toggle1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    toggle1.BackgroundTransparency = 1
+                    toggle1.BackgroundColor3 = Color3.fromRGB(63, 63, 70) -- Zinc-700 (OFF state)
+                    toggle1.BackgroundTransparency = 0
                     toggle1.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     toggle1.BorderSizePixel = 0
                     toggle1.Position = UDim2.fromScale(1, 0.5)
-                    toggle1.Size = UDim2.fromOffset(41, 21)
-                    toggle1.ImageTransparency = 0.5
+                    toggle1.Size = UDim2.fromOffset(48, 26)
                     
                     -- Add Corner to toggle
                     local toggle1Corner = Instance.new("UICorner")
-                    toggle1Corner.Name = "NAPA SI KONTOLLLL"
-                    toggle1Corner.CornerRadius = UDim.new(0, 22)
+                    toggle1Corner.CornerRadius = UDim.new(1, 0)
                     toggle1Corner.Parent = toggle1
-
-                    -- Add gradient background to toggle
-                    local gradient = Instance.new("UIGradient")
-                    gradient.Color = ColorSequence.new(
-                        Color3.fromRGB(24, 24, 27), -- Changed to #18181B
-                        Color3.fromRGB(24, 24, 27)   -- Changed to #18181B
-                    )
-                    gradient.Parent = toggle1
-                    gradient.Rotation = 180
 
                     -- Add Stroke to toggle
                     local toggleStroke = Instance.new("UIStroke")
                     toggleStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
                     toggleStroke.LineJoinMode = Enum.LineJoinMode.Round
-                    toggleStroke.Color = Color3.fromRGB(24, 24, 27)
-                    toggleStroke.Transparency = 0.5
+                    toggleStroke.Color = Color3.fromRGB(113, 113, 122) -- Zinc-500
+                    toggleStroke.Transparency = 0.7
+                    toggleStroke.Thickness = 1
                     toggleStroke.Parent = toggle1
 
 					local toggleUIPadding = Instance.new("UIPadding")
 					toggleUIPadding.Name = "ToggleUIPadding"
-					toggleUIPadding.PaddingBottom = UDim.new(0, 1)
-					toggleUIPadding.PaddingLeft = UDim.new(0, -2)
+					toggleUIPadding.PaddingBottom = UDim.new(0, 3)
+					toggleUIPadding.PaddingLeft = UDim.new(0, 3)
 					toggleUIPadding.PaddingRight = UDim.new(0, 3)
-					toggleUIPadding.PaddingTop = UDim.new(0, 1)
+					toggleUIPadding.PaddingTop = UDim.new(0, 3)
 					toggleUIPadding.Parent = toggle1
 
-					local togglerHead = Instance.new("ImageLabel")
+					local togglerHead = Instance.new("Frame")
 					togglerHead.Name = "TogglerHead"
-					togglerHead.Image = assets.togglerHead
-					togglerHead.ImageColor3 = Color3.fromRGB(255, 255, 255)
-					togglerHead.AnchorPoint = Vector2.new(1, 0.5)
 					togglerHead.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					togglerHead.BackgroundTransparency = 1
-					togglerHead.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					togglerHead.AnchorPoint = Vector2.new(0, 0.5)
 					togglerHead.BorderSizePixel = 0
-					togglerHead.Position = UDim2.fromScale(0.5, 0.5)
-					togglerHead.Size = UDim2.fromOffset(15, 15)
+					togglerHead.Position = UDim2.new(0, 0, 0.5, 0)
+					togglerHead.Size = UDim2.fromOffset(20, 20)
 					togglerHead.ZIndex = 2
 					togglerHead.Parent = toggle1
-					togglerHead.ImageTransparency = 0.8
+					
+					-- Round the toggle head
+					local togglerHeadCorner = Instance.new("UICorner")
+					togglerHeadCorner.CornerRadius = UDim.new(1, 0)
+					togglerHeadCorner.Parent = togglerHead
+					
+					-- Add subtle shadow to toggle head
+					local togglerHeadStroke = Instance.new("UIStroke")
+					togglerHeadStroke.Color = Color3.fromRGB(0, 0, 0)
+					togglerHeadStroke.Transparency = 0.9
+					togglerHeadStroke.Thickness = 1
+					togglerHeadStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+					togglerHeadStroke.Parent = togglerHead
 
 					toggle1.Parent = toggle
 
-					local toggle1Transparency = {Enabled = 0.4, Disabled = 0.5}
-					local togglerHeadTransparency = {Enabled = 0, Disabled = 0.85}
+					local toggle1Colors = {
+						Enabled = Color3.fromRGB(168, 85, 247), -- Purple-500 (brighter)
+						Disabled = Color3.fromRGB(63, 63, 70)   -- Zinc-700 (OFF state)
+					}
+					local togglerHeadPositions = {
+						Enabled = UDim2.new(1, 0, 0.5, 0),
+						Disabled = UDim2.new(0, 0, 0.5, 0)
+					}
 
 					local TweenSettings = {
-						Info = TweenInfo.new(0.2, Enum.EasingStyle.Sine),
-
-						EnabledPosition = UDim2.new(1, 0, 0.5, 0),
-						DisabledPosition = UDim2.new(0.5, 0, 0.5, 0),
+						Info = TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
 					}
 
 					local function ToggleState(State)
-						local transparencyValues = State and {toggle1Transparency.Enabled, togglerHeadTransparency.Enabled}
-							or {toggle1Transparency.Disabled, togglerHeadTransparency.Disabled}
-						local position = State and TweenSettings.EnabledPosition or TweenSettings.DisabledPosition
+						local color = State and toggle1Colors.Enabled or toggle1Colors.Disabled
+						local position = State and togglerHeadPositions.Enabled or togglerHeadPositions.Disabled
 					
-						-- Tween untuk mengubah transparansi toggle1
+						-- Tween untuk mengubah warna background toggle
 						local tween1 = TweenService:Create(toggle1, TweenSettings.Info, {
-							ImageTransparency = transparencyValues[1]
+							BackgroundColor3 = color
 						})
 						tween1:Play()
 					
-						-- Tween untuk mengubah transparansi togglerHead
+						-- Tween untuk mengubah posisi togglerHead
 						local tween2 = TweenService:Create(togglerHead, TweenSettings.Info, {
-							ImageTransparency = transparencyValues[2]
+							Position = position,
+							AnchorPoint = State and Vector2.new(1, 0.5) or Vector2.new(0, 0.5)
 						})
 						tween2:Play()
-					
-						-- Tween untuk mengubah posisi togglerHead
-						local tween3 = TweenService:Create(togglerHead, TweenSettings.Info, {
-							Position = position
-						})
-						tween3:Play()
 					
 						ToggleFunctions.State = State
 					end
@@ -2077,36 +2290,37 @@ function MacLib:Window(Settings)
 
 					local sliderValue = Instance.new("TextBox")
 					sliderValue.Name = "SliderValue"
-					sliderValue.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
-					sliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
+					sliderValue.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium, Enum.FontStyle.Normal)
+					sliderValue.TextColor3 = Color3.fromRGB(250, 250, 250)
 					sliderValue.TextSize = 12
-					sliderValue.TextTransparency = 0.1
+					sliderValue.TextTransparency = 0
 					--sliderValue.TextTruncate = Enum.TextTruncate.AtEnd
-					sliderValue.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					sliderValue.BackgroundTransparency = 0.95
+					sliderValue.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- Zinc-800
+					sliderValue.BackgroundTransparency = 0
 					sliderValue.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					sliderValue.BorderSizePixel = 0
 					sliderValue.LayoutOrder = 1
 					sliderValue.Position = UDim2.fromScale(-0.0789, 0.171)
-					sliderValue.Size = UDim2.fromOffset(41, 21)
+					sliderValue.Size = UDim2.fromOffset(45, 24)
 					sliderValue.ClipsDescendants = true
 
 					local sliderValueUICorner = Instance.new("UICorner")
 					sliderValueUICorner.Name = "SliderValueUICorner"
-					sliderValueUICorner.CornerRadius = UDim.new(0, 4)
+					sliderValueUICorner.CornerRadius = UDim.new(0, 6)
 					sliderValueUICorner.Parent = sliderValue
 
 					local sliderValueUIStroke = Instance.new("UIStroke")
 					sliderValueUIStroke.Name = "SliderValueUIStroke"
 					sliderValueUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					sliderValueUIStroke.Color = Color3.fromRGB(255, 255, 255)
-					sliderValueUIStroke.Transparency = 0.9
+					sliderValueUIStroke.Color = Color3.fromRGB(82, 82, 91) -- Zinc-600
+					sliderValueUIStroke.Transparency = 0.6
+					sliderValueUIStroke.Thickness = 1
 					sliderValueUIStroke.Parent = sliderValue
 
 					local sliderValueUIPadding = Instance.new("UIPadding")
 					sliderValueUIPadding.Name = "SliderValueUIPadding"
-					sliderValueUIPadding.PaddingLeft = UDim.new(0, 2)
-					sliderValueUIPadding.PaddingRight = UDim.new(0, 2)
+					sliderValueUIPadding.PaddingLeft = UDim.new(0, 4)
+					sliderValueUIPadding.PaddingRight = UDim.new(0, 4)
 					sliderValueUIPadding.Parent = sliderValue
 
 					sliderValue.Parent = sliderElements
@@ -2123,24 +2337,25 @@ function MacLib:Window(Settings)
 					local sliderBar = Instance.new("ImageLabel")
 					sliderBar.Name = "SliderBar"
 					sliderBar.Image = assets.sliderbar
-					sliderBar.ImageColor3 = Color3.fromRGB(87, 86, 86)
+					sliderBar.ImageColor3 = Color3.fromRGB(63, 63, 70) -- Zinc-700 (track)
 					sliderBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					sliderBar.BackgroundTransparency = 1
 					sliderBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					sliderBar.BorderSizePixel = 0
 					sliderBar.Position = UDim2.fromScale(0.219, 0.457)
-					sliderBar.Size = UDim2.fromOffset(123, 3)
+					sliderBar.Size = UDim2.fromOffset(123, 4)
 
 					local sliderHead = Instance.new("ImageButton")
 					sliderHead.Name = "SliderHead"
 					sliderHead.Image = assets.sliderhead
+					sliderHead.ImageColor3 = Color3.fromRGB(139, 92, 246) -- Purple-500
 					sliderHead.AnchorPoint = Vector2.new(0.5, 0.5)
 					sliderHead.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					sliderHead.BackgroundTransparency = 1
 					sliderHead.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					sliderHead.BorderSizePixel = 0
 					sliderHead.Position = UDim2.fromScale(1, 0.5)
-					sliderHead.Size = UDim2.fromOffset(12, 12)
+					sliderHead.Size = UDim2.fromOffset(14, 14)
 					sliderHead.Parent = sliderBar
 
 					sliderBar.Parent = sliderElements
@@ -2543,39 +2758,45 @@ function MacLib:Window(Settings)
 
 					local inputBox = Instance.new("TextBox")
 					inputBox.Name = "InputBox"
-					inputBox.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+					inputBox.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium, Enum.FontStyle.Normal)
 					inputBox.Text = "Hello world!"
+					inputBox.PlaceholderText = "Enter text..."
+					inputBox.PlaceholderColor3 = Color3.fromRGB(161, 161, 170) -- Zinc-400
 					inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-					inputBox.TextSize = 12
-					inputBox.TextTransparency = 0.1
+					inputBox.TextSize = 13.5
+					inputBox.TextTransparency = 0
 					inputBox.AnchorPoint = Vector2.new(1, 0.5)
 					inputBox.AutomaticSize = Enum.AutomaticSize.X
-					inputBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					inputBox.BackgroundTransparency = 0.95
+					inputBox.BackgroundColor3 = Color3.fromRGB(52, 52, 57) -- Zinc-800 darker
+					inputBox.BackgroundTransparency = 0
 					inputBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					inputBox.BorderSizePixel = 0
 					inputBox.ClipsDescendants = true
 					inputBox.LayoutOrder = 1
 					inputBox.Position = UDim2.fromScale(1, 0.5)
-					inputBox.Size = UDim2.fromOffset(21, 21)
+					inputBox.Size = UDim2.fromOffset(21, 32)
 					inputBox.TextXAlignment = Enum.TextXAlignment.Right
+					inputBox.ClearTextOnFocus = false
 
 					local inputBoxUICorner = Instance.new("UICorner")
 					inputBoxUICorner.Name = "InputBoxUICorner"
-					inputBoxUICorner.CornerRadius = UDim.new(0, 4)
+					inputBoxUICorner.CornerRadius = UDim.new(0, 9)
 					inputBoxUICorner.Parent = inputBox
 
 					local inputBoxUIStroke = Instance.new("UIStroke")
 					inputBoxUIStroke.Name = "InputBoxUIStroke"
 					inputBoxUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					inputBoxUIStroke.Color = Color3.fromRGB(255, 255, 255)
-					inputBoxUIStroke.Transparency = 0.9
+					inputBoxUIStroke.Color = Color3.fromRGB(82, 82, 91) -- Zinc-600
+					inputBoxUIStroke.Transparency = 0.7
+					inputBoxUIStroke.Thickness = 1
 					inputBoxUIStroke.Parent = inputBox
 
 					local inputBoxUIPadding = Instance.new("UIPadding")
 					inputBoxUIPadding.Name = "InputBoxUIPadding"
-					inputBoxUIPadding.PaddingLeft = UDim.new(0, 5)
-					inputBoxUIPadding.PaddingRight = UDim.new(0, 5)
+					inputBoxUIPadding.PaddingLeft = UDim.new(0, 10)
+					inputBoxUIPadding.PaddingRight = UDim.new(0, 10)
+					inputBoxUIPadding.PaddingTop = UDim.new(0, 2)
+					inputBoxUIPadding.PaddingBottom = UDim.new(0, 2)
 					inputBoxUIPadding.Parent = inputBox
 
 					local inputBoxUISizeConstraint = Instance.new("UISizeConstraint")
@@ -2635,7 +2856,24 @@ function MacLib:Window(Settings)
 					checkSize()
 					InputName:GetPropertyChangedSignal("AbsoluteSize"):Connect(checkSize)
 
+					-- Focus states
+					InputBox.Focused:Connect(function()
+						Tween(inputBoxUIStroke, TweenInfo.new(0.2, Enum.EasingStyle.Quint), {
+							Color = Color3.fromRGB(168, 85, 247), -- Purple-500 brighter
+							Transparency = 0
+						}):Play()
+						Tween(inputBoxUIStroke, TweenInfo.new(0.2, Enum.EasingStyle.Quint), {
+							Thickness = 2
+						}):Play()
+					end)
+
 					InputBox.FocusLost:Connect(function()
+						Tween(inputBoxUIStroke, TweenInfo.new(0.2, Enum.EasingStyle.Quint), {
+							Color = Color3.fromRGB(82, 82, 91), -- Zinc-600
+							Transparency = 0.7,
+							Thickness = 1
+						}):Play()
+						
 						local inputText = InputBox.Text
 						local filteredText = AcceptedCharacters(inputText)
 						InputBox.Text = filteredText
@@ -2876,18 +3114,20 @@ function MacLib:Window(Settings)
 
 					local dropdown = Instance.new("Frame")
 					dropdown.Name = "Dropdown"
-					dropdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					dropdown.BackgroundTransparency = 0.985
+					dropdown.BackgroundColor3 = Color3.fromRGB(52, 52, 57) -- Zinc-800 darker
+					dropdown.BackgroundTransparency = 0
 					dropdown.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					dropdown.BorderSizePixel = 0
-					dropdown.Size = UDim2.new(1, 0, 0, 38)
+					dropdown.Size = UDim2.new(1, 0, 0, 44)
 					dropdown.Parent = section
 					dropdown.ClipsDescendants = true
 
 					local dropdownUIPadding = Instance.new("UIPadding")
 					dropdownUIPadding.Name = "DropdownUIPadding"
-					dropdownUIPadding.PaddingLeft = UDim.new(0, 15)
-					dropdownUIPadding.PaddingRight = UDim.new(0, 15)
+					dropdownUIPadding.PaddingLeft = UDim.new(0, 14)
+					dropdownUIPadding.PaddingRight = UDim.new(0, 14)
+					dropdownUIPadding.PaddingTop = UDim.new(0, 2)
+					dropdownUIPadding.PaddingBottom = UDim.new(0, 2)
 					dropdownUIPadding.Parent = dropdown
 
 					local interact = Instance.new("TextButton")
@@ -2924,50 +3164,80 @@ function MacLib:Window(Settings)
 					local dropdownUIStroke = Instance.new("UIStroke")
 					dropdownUIStroke.Name = "DropdownUIStroke"
 					dropdownUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-					dropdownUIStroke.Color = Color3.fromRGB(255, 255, 255)
-					dropdownUIStroke.Transparency = 0.95
+					dropdownUIStroke.Color = Color3.fromRGB(82, 82, 91) -- Zinc-600
+					dropdownUIStroke.Transparency = 0.7
+					dropdownUIStroke.Thickness = 1
 					dropdownUIStroke.Parent = dropdown
 
 					local dropdownUICorner = Instance.new("UICorner")
 					dropdownUICorner.Name = "DropdownUICorner"
-					dropdownUICorner.CornerRadius = UDim.new(0, 6)
+					dropdownUICorner.CornerRadius = UDim.new(0, 10)
 					dropdownUICorner.Parent = dropdown
 
 					local dropdownImage = Instance.new("ImageLabel")
 					dropdownImage.Name = "DropdownImage"
 					dropdownImage.Image = assets.dropdown
-					dropdownImage.ImageTransparency = 0.5
+					dropdownImage.ImageTransparency = 0.2
+					dropdownImage.ImageColor3 = Color3.fromRGB(161, 161, 170) -- Zinc-400
 					dropdownImage.AnchorPoint = Vector2.new(1, 0)
 					dropdownImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					dropdownImage.BackgroundTransparency = 1
 					dropdownImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					dropdownImage.BorderSizePixel = 0
-					dropdownImage.Position = UDim2.new(1, 0, 0, 12)
-					dropdownImage.Size = UDim2.fromOffset(14, 14)
+					dropdownImage.Position = UDim2.new(1, 0, 0, 13)
+					dropdownImage.Size = UDim2.fromOffset(16, 16)
 					dropdownImage.Parent = dropdown
 
-					local dropdownFrame = Instance.new("Frame")
-					dropdownFrame.Name = "DropdownFrame"
-					dropdownFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					dropdownFrame.BackgroundTransparency = 1
-					dropdownFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					dropdownFrame.BorderSizePixel = 0
-					dropdownFrame.ClipsDescendants = true
-					dropdownFrame.Size = UDim2.fromScale(1, 1)
-					dropdownFrame.Visible = false
-					dropdownFrame.AutomaticSize = Enum.AutomaticSize.Y
+				local dropdownFrame = Instance.new("Frame")
+				dropdownFrame.Name = "DropdownFrame"
+				dropdownFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				dropdownFrame.BackgroundTransparency = 1
+				dropdownFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				dropdownFrame.BorderSizePixel = 0
+				dropdownFrame.ClipsDescendants = false
+				dropdownFrame.Size = UDim2.fromScale(1, 1)
+				dropdownFrame.Visible = false
+				dropdownFrame.AutomaticSize = Enum.AutomaticSize.Y
 
-					local dropdownFrameUIPadding = Instance.new("UIPadding")
-					dropdownFrameUIPadding.Name = "DropdownFrameUIPadding"
-					dropdownFrameUIPadding.PaddingTop = UDim.new(0, 38)
-					dropdownFrameUIPadding.PaddingBottom = UDim.new(0, 10)
-					dropdownFrameUIPadding.Parent = dropdownFrame
+				local dropdownFrameUIPadding = Instance.new("UIPadding")
+				dropdownFrameUIPadding.Name = "DropdownFrameUIPadding"
+				dropdownFrameUIPadding.PaddingTop = UDim.new(0, 38)
+				dropdownFrameUIPadding.PaddingBottom = UDim.new(0, 10)
+				dropdownFrameUIPadding.Parent = dropdownFrame
 
-					local dropdownFrameUIListLayout = Instance.new("UIListLayout")
-					dropdownFrameUIListLayout.Name = "DropdownFrameUIListLayout"
-					dropdownFrameUIListLayout.Padding = UDim.new(0, 5)
-					dropdownFrameUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-					dropdownFrameUIListLayout.Parent = dropdownFrame
+				local dropdownFrameUIListLayout = Instance.new("UIListLayout")
+				dropdownFrameUIListLayout.Name = "DropdownFrameUIListLayout"
+				dropdownFrameUIListLayout.Padding = UDim.new(0, 5)
+				dropdownFrameUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+				dropdownFrameUIListLayout.Parent = dropdownFrame
+				
+			-- Create ScrollingFrame for options with max 5 items visible
+			local optionsScrollFrame = Instance.new("ScrollingFrame")
+			optionsScrollFrame.Name = "OptionsScrollFrame"
+			optionsScrollFrame.BackgroundTransparency = 1
+			optionsScrollFrame.BorderSizePixel = 0
+			optionsScrollFrame.Size = UDim2.new(1, 0, 0, 170) -- Max 5 items: 5*30 + 4*5 = 170px
+			optionsScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+			optionsScrollFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+			optionsScrollFrame.ScrollBarThickness = 6
+			optionsScrollFrame.ScrollBarImageColor3 = Color3.fromRGB(150, 150, 160)
+			optionsScrollFrame.ScrollBarImageTransparency = 0.2
+			optionsScrollFrame.ScrollingDirection = Enum.ScrollingDirection.Y
+			optionsScrollFrame.ClipsDescendants = true
+			optionsScrollFrame.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+			optionsScrollFrame.ElasticBehavior = Enum.ElasticBehavior.Never
+			optionsScrollFrame.Parent = dropdownFrame
+				
+			local optionsScrollFrameUIListLayout = Instance.new("UIListLayout")
+			optionsScrollFrameUIListLayout.Name = "OptionsScrollFrameUIListLayout"
+			optionsScrollFrameUIListLayout.Padding = UDim.new(0, 5)
+			optionsScrollFrameUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+			optionsScrollFrameUIListLayout.Parent = optionsScrollFrame
+			
+			local optionsScrollFrameUIPadding = Instance.new("UIPadding")
+			optionsScrollFrameUIPadding.Name = "OptionsScrollFrameUIPadding"
+			optionsScrollFrameUIPadding.PaddingRight = UDim.new(0, 8)
+			optionsScrollFrameUIPadding.Parent = optionsScrollFrame
 
 					local search = Instance.new("Frame")
 					search.Name = "Search"
@@ -3022,22 +3292,36 @@ function MacLib:Window(Settings)
 					searchBox.BorderSizePixel = 0
 					searchBox.Size = UDim2.fromScale(1, 1)
 
-					local function CalculateDropdownSize()
-						local totalHeight = 0
-						local visibleChildrenCount = 0
-						local padding = dropdownFrameUIPadding.PaddingTop.Offset + dropdownFrameUIPadding.PaddingBottom.Offset
+			local function CalculateDropdownSize()
+				local padding = dropdownFrameUIPadding.PaddingTop.Offset + dropdownFrameUIPadding.PaddingBottom.Offset
 
-						for _, v in pairs(dropdownFrame:GetChildren()) do
-							if not v:IsA("UIComponent") and v.Visible then
-								totalHeight += v.AbsoluteSize.Y
-								visibleChildrenCount += 1
-							end
-						end
-
-						local spacing = dropdownFrameUIListLayout.Padding.Offset * (visibleChildrenCount - 1)
-
-						return totalHeight + spacing + padding
+				-- Count visible items in optionsScrollFrame
+				local optionCount = 0
+				for _, v in pairs(optionsScrollFrame:GetChildren()) do
+					if not v:IsA("UIComponent") and v.Visible then
+						optionCount += 1
 					end
+				end
+
+				-- Calculate height for search bar if visible
+				local searchHeight = (DropdownFunctions.Settings.Search and search.Visible) and (search.AbsoluteSize.Y + dropdownFrameUIListLayout.Padding.Offset) or 0
+				
+				-- Max 5 items visible, each item is 30px + 5px spacing
+				local maxVisibleItems = 5
+				local itemHeight = 30
+				local itemSpacing = optionsScrollFrameUIListLayout.Padding.Offset
+				
+				-- Calculate scrollframe height: show up to 5 items, if less than 5 show actual count
+				local visibleItems = math.min(optionCount, maxVisibleItems)
+				local scrollFrameHeight = visibleItems * itemHeight + (math.max(0, visibleItems - 1)) * itemSpacing
+				
+				-- Update scrollFrame size dynamically based on item count
+				optionsScrollFrame.Size = UDim2.new(1, 0, 0, scrollFrameHeight)
+				
+				local totalHeight = searchHeight + scrollFrameHeight + padding
+
+				return totalHeight
+			end
 
 					local function findOption()
 						local searchTerm = searchBox.Text:lower()
@@ -3138,59 +3422,88 @@ function MacLib:Window(Settings)
 						end
 					end
 
-					local dropped = false
-					local db = false
+				local dropped = false
+				local db = false
 
-					local function ToggleDropdown()
-						if db then return end
-						db = true
-						local defaultDropdownSize = 38
-						local isDropdownOpen = not dropped
-						local targetSize = isDropdownOpen and UDim2.new(1, 0, 0, CalculateDropdownSize()) or UDim2.new(1, 0, 0, defaultDropdownSize)
+				local function ToggleDropdown()
+					if db then return end
+					db = true
+					local defaultDropdownSize = 44
+					local isDropdownOpen = not dropped
+					local targetSize = isDropdownOpen and UDim2.new(1, 0, 0, CalculateDropdownSize()) or UDim2.new(1, 0, 0, defaultDropdownSize)
 
-						local dropTween = Tween(dropdown, TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
-							Size = targetSize
-						})
-						local iconTween = Tween(dropdownImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-							Rotation = isDropdownOpen and -90 or 0
-						})
+					local dropTween = Tween(dropdown, TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
+						Size = targetSize
+					})
+					local iconTween = Tween(dropdownImage, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+						Rotation = isDropdownOpen and -90 or 0
+					})
 
-						dropTween:Play()
-						iconTween:Play()
+					dropTween:Play()
+					iconTween:Play()
 
-						if isDropdownOpen then
-							dropdownFrame.Visible = true
-							dropTween.Completed:Connect(function()
-								db = false
-							end)
-						else
-							dropTween.Completed:Connect(function()
-								dropdownFrame.Visible = false
-								db = false
-							end)
-						end
-
-						dropped = isDropdownOpen
+					if isDropdownOpen then
+						dropdownFrame.Visible = true
+						dropTween.Completed:Connect(function()
+							db = false
+						end)
+					else
+						dropTween.Completed:Connect(function()
+							dropdownFrame.Visible = false
+							db = false
+						end)
 					end
 
-					interact.MouseButton1Click:Connect(ToggleDropdown)
+					dropped = isDropdownOpen
+				end
+
+				interact.MouseButton1Click:Connect(ToggleDropdown)
+				
+				-- Click outside to close dropdown
+				local clickOutsideConnection
+				local function setupClickOutside()
+					if clickOutsideConnection then
+						clickOutsideConnection:Disconnect()
+					end
+					
+					clickOutsideConnection = UserInputService.InputBegan:Connect(function(input)
+						if input.UserInputType == Enum.UserInputType.MouseButton1 and dropped then
+							local mousePos = UserInputService:GetMouseLocation()
+							local basePos = base.AbsolutePosition
+							local baseSize = base.AbsoluteSize
+							
+							-- Check if click is outside the MacLib UI
+							local isOutside = mousePos.X < basePos.X or 
+											  mousePos.X > basePos.X + baseSize.X or
+											  mousePos.Y < basePos.Y or
+											  mousePos.Y > basePos.Y + baseSize.Y
+							
+							if isOutside then
+								ToggleDropdown()
+							end
+						end
+					end)
+				end
+				
+				setupClickOutside()
 
 					local function addOption(i, v)
-						local option = Instance.new("TextButton")
-						option.Name = "Option"
-						option.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
-						option.Text = ""
-						option.TextColor3 = Color3.fromRGB(0, 0, 0)
-						option.TextSize = 14
-						option.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-						option.BackgroundTransparency = 1
-						option.BorderColor3 = Color3.fromRGB(0, 0, 0)
-						option.BorderSizePixel = 0
-						option.Size = UDim2.new(1, 0, 0, 30)
+					local option = Instance.new("TextButton")
+					option.Name = "Option"
+					option.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json")
+					option.Text = ""
+					option.TextColor3 = Color3.fromRGB(0, 0, 0)
+					option.TextSize = 14
+					option.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					option.BackgroundTransparency = 1
+					option.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					option.BorderSizePixel = 0
+					option.Size = UDim2.new(1, 0, 0, 30) -- Full width, padding handled by scrollframe
 
 						local optionUIPadding = Instance.new("UIPadding")
 						optionUIPadding.Name = "OptionUIPadding"
 						optionUIPadding.PaddingLeft = UDim.new(0, 15)
+						optionUIPadding.PaddingRight = UDim.new(0, 10) -- Add right padding for scrollbar space
 						optionUIPadding.Parent = option
 
 						local optionName = Instance.new("TextLabel")
@@ -3238,12 +3551,12 @@ function MacLib:Window(Settings)
 						checkmark.BorderSizePixel = 0
 						checkmark.LayoutOrder = -1
 						checkmark.Position = UDim2.fromScale(1.3e-07, 0.5)
-						checkmark.Size = UDim2.fromOffset(-10, 0)
-						checkmark.Parent = option
+					checkmark.Size = UDim2.fromOffset(-10, 0)
+					checkmark.Parent = option
 
-						option.Parent = dropdownFrame
+					option.Parent = optionsScrollFrame
 
-						dropdownFrame.Parent = dropdown
+					dropdownFrame.Parent = dropdown
 						OptionObjs[v] = {
 							Index = i,
 							Button = option,
@@ -3566,7 +3879,7 @@ function MacLib:Window(Settings)
                     globalSettingsUIStroke.Parent = prompt  -- Letakkan setelah UICorner
                     
                     local gradient = Instance.new("UIGradient")
-                    gradient.Color = ColorSequence.new(Color3.fromRGB(24, 24, 27), Color3.fromRGB(24, 24, 27))
+                    gradient.Color = ColorSequence.new(Color3.fromRGB(85, 57, 139), Color3.fromRGB(40, 25, 65))
                     gradient.Rotation = 90
                     gradient.Parent = prompt
                     
@@ -4250,7 +4563,7 @@ function MacLib:Window(Settings)
 					confirm.TextTruncate = Enum.TextTruncate.AtEnd
 					confirm.AutoButtonColor = false
 					confirm.AutomaticSize = Enum.AutomaticSize.Y
-					confirm.BackgroundColor3 = Color3.fromRGB(24, 24, 27)
+					confirm.BackgroundColor3 = Color3.fromRGB(85, 57, 139)
 					confirm.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					confirm.BorderSizePixel = 0
                     confirm.Position = UDim2.new(0, 0,-0.333, 0)
@@ -4285,7 +4598,7 @@ function MacLib:Window(Settings)
 					cancel.TextTruncate = Enum.TextTruncate.AtEnd
 					cancel.AutoButtonColor = false
 					cancel.AutomaticSize = Enum.AutomaticSize.Y
-					cancel.BackgroundColor3 = Color3.fromRGB(24, 24, 27)
+					cancel.BackgroundColor3 = Color3.fromRGB(85, 57, 139)
 					cancel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					cancel.BorderSizePixel = 0
                     cancel.Position = UDim2.new(0.516, 0,-0.333, 0)
@@ -4725,40 +5038,33 @@ function MacLib:Window(Settings)
 					return ColorpickerFunctions
 				end
 
-				function SectionFunctions:Header(Settings, Flag)
-					local HeaderFunctions = {Settings = Settings}
-					local hadHeader = headerFrame ~= nil
+			function SectionFunctions:Header(Settings, Flag)
+				local HeaderFunctions = {Settings = Settings}
+				local hadHeader = headerFrame ~= nil
+				local isFirstHeader = not hadHeader
+				
+				-- Don't destroy previous headers, allow multiple headers
+				-- Only the first header will have collapse functionality
 
-					if headerFrame and headerFrame.Parent then
-						headerFrame:Destroy()
-					end
-					headerFrame = nil
-
-					if collapseIcon and collapseIcon.Parent then
-						collapseIcon:Destroy()
-					end
-					collapseIcon = nil
-
-					if collapseText and collapseText.Parent then
-						collapseText:Destroy()
-					end
-					collapseText = nil
-
-					local header = Instance.new("Frame")
-					header.Name = "Header"
-					header.AutomaticSize = Enum.AutomaticSize.Y
-					header.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-					header.BackgroundTransparency = 1
-					header.BorderColor3 = Color3.fromRGB(0, 0, 0)
-					header.BorderSizePixel = 0
-					header.LayoutOrder = 0
-					header.Size = UDim2.fromScale(1, 0)
-					header.Parent = section
+				local header = Instance.new("Frame")
+				header.Name = "Header"
+				header.AutomaticSize = Enum.AutomaticSize.Y
+				header.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				header.BackgroundTransparency = 1
+				header.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				header.BorderSizePixel = 0
+				header.LayoutOrder = 0
+				header.Size = UDim2.fromScale(1, 0)
+				header.Parent = section
+				
+				-- Only set headerFrame for the first header (for collapse tracking)
+				if isFirstHeader then
 					headerFrame = header
-
+				
 					local uIPadding = Instance.new("UIPadding")
 					uIPadding.Name = "UIPadding"
-					uIPadding.PaddingBottom = UDim.new(0, 5)
+					uIPadding.PaddingBottom = UDim.new(0, 3)
+					uIPadding.PaddingTop = UDim.new(0, 0)
 					uIPadding.Parent = header
 
 					headerButton = Instance.new("TextButton")
@@ -4802,6 +5108,7 @@ function MacLib:Window(Settings)
 					headerText.Size = UDim2.new(1, -28, 0, 0)
 					headerText.Parent = headerButton
 
+				-- Only create collapse icons for the first header
 					collapseIcon = Instance.new("ImageLabel")
 					collapseIcon.Name = "CollapseIcon"
 					collapseIcon.AnchorPoint = Vector2.new(1, 0.5)
@@ -4820,25 +5127,31 @@ function MacLib:Window(Settings)
 					collapseText.AnchorPoint = Vector2.new(1, 0.5)
 					collapseText.BackgroundTransparency = 1
 					collapseText.BorderSizePixel = 0
-					collapseText.Position = UDim2.new(1, -4, 0.5, 0)
-					collapseText.Size = UDim2.fromOffset(16, 16)
-					collapseText.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium, Enum.FontStyle.Normal)
-					collapseText.TextColor3 = Color3.fromRGB(240, 240, 240)
-					collapseText.TextSize = 16
-					collapseText.TextTransparency = 0.2
+					collapseText.Position = UDim2.new(1, -2, 0.5, 0)
+					collapseText.Size = UDim2.fromOffset(14, 14)
+					collapseText.FontFace = Font.new(assets.interFont, Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+					collapseText.TextColor3 = Color3.fromRGB(200, 200, 200)
+					collapseText.TextSize = 14
+					collapseText.TextTransparency = 0.3
 					collapseText.Text = ""
 					collapseText.Parent = headerButton
-
-					local hoverTweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+				
+					local hoverTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
 
 					local function setHoverState(isHovering)
 						local transparency = isHovering and 0 or 0.1
 						Tween(headerText, hoverTweenInfo, { TextTransparency = transparency }):Play()
 						if collapseIcon and collapseIcon.Visible then
-							Tween(collapseIcon, hoverTweenInfo, { ImageTransparency = isHovering and 0 or 0.1 }):Play()
+							Tween(collapseIcon, hoverTweenInfo, { 
+								ImageTransparency = isHovering and 0.1 or 0.3,
+								ImageColor3 = isHovering and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(200, 200, 200)
+							}):Play()
 						end
 						if collapseText and collapseText.Visible then
-							Tween(collapseText, hoverTweenInfo, { TextTransparency = isHovering and 0 or 0.2 }):Play()
+							Tween(collapseText, hoverTweenInfo, { 
+								TextTransparency = isHovering and 0.1 or 0.3,
+								TextColor3 = isHovering and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(200, 200, 200)
+							}):Play()
 						end
 					end
 
@@ -4858,6 +5171,8 @@ function MacLib:Window(Settings)
 					end
 
 					headerButton.MouseButton1Click:Connect(function()
+						-- Only allow collapse for first header
+						if not isFirstHeader then return end
 						if HeaderFunctions.Settings.Collapsible == false then
 							return
 						end
@@ -4907,6 +5222,51 @@ function MacLib:Window(Settings)
 					function HeaderFunctions:IsCollapsed()
 						return collapsed
 					end
+				else
+					-- For non-first headers, create a simple text label
+					local headerText = Instance.new("TextLabel")
+					headerText.Name = "HeaderText"
+					headerText.FontFace = Font.new(
+						assets.interFont,
+						Enum.FontWeight.Medium,
+						Enum.FontStyle.Normal
+					)
+					headerText.RichText = true
+					headerText.Text = HeaderFunctions.Settings.Text or HeaderFunctions.Settings.Name
+					headerText.TextColor3 = Color3.fromRGB(240, 240, 240)
+					headerText.TextSize = 16
+					headerText.TextTransparency = 0.1
+					headerText.TextWrapped = true
+					headerText.TextXAlignment = Enum.TextXAlignment.Left
+					headerText.AutomaticSize = Enum.AutomaticSize.Y
+					headerText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					headerText.BackgroundTransparency = 1
+					headerText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					headerText.BorderSizePixel = 0
+					headerText.Size = UDim2.fromScale(1, 0)
+					headerText.Parent = header
+					
+					local headerPadding = Instance.new("UIPadding")
+					headerPadding.Name = "HeaderPadding"
+					headerPadding.PaddingBottom = UDim.new(0, 5)
+					headerPadding.Parent = header
+
+					function HeaderFunctions:UpdateName(New)
+						headerText.Text = New
+					end
+					function HeaderFunctions:SetVisibility(State)
+						header.Visible = State
+					end
+					function HeaderFunctions:SetCollapsed(State, silent)
+						-- Non-first headers cannot be collapsed
+					end
+					function HeaderFunctions:Toggle()
+						-- Non-first headers cannot be toggled
+					end
+					function HeaderFunctions:IsCollapsed()
+						return false
+					end
+				end
 
 					if Flag then
 						MacLib.Options[Flag] = HeaderFunctions
@@ -5150,7 +5510,7 @@ function MacLib:Window(Settings)
 			end
 
 			local function SelectCurrentTab()
-				local easetime = 0.15
+				local easetime = 0.25
 
 				if currentTabInstance then
 					currentTabInstance.Parent = nil
@@ -5336,29 +5696,31 @@ function MacLib:Window(Settings)
 	function WindowFunctions:Notify(Settings)
 		local NotificationFunctions = {}
 
-		local notification = Instance.new("Frame")
-		notification.Name = "Notification"
-		notification.AnchorPoint = Vector2.new(0.5, 0.5)
-		notification.AutomaticSize = Enum.AutomaticSize.Y
-		notification.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-		notification.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		notification.BorderSizePixel = 0
-		notification.Position = UDim2.fromScale(0.5, 0.5)
-		notification.Size = UDim2.fromOffset(Settings.SizeX or 250, 0)
+	local notification = Instance.new("Frame")
+	notification.Name = "Notification"
+	notification.AnchorPoint = Vector2.new(0.5, 0.5)
+	notification.AutomaticSize = Enum.AutomaticSize.Y
+	notification.BackgroundColor3 = Color3.fromRGB(25, 25, 28)
+	notification.BackgroundTransparency = 0
+	notification.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	notification.BorderSizePixel = 0
+	notification.Position = UDim2.fromScale(0.5, 0.5)
+	notification.Size = UDim2.fromOffset(Settings.SizeX or 270, 0)
 
-		notification.Parent = notifications
+	notification.Parent = notifications
 
-		local notificationUIStroke = Instance.new("UIStroke")
-		notificationUIStroke.Name = "NotificationUIStroke"
-		notificationUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		notificationUIStroke.Color = Color3.fromRGB(255, 255, 255)
-		notificationUIStroke.Transparency = 0.9
-		notificationUIStroke.Parent = notification
+	local notificationUIStroke = Instance.new("UIStroke")
+	notificationUIStroke.Name = "NotificationUIStroke"
+	notificationUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	notificationUIStroke.Color = Color3.fromRGB(60, 60, 65)
+	notificationUIStroke.Transparency = 0.3
+	notificationUIStroke.Thickness = 1
+	notificationUIStroke.Parent = notification
 
-		local notificationUICorner = Instance.new("UICorner")
-		notificationUICorner.Name = "NotificationUICorner"
-		notificationUICorner.CornerRadius = UDim.new(0, 10)
-		notificationUICorner.Parent = notification
+	local notificationUICorner = Instance.new("UICorner")
+	notificationUICorner.Name = "NotificationUICorner"
+	notificationUICorner.CornerRadius = UDim.new(0, 10)
+	notificationUICorner.Parent = notification
 
 		local notificationUIScale = Instance.new("UIScale")
 		notificationUIScale.Name = "NotificationUIScale"
@@ -5374,72 +5736,72 @@ function MacLib:Window(Settings)
 		notificationInformation.BorderSizePixel = 0
 		notificationInformation.Size = UDim2.fromScale(1, 1)
 
-		local notificationTitle = Instance.new("TextLabel")
-		notificationTitle.Name = "NotificationTitle"
-		notificationTitle.FontFace = Font.new(
-			assets.interFont,
-			Enum.FontWeight.SemiBold,
-			Enum.FontStyle.Normal
-		)
-		notificationTitle.RichText = true
-		notificationTitle.Text = Settings.Title
-		notificationTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-		notificationTitle.TextSize = 13
-		notificationTitle.TextTransparency = 0.2
-		notificationTitle.TextTruncate = Enum.TextTruncate.SplitWord
-		notificationTitle.TextXAlignment = Enum.TextXAlignment.Left
-		notificationTitle.TextYAlignment = Enum.TextYAlignment.Top
-		notificationTitle.AutomaticSize = Enum.AutomaticSize.XY
-		notificationTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		notificationTitle.BackgroundTransparency = 1
-		notificationTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		notificationTitle.BorderSizePixel = 0
-		notificationTitle.Size = UDim2.new(1, -12, 0, 0)
+	local notificationTitle = Instance.new("TextLabel")
+	notificationTitle.Name = "NotificationTitle"
+	notificationTitle.FontFace = Font.new(
+		assets.interFont,
+		Enum.FontWeight.SemiBold,
+		Enum.FontStyle.Normal
+	)
+	notificationTitle.RichText = true
+	notificationTitle.Text = Settings.Title
+	notificationTitle.TextColor3 = Color3.fromRGB(240, 240, 245)
+	notificationTitle.TextSize = 13
+	notificationTitle.TextTransparency = 0.1
+	notificationTitle.TextTruncate = Enum.TextTruncate.SplitWord
+	notificationTitle.TextXAlignment = Enum.TextXAlignment.Left
+	notificationTitle.TextYAlignment = Enum.TextYAlignment.Top
+	notificationTitle.AutomaticSize = Enum.AutomaticSize.XY
+	notificationTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	notificationTitle.BackgroundTransparency = 1
+	notificationTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	notificationTitle.BorderSizePixel = 0
+	notificationTitle.Size = UDim2.new(1, -12, 0, 0)
 
-		local notificationTitleUIPadding = Instance.new("UIPadding")
-		notificationTitleUIPadding.Name = "NotificationTitleUIPadding"
-		notificationTitleUIPadding.PaddingRight = UDim.new(0, 25)
-		notificationTitleUIPadding.Parent = notificationTitle
+	local notificationTitleUIPadding = Instance.new("UIPadding")
+	notificationTitleUIPadding.Name = "NotificationTitleUIPadding"
+	notificationTitleUIPadding.PaddingRight = UDim.new(0, 25)
+	notificationTitleUIPadding.Parent = notificationTitle
 
-		notificationTitle.Parent = notificationInformation
+	notificationTitle.Parent = notificationInformation
 
-		local notificationDescription = Instance.new("TextLabel")
-		notificationDescription.Name = "NotificationDescription"
-		notificationDescription.FontFace = Font.new(
-			assets.interFont,
-			Enum.FontWeight.Medium,
-			Enum.FontStyle.Normal
-		)
-		notificationDescription.Text = Settings.Description
-		notificationDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
-		notificationDescription.TextSize = 11
-		notificationDescription.TextTransparency = 0.5
-		notificationDescription.TextWrapped = true
-		notificationDescription.RichText = true
-		notificationDescription.TextXAlignment = Enum.TextXAlignment.Left
-		notificationDescription.TextYAlignment = Enum.TextYAlignment.Top
-		notificationDescription.AutomaticSize = Enum.AutomaticSize.XY
-		notificationDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		notificationDescription.BackgroundTransparency = 1
-		notificationDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		notificationDescription.BorderSizePixel = 0
-		notificationDescription.Size = UDim2.new(1, -12, 0, 0)
+	local notificationDescription = Instance.new("TextLabel")
+	notificationDescription.Name = "NotificationDescription"
+	notificationDescription.FontFace = Font.new(
+		assets.interFont,
+		Enum.FontWeight.Medium,
+		Enum.FontStyle.Normal
+	)
+	notificationDescription.Text = Settings.Description
+	notificationDescription.TextColor3 = Color3.fromRGB(180, 180, 190)
+	notificationDescription.TextSize = 11
+	notificationDescription.TextTransparency = 0.3
+	notificationDescription.TextWrapped = true
+	notificationDescription.RichText = true
+	notificationDescription.TextXAlignment = Enum.TextXAlignment.Left
+	notificationDescription.TextYAlignment = Enum.TextYAlignment.Top
+	notificationDescription.AutomaticSize = Enum.AutomaticSize.XY
+	notificationDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	notificationDescription.BackgroundTransparency = 1
+	notificationDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	notificationDescription.BorderSizePixel = 0
+	notificationDescription.Size = UDim2.new(1, -12, 0, 0)
 
-		local notificationDescriptionUIPadding = Instance.new("UIPadding")
-		notificationDescriptionUIPadding.Name = "NotificationDescriptionUIPadding"
-		notificationDescriptionUIPadding.PaddingRight = UDim.new(0, 25)
-		notificationDescriptionUIPadding.PaddingTop = UDim.new(0, 17)
-		notificationDescriptionUIPadding.Parent = notificationDescription
+	local notificationDescriptionUIPadding = Instance.new("UIPadding")
+	notificationDescriptionUIPadding.Name = "NotificationDescriptionUIPadding"
+	notificationDescriptionUIPadding.PaddingRight = UDim.new(0, 25)
+	notificationDescriptionUIPadding.PaddingTop = UDim.new(0, 16)
+	notificationDescriptionUIPadding.Parent = notificationDescription
 
-		notificationDescription.Parent = notificationInformation
+	notificationDescription.Parent = notificationInformation
 
-		local notificationUIPadding = Instance.new("UIPadding")
-		notificationUIPadding.Name = "NotificationUIPadding"
-		notificationUIPadding.PaddingBottom = UDim.new(0, 12)
-		notificationUIPadding.PaddingLeft = UDim.new(0, 10)
-		notificationUIPadding.PaddingRight = UDim.new(0, 10)
-		notificationUIPadding.PaddingTop = UDim.new(0, 10)
-		notificationUIPadding.Parent = notificationInformation
+	local notificationUIPadding = Instance.new("UIPadding")
+	notificationUIPadding.Name = "NotificationUIPadding"
+	notificationUIPadding.PaddingBottom = UDim.new(0, 12)
+	notificationUIPadding.PaddingLeft = UDim.new(0, 12)
+	notificationUIPadding.PaddingRight = UDim.new(0, 12)
+	notificationUIPadding.PaddingTop = UDim.new(0, 12)
+	notificationUIPadding.Parent = notificationInformation
 
 		notificationInformation.Parent = notification
 
@@ -5571,40 +5933,41 @@ function MacLib:Window(Settings)
 		dialogUICorner.CornerRadius = UDim.new(0, 10)
 		dialogUICorner.Parent = dialog
 
-		local prompt = Instance.new("Frame")
-		prompt.Name = "Prompt"
-		prompt.AnchorPoint = Vector2.new(0.5, 0.5)
-		prompt.AutomaticSize = Enum.AutomaticSize.Y
-		prompt.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-		prompt.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		prompt.BorderSizePixel = 0
-		prompt.Position = UDim2.fromScale(0.5, 0.5)
-		prompt.Size = UDim2.fromOffset(280, 0)
+	local prompt = Instance.new("Frame")
+	prompt.Name = "Prompt"
+	prompt.AnchorPoint = Vector2.new(0.5, 0.5)
+	prompt.AutomaticSize = Enum.AutomaticSize.Y
+	prompt.BackgroundColor3 = Color3.fromRGB(22, 22, 26)
+	prompt.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	prompt.BorderSizePixel = 0
+	prompt.Position = UDim2.fromScale(0.5, 0.5)
+	prompt.Size = UDim2.fromOffset(360, 0)
 
-		local promptUIScale = Instance.new("UIScale")
-		promptUIScale.Name = "BaseUIScale"
-		promptUIScale.Parent = prompt
-		promptUIScale.Scale = 0.95
+	local promptUIScale = Instance.new("UIScale")
+	promptUIScale.Name = "BaseUIScale"
+	promptUIScale.Parent = prompt
+	promptUIScale.Scale = 0.95
 
-		local globalSettingsUIStroke = Instance.new("UIStroke")
-		globalSettingsUIStroke.Name = "GlobalSettingsUIStroke"
-		globalSettingsUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-		globalSettingsUIStroke.Color = Color3.fromRGB(255, 255, 255)
-		globalSettingsUIStroke.Transparency = 0.9
-		globalSettingsUIStroke.Parent = prompt
+	local globalSettingsUIStroke = Instance.new("UIStroke")
+	globalSettingsUIStroke.Name = "GlobalSettingsUIStroke"
+	globalSettingsUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	globalSettingsUIStroke.Color = Color3.fromRGB(65, 65, 75)
+	globalSettingsUIStroke.Transparency = 0.4
+	globalSettingsUIStroke.Thickness = 1.5
+	globalSettingsUIStroke.Parent = prompt
 
-		local globalSettingsUICorner = Instance.new("UICorner")
-		globalSettingsUICorner.Name = "GlobalSettingsUICorner"
-		globalSettingsUICorner.CornerRadius = UDim.new(0, 10)
-		globalSettingsUICorner.Parent = prompt
+	local globalSettingsUICorner = Instance.new("UICorner")
+	globalSettingsUICorner.Name = "GlobalSettingsUICorner"
+	globalSettingsUICorner.CornerRadius = UDim.new(0, 14)
+	globalSettingsUICorner.Parent = prompt
 
-		local globalSettingsUIPadding = Instance.new("UIPadding")
-		globalSettingsUIPadding.Name = "GlobalSettingsUIPadding"
-		globalSettingsUIPadding.PaddingBottom = UDim.new(0, 20)
-		globalSettingsUIPadding.PaddingLeft = UDim.new(0, 20)
-		globalSettingsUIPadding.PaddingRight = UDim.new(0, 20)
-		globalSettingsUIPadding.PaddingTop = UDim.new(0, 20)
-		globalSettingsUIPadding.Parent = prompt
+	local globalSettingsUIPadding = Instance.new("UIPadding")
+	globalSettingsUIPadding.Name = "GlobalSettingsUIPadding"
+	globalSettingsUIPadding.PaddingBottom = UDim.new(0, 24)
+	globalSettingsUIPadding.PaddingLeft = UDim.new(0, 24)
+	globalSettingsUIPadding.PaddingRight = UDim.new(0, 24)
+	globalSettingsUIPadding.PaddingTop = UDim.new(0, 24)
+	globalSettingsUIPadding.Parent = prompt
 
 		local paragraph = Instance.new("Frame")
 		paragraph.Name = "Paragraph"
@@ -5615,50 +5978,56 @@ function MacLib:Window(Settings)
 		paragraph.BorderSizePixel = 0
 		paragraph.Size = UDim2.new(1, 0, 0, 38)
 
-		local paragraphHeader = Instance.new("TextLabel")
-		paragraphHeader.Name = "ParagraphHeader"
-		paragraphHeader.FontFace = Font.new(
-			assets.interFont,
-			Enum.FontWeight.Medium,
-			Enum.FontStyle.Normal
-		)
-		paragraphHeader.RichText = true
-		paragraphHeader.Text = Settings.Title
-		paragraphHeader.TextColor3 = Color3.fromRGB(255, 255, 255)
-		paragraphHeader.TextSize = 18
-		paragraphHeader.TextTransparency = 0.4
-		paragraphHeader.TextWrapped = true
-		paragraphHeader.AutomaticSize = Enum.AutomaticSize.Y
-		paragraphHeader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		paragraphHeader.BackgroundTransparency = 1
-		paragraphHeader.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		paragraphHeader.BorderSizePixel = 0
-		paragraphHeader.Size = UDim2.fromScale(1, 0)
-		paragraphHeader.Parent = paragraph
+	local paragraphHeader = Instance.new("TextLabel")
+	paragraphHeader.Name = "ParagraphHeader"
+	paragraphHeader.FontFace = Font.new(
+		assets.interFont,
+		Enum.FontWeight.Bold,
+		Enum.FontStyle.Normal
+	)
+	paragraphHeader.RichText = true
+	paragraphHeader.Text = Settings.Title
+	paragraphHeader.TextColor3 = Color3.fromRGB(245, 245, 250)
+	paragraphHeader.TextSize = 20
+	paragraphHeader.TextTransparency = 0.05
+	paragraphHeader.TextWrapped = true
+	paragraphHeader.TextXAlignment = Enum.TextXAlignment.Left
+	paragraphHeader.AutomaticSize = Enum.AutomaticSize.Y
+	paragraphHeader.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	paragraphHeader.BackgroundTransparency = 1
+	paragraphHeader.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	paragraphHeader.BorderSizePixel = 0
+	paragraphHeader.Size = UDim2.fromScale(1, 0)
+	paragraphHeader.Parent = paragraph
 
-		local uIListLayout = Instance.new("UIListLayout")
-		uIListLayout.Name = "UIListLayout"
-		uIListLayout.Padding = UDim.new(0, 15)
-		uIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-		uIListLayout.Parent = paragraph
+	local uIListLayout = Instance.new("UIListLayout")
+	uIListLayout.Name = "UIListLayout"
+	uIListLayout.Padding = UDim.new(0, 12)
+	uIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	uIListLayout.Parent = paragraph
 
-		local paragraphBody = Instance.new("TextLabel")
-		paragraphBody.Name = "ParagraphBody"
-		paragraphBody.FontFace = Font.new(assets.interFont)
-		paragraphBody.RichText = true
-		paragraphBody.Text = Settings.Description
-		paragraphBody.TextColor3 = Color3.fromRGB(255, 255, 255)
-		paragraphBody.TextSize = 14
-		paragraphBody.TextTransparency = 0.5
-		paragraphBody.TextWrapped = true
-		paragraphBody.AutomaticSize = Enum.AutomaticSize.Y
-		paragraphBody.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		paragraphBody.BackgroundTransparency = 1
-		paragraphBody.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		paragraphBody.BorderSizePixel = 0
-		paragraphBody.LayoutOrder = 1
-		paragraphBody.Size = UDim2.fromScale(1, 0)
-		paragraphBody.Parent = paragraph
+	local paragraphBody = Instance.new("TextLabel")
+	paragraphBody.Name = "ParagraphBody"
+	paragraphBody.FontFace = Font.new(
+		assets.interFont,
+		Enum.FontWeight.Medium,
+		Enum.FontStyle.Normal
+	)
+	paragraphBody.RichText = true
+	paragraphBody.Text = Settings.Description
+	paragraphBody.TextColor3 = Color3.fromRGB(180, 180, 195)
+	paragraphBody.TextSize = 13
+	paragraphBody.TextTransparency = 0.25
+	paragraphBody.TextWrapped = true
+	paragraphBody.TextXAlignment = Enum.TextXAlignment.Left
+	paragraphBody.AutomaticSize = Enum.AutomaticSize.Y
+	paragraphBody.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	paragraphBody.BackgroundTransparency = 1
+	paragraphBody.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	paragraphBody.BorderSizePixel = 0
+	paragraphBody.LayoutOrder = 1
+	paragraphBody.Size = UDim2.fromScale(1, 0)
+	paragraphBody.Parent = paragraph
 
 		paragraph.Parent = prompt
 
@@ -5672,16 +6041,18 @@ function MacLib:Window(Settings)
 		interactions.LayoutOrder = 1
 		interactions.Size = UDim2.fromScale(1, 0)
 
-		local uIListLayout1 = Instance.new("UIListLayout")
-		uIListLayout1.Name = "UIListLayout"
-		uIListLayout1.Padding = UDim.new(0, 10)
-		uIListLayout1.SortOrder = Enum.SortOrder.LayoutOrder
-		uIListLayout1.Parent = interactions
+	local uIListLayout1 = Instance.new("UIListLayout")
+	uIListLayout1.Name = "UIListLayout"
+	uIListLayout1.Padding = UDim.new(0, 8)
+	uIListLayout1.SortOrder = Enum.SortOrder.LayoutOrder
+	uIListLayout1.FillDirection = Enum.FillDirection.Horizontal
+	uIListLayout1.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	uIListLayout1.Parent = interactions
 
-		local uIPadding = Instance.new("UIPadding")
-		uIPadding.Name = "UIPadding"
-		uIPadding.PaddingTop = UDim.new(0, 20)
-		uIPadding.Parent = interactions
+	local uIPadding = Instance.new("UIPadding")
+	uIPadding.Name = "UIPadding"
+	uIPadding.PaddingTop = UDim.new(0, 24)
+	uIPadding.Parent = interactions
 
 		interactions.Parent = prompt
 
@@ -5718,56 +6089,69 @@ function MacLib:Window(Settings)
 		for _, v in pairs(Settings.Buttons) do
 			local button = Instance.new("TextButton")
 			button.Name = "Button"
-			button.FontFace = Font.new(assets.interFont)
+			button.FontFace = Font.new(
+				assets.interFont,
+				Enum.FontWeight.SemiBold,
+				Enum.FontStyle.Normal
+			)
 			button.Text = v.Name
-			button.TextColor3 = Color3.fromRGB(255, 255, 255)
-			button.TextSize = 15
-			button.TextTransparency = 0.5
+			button.TextColor3 = Color3.fromRGB(240, 240, 245)
+			button.TextSize = 14
+			button.TextTransparency = 0.1
 			button.TextTruncate = Enum.TextTruncate.AtEnd
 			button.AutoButtonColor = false
-			button.AutomaticSize = Enum.AutomaticSize.Y
-			button.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+			button.AutomaticSize = Enum.AutomaticSize.XY
+			button.BackgroundColor3 = Color3.fromRGB(55, 55, 65)
 			button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			button.BorderSizePixel = 0
-			button.Size = UDim2.fromScale(1, 0)
+			button.Size = UDim2.fromOffset(0, 0)
 
 			local uIPadding1 = Instance.new("UIPadding")
 			uIPadding1.Name = "UIPadding"
-			uIPadding1.PaddingBottom = UDim.new(0, 9)
-			uIPadding1.PaddingLeft = UDim.new(0, 10)
-			uIPadding1.PaddingRight = UDim.new(0, 10)
-			uIPadding1.PaddingTop = UDim.new(0, 9)
+			uIPadding1.PaddingBottom = UDim.new(0, 10)
+			uIPadding1.PaddingLeft = UDim.new(0, 16)
+			uIPadding1.PaddingRight = UDim.new(0, 16)
+			uIPadding1.PaddingTop = UDim.new(0, 10)
 			uIPadding1.Parent = button
 
 			local baseUICorner1 = Instance.new("UICorner")
 			baseUICorner1.Name = "BaseUICorner"
-			baseUICorner1.CornerRadius = UDim.new(0, 10)
+			baseUICorner1.CornerRadius = UDim.new(0, 8)
 			baseUICorner1.Parent = button
+			
+			local buttonStroke = Instance.new("UIStroke")
+			buttonStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+			buttonStroke.Color = Color3.fromRGB(70, 70, 80)
+			buttonStroke.Transparency = 0.6
+			buttonStroke.Thickness = 1
+			buttonStroke.Parent = button
 
 			button.Parent = interactions
 
-			local TweenSettings = {
-				DefaultTransparency = 0,
-				DefaultTransparency2 = 0.5,
-				HoverTransparency = 0.3,
-				HoverTransparency2 = 0.6,
+		local TweenSettings = {
+			EasingStyle = Enum.EasingStyle.Quint,
+			Duration = 0.2
+		}
 
-				EasingStyle = Enum.EasingStyle.Sine
-			}
-
-			local function ChangeState(State)
-				if State == "Idle" then
-					Tween(button, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-						BackgroundTransparency = TweenSettings.DefaultTransparency,
-						TextTransparency = TweenSettings.DefaultTransparency2
-					}):Play()
-				elseif State == "Hover" then
-					Tween(button, TweenInfo.new(0.2, TweenSettings.EasingStyle), {
-						BackgroundTransparency = TweenSettings.HoverTransparency,
-						TextTransparency = TweenSettings.HoverTransparency2
-					}):Play()
-				end
+		local function ChangeState(State)
+			if State == "Idle" then
+				Tween(button, TweenInfo.new(TweenSettings.Duration, TweenSettings.EasingStyle), {
+					BackgroundColor3 = Color3.fromRGB(55, 55, 65),
+					TextTransparency = 0.1
+				}):Play()
+				Tween(buttonStroke, TweenInfo.new(TweenSettings.Duration, TweenSettings.EasingStyle), {
+					Transparency = 0.6
+				}):Play()
+			elseif State == "Hover" then
+				Tween(button, TweenInfo.new(TweenSettings.Duration, TweenSettings.EasingStyle), {
+					BackgroundColor3 = Color3.fromRGB(65, 65, 75),
+					TextTransparency = 0
+				}):Play()
+				Tween(buttonStroke, TweenInfo.new(TweenSettings.Duration, TweenSettings.EasingStyle), {
+					Transparency = 0.4
+				}):Play()
 			end
+		end
 
 			button.MouseButton1Click:Connect(function()
 				if dialogCanvas.GroupTransparency ~= 0 then return end
@@ -5816,7 +6200,16 @@ function MacLib:Window(Settings)
 		windowState = State
 		togglePos = {0.5,0.5}
 	
-		local endSize = State and Settings.Size or UDim2.new(0, 0, 0, 0)
+		-- Hide/show information section to prevent double header when closed
+		-- When closed, only show windowControls (making it thinner)
+		information.Visible = State
+		content.Visible = State
+		sidebarGroup.Visible = State
+		
+		-- Adjust sidebar size when closed to make it thinner (only show windowControls)
+		local sidebarEndSize = State and UDim2.fromScale(0.325, 1) or UDim2.new(0, 150, 0, 31)
+	
+		local endSize = State and Settings.Size or UDim2.new(0, 150, 0, 31)
 		local endPosition
 	
 		if State then
@@ -5835,6 +6228,10 @@ function MacLib:Window(Settings)
 	
 		TweenService:Create(base, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {
 			Position = endPosition
+		}):Play()
+		
+		TweenService:Create(sidebar, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {
+			Size = sidebarEndSize
 		}):Play()
 	end
 
@@ -5962,9 +6359,7 @@ function MacLib:Window(Settings)
 			end,
 			Load = function(Flag, data)
 				if MacLib.Options[Flag] then
-					print("Flag found:", Flag)
 					if data.state ~= nil then
-						print("State found:", data.state)
 						MacLib.Options[Flag]:UpdateState(data.state)
 					else
 						print("State is nil for flag:", Flag)
