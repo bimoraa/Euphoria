@@ -2,17 +2,18 @@ local function createGui(parent)
     local screenGui = Instance.new("ScreenGui",parent)
     screenGui["Name"] = "Ajomok UI"
     screenGui["ResetOnSpawn"] = false
-    screenGui["DisplayOrder"] = 0
+    screenGui["DisplayOrder"] = 999999
     screenGui["IgnoreGuiInset"] = true
+    screenGui["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 
 	--Frame1--
     local UserInputService = game:GetService("UserInputService")
 
     -- Create Frame
     local Frame1 = Instance.new("Frame", screenGui)
-    Frame1.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame1.AnchorPoint = Vector2.new(0, 0.5)
     Frame1.Name = "main"
-    Frame1.Position = UDim2.new(0.5, 0, 0.1984694, 0)
+    Frame1.Position = UDim2.new(0, 5, 0.5, 0)
     Frame1.Size = UDim2.new(0, 55, 0, 55)
     Frame1.BackgroundColor3 = Color3.new(1, 1, 1)
     Frame1.BorderSizePixel = 0
@@ -164,6 +165,11 @@ function interface:toggle_position()
 end
 
 function interface:initial_interface(callback)
+    -- Destroy previous instance if exists
+    if game.CoreGui:FindFirstChild("Ajomok UI") then
+        game.CoreGui:FindFirstChild("Ajomok UI"):Destroy()
+    end
+    
     local ui = createGui(game.CoreGui)
     if callback then
         ui.main.togl.MouseButton1Click:Connect(function()
