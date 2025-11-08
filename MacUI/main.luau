@@ -3471,6 +3471,14 @@ function MacLib:Window(Settings)
 							local mousePos = UserInputService:GetMouseLocation()
 							local basePos = base.AbsolutePosition
 							local baseSize = base.AbsoluteSize
+							local dropdownPos = dropdown.AbsolutePosition
+							local dropdownSize = dropdown.AbsoluteSize
+							
+							-- Check if click is inside the dropdown
+							local isInsideDropdown = mousePos.X >= dropdownPos.X and 
+													 mousePos.X <= dropdownPos.X + dropdownSize.X and
+													 mousePos.Y >= dropdownPos.Y and
+													 mousePos.Y <= dropdownPos.Y + dropdownSize.Y
 							
 							-- Check if click is outside the MacLib UI
 							local isOutside = mousePos.X < basePos.X or 
@@ -3478,7 +3486,8 @@ function MacLib:Window(Settings)
 											  mousePos.Y < basePos.Y or
 											  mousePos.Y > basePos.Y + baseSize.Y
 							
-							if isOutside then
+							-- Only close if click is outside UI AND not inside dropdown
+							if isOutside and not isInsideDropdown then
 								ToggleDropdown()
 							end
 						end
@@ -3600,33 +3609,33 @@ function MacLib:Window(Settings)
 
 						local option = OptionObjs[v].Button
 
-						option.MouseButton1Click:Connect(function()
-							local isSelected = table.find(Selected, v) and true or false
-							local newSelected = not isSelected
+					option.MouseButton1Click:Connect(function()
+						local isSelected = table.find(Selected, v) and true or false
+						local newSelected = not isSelected
 
-							if DropdownFunctions.Settings.Required and not newSelected and #Selected <= 1 then
-								return
-							end
+						if DropdownFunctions.Settings.Required and not newSelected and #Selected <= 1 then
+							return
+						end
 
-							Toggle(v, newSelected)
+						Toggle(v, newSelected)
 
-							task.spawn(function()
-								if DropdownFunctions.Settings.Multi then
-									local Return = {}
-									for _, opt in ipairs(Selected) do
-										Return[opt] = true
-									end
-									if DropdownFunctions.Settings.Callback then
-										DropdownFunctions.Settings.Callback(Return)
-									end
-
-								else
-									if newSelected and DropdownFunctions.Settings.Callback then
-										DropdownFunctions.Settings.Callback(Selected[1] or nil)
-									end
+						task.spawn(function()
+							if DropdownFunctions.Settings.Multi then
+								local Return = {}
+								for _, opt in ipairs(Selected) do
+									Return[opt] = true
 								end
-							end)
+								if DropdownFunctions.Settings.Callback then
+									DropdownFunctions.Settings.Callback(Return)
+								end
+
+							else
+								if newSelected and DropdownFunctions.Settings.Callback then
+									DropdownFunctions.Settings.Callback(Selected[1] or nil)
+								end
+							end
 						end)
+					end)
 
 						if dropped then
 							dropdown.Size = UDim2.new(1, 0, 0, CalculateDropdownSize())
@@ -6198,41 +6207,7 @@ function MacLib:Window(Settings)
 
 	function WindowFunctions:SetState(State, TogglePos)
 		windowState = State
-		togglePos = {0.5,0.5}
-	
-		-- Hide/show information section to prevent double header when closed
-		-- When closed, only show windowControls (making it thinner)
-		information.Visible = State
-		content.Visible = State
-		sidebarGroup.Visible = State
-		
-		-- Adjust sidebar size when closed to make it thinner (only show windowControls)
-		local sidebarEndSize = State and UDim2.fromScale(0.325, 1) or UDim2.new(0, 150, 0, 31)
-	
-		local endSize = State and Settings.Size or UDim2.new(0, 150, 0, 31)
-		local endPosition
-	
-		if State then
-			endPosition = UDim2.fromScale(0.5, 0.5)
-		else
-			if TogglePos and TogglePos.X and TogglePos.Y then
-				endPosition = UDim2.new(TogglePos.X.Scale, TogglePos.X.Offset, TogglePos.Y.Scale, TogglePos.Y.Offset)
-			else
-				endPosition = UDim2.new(0.952, 0, 0.893, 0)
-			end
-		end
-	
-		TweenService:Create(base, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {
-			Size = endSize
-		}):Play()
-	
-		TweenService:Create(base, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {
-			Position = endPosition
-		}):Play()
-		
-		TweenService:Create(sidebar, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {
-			Size = sidebarEndSize
-		}):Play()
+		base.Visible = State
 	end
 
 	function WindowFunctions:GetState()
