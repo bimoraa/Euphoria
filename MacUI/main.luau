@@ -119,71 +119,128 @@ function MacLib:Window(Settings)
 	local function playBootAnimation()
 		local tweenService = game:GetService("TweenService")
 
+		-- Setup blur effect
 		local blur = game:GetService("Lighting"):FindFirstChild("Blur") or Instance.new("BlurEffect")
 		blur.Parent = game:GetService("Lighting")
+		blur.Size = 0
 		
+		-- Boot sound with better timing
 		local sound = Instance.new("Sound")
 		sound.SoundId = "rbxassetid://6230186752"
+		sound.Volume = 0.4
 		sound.Parent = base
 		sound:Play()
-		wait(0.3)
 		
 		local camera = game.Workspace.CurrentCamera
 		local originalFOV = camera.FieldOfView
-		local targetFOV = 40
+		local targetFOV = 30
 		local originalBlurSize = 0
-		local targetBlurSize = 24
+		local targetBlurSize = 18
 
-		base.Size = UDim2.fromOffset(0, 0)
-		base.Position = UDim2.fromScale(0.5, 1)
+		-- Initial state: centered but scaled down and transparent
+		base.Size = UDim2.fromScale(0, 0)
+		base.Position = UDim2.fromScale(0.5, 0.5)
 		base.Visible = true
-
-		local uiTweenInfo = TweenInfo.new(
-			1,
-			Enum.EasingStyle.Exponential
-		)
+		base.BackgroundTransparency = 1
 		
-		local blurTweenInfo = TweenInfo.new(
-			1.5,
-			Enum.EasingStyle.Exponential,
-			Enum.EasingDirection.Out
-		)
-		
+		-- Ultra smooth camera zoom with Sine easing
 		local cameraTweenInfo = TweenInfo.new(
-			1.5,
-			Enum.EasingStyle.Exponential,
-			Enum.EasingDirection.Out
+			1.4,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.InOut
 		)
 		
-		local uiTween = tweenService:Create(base, uiTweenInfo, {
-			Position = UDim2.fromScale(0.5, 0.5),
-			Size = Settings.Size
-		})
-
 		local cameraTween = tweenService:Create(camera, cameraTweenInfo, {
 			FieldOfView = targetFOV
 		})
 		
-		local blurTween = tweenService:Create(blur, blurTweenInfo, {
+		-- Smooth blur in with Sine easing
+		local blurInTweenInfo = TweenInfo.new(
+			0.9,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.Out
+		)
+		
+		local blurTween = tweenService:Create(blur, blurInTweenInfo, {
 			Size = targetBlurSize
 		})
-	
-		uiTween:Play()
+		
+		-- Start camera and blur simultaneously
 		cameraTween:Play()
 		blurTween:Play()
+		
+		task.wait(0.25)
+		
+		-- Modern multi-stage UI animation
+		-- Stage 1: Quick scale from 0 to slightly oversized (overshoot effect)
+		local stage1ScaleTweenInfo = TweenInfo.new(
+			0.5,
+			Enum.EasingStyle.Quart,
+			Enum.EasingDirection.Out
+		)
+		
+		local stage1ScaleTween = tweenService:Create(base, stage1ScaleTweenInfo, {
+			Size = UDim2.new(Settings.Size.X.Scale * 1.02, Settings.Size.X.Offset, Settings.Size.Y.Scale * 1.02, Settings.Size.Y.Offset)
+		})
+		
+		-- Stage 1: Fade in simultaneously with fast fade
+		local stage1FadeTweenInfo = TweenInfo.new(
+			0.4,
+			Enum.EasingStyle.Quart,
+			Enum.EasingDirection.Out
+		)
+		
+		local stage1FadeTween = tweenService:Create(base, stage1FadeTweenInfo, {
+			BackgroundTransparency = 0
+		})
+		
+		stage1ScaleTween:Play()
+		stage1FadeTween:Play()
+		
+		task.wait(0.5)
+		
+		-- Stage 2: Settle to exact size with smooth bounce back
+		local stage2ScaleTweenInfo = TweenInfo.new(
+			0.35,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.InOut
+		)
+		
+		local stage2ScaleTween = tweenService:Create(base, stage2ScaleTweenInfo, {
+			Size = Settings.Size
+		})
+		
+		stage2ScaleTween:Play()
+		
+		task.wait(0.6)
 
-		wait(1.5)
-
-		local reverseBlurTween = tweenService:Create(blur, blurTweenInfo, {
+		-- Ultra smooth blur and camera restoration with Sine
+		local blurOutTweenInfo = TweenInfo.new(
+			1.1,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.InOut
+		)
+		
+		local reverseBlurTween = tweenService:Create(blur, blurOutTweenInfo, {
 			Size = originalBlurSize
 		})
 		
-		local reverseCameraTween = tweenService:Create(camera, cameraTweenInfo, {
+		local reverseCameraTweenInfo = TweenInfo.new(
+			1.4,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.InOut
+		)
+		
+		local reverseCameraTween = tweenService:Create(camera, reverseCameraTweenInfo, {
 			FieldOfView = originalFOV
 		})
 
 		reverseBlurTween:Play()
 		reverseCameraTween:Play()
+		
+		-- Clean up sound after animation
+		task.wait(1.4)
+		sound:Destroy()
 	end
 	
 
@@ -3654,7 +3711,7 @@ function MacLib:Window(Settings)
 					function DropdownFunctions:SetVisibility(State)
 						dropdown.Visible = State
 					end
-					function DropdownFunctions:UpdateSelection(newSelection)
+					function DropdownFunctions:UpdateSelection(newSelection, skipCallback)
 						if not newSelection then return end
 
 						for option, _ in pairs(OptionObjs) do
@@ -3688,16 +3745,18 @@ function MacLib:Window(Settings)
 							end
 						end
 
-						if DropdownFunctions.Settings.Callback then
-							if DropdownFunctions.Settings.Multi then
-								local Return = {}
-								for _, opt in ipairs(selectedOptions) do
-									Return[opt] = true
+						if not skipCallback and DropdownFunctions.Settings.Callback then
+							task.spawn(function()
+								if DropdownFunctions.Settings.Multi then
+									local Return = {}
+									for _, opt in ipairs(selectedOptions) do
+										Return[opt] = true
+									end
+									DropdownFunctions.Settings.Callback(Return)
+								else
+									DropdownFunctions.Settings.Callback(selectedOptions[1] or nil)
 								end
-								DropdownFunctions.Settings.Callback(Return)
-							else
-								DropdownFunctions.Settings.Callback(selectedOptions[1] or nil)
-							end
+							end)
 						end
 					end
 					function DropdownFunctions:InsertOptions(newOptions)
@@ -5658,30 +5717,94 @@ function MacLib:Window(Settings)
 					end,
 				})
 
-				configSection:Button({
-					Name = "Refresh Config List",
-					Callback = function()
-						configSelection:ClearOptions()
-						configSelection:InsertOptions(MacLib:RefreshConfigList())
-					end,
-				})
-				
-				local autoloadLabel
-				
-				configSection:Button({
-					Name = "Set as autoload",
-					Callback = function()
-						local name = configSelection.Value
-						writefile(MacLib.Folder .. "/settings/autoload.txt", name)
-						autoloadLabel:UpdateName("Autoload config: " .. name)
+			configSection:Button({
+				Name = "Refresh Config List",
+				Callback = function()
+					configSelection:ClearOptions()
+					configSelection:InsertOptions(MacLib:RefreshConfigList())
+				end,
+			})
+			
+			configSection:Divider()
+			
+			configSection:Button({
+				Name = "Export Config to Clipboard",
+				Callback = function()
+					local success, result = MacLib:ExportConfig()
+					if not success then
 						WindowFunctions:Notify({
-							Title = "Interface",
-							Description = string.format("Set %q as autoload", name),
+							Title = "Export Failed",
+							Description = result or "Unknown error",
+							Lifetime = 3
 						})
-					end,
-				})
-				
-				autoloadLabel = configSection:Label({Text = "Autoload config: None"})
+					else
+						WindowFunctions:Notify({
+							Title = "Export Success",
+							Description = "Config copied to clipboard!",
+							Lifetime = 3
+						})
+					end
+				end,
+			})
+			
+			local importInput = nil
+			
+			configSection:Input({
+				Name = "Import from Clipboard",
+				Placeholder = "Paste config here",
+				AcceptedCharacters = "All",
+				Callback = function(input)
+					importInput = input
+				end,
+			})
+			
+			configSection:Button({
+				Name = "Import Config",
+				Callback = function()
+					if not importInput or importInput == "" then
+						WindowFunctions:Notify({
+							Title = "Import Failed",
+							Description = "Please paste config data first",
+							Lifetime = 3
+						})
+						return
+					end
+					
+					local success, result = MacLib:ImportConfig(importInput)
+					if not success then
+						WindowFunctions:Notify({
+							Title = "Import Failed",
+							Description = result or "Unknown error",
+							Lifetime = 3
+						})
+					else
+						WindowFunctions:Notify({
+							Title = "Import Success",
+							Description = "Config loaded successfully!",
+							Lifetime = 3
+						})
+					end
+				end,
+			})
+			
+			configSection:Divider()
+			
+			local autoloadLabel
+			
+			configSection:Button({
+				Name = "Set as autoload",
+				Callback = function()
+					local name = configSelection.Value
+					writefile(MacLib.Folder .. "/settings/autoload.txt", name)
+					autoloadLabel:UpdateName("Autoload config: " .. name)
+					WindowFunctions:Notify({
+						Title = "Interface",
+						Description = string.format("Set %q as autoload", name),
+					})
+				end,
+			})
+			
+			autoloadLabel = configSection:Label({Text = "Autoload config: None"})
 				
 				if isfile(MacLib.Folder .. "/settings/autoload.txt") then
 					local name = readfile(MacLib.Folder .. "/settings/autoload.txt")
@@ -5702,48 +5825,122 @@ function MacLib:Window(Settings)
 		return SectionFunctions
 	end
 
+	-- WindowFunctions:Notify(Settings)
+	-- Modern shadcn-inspired notifications with variants
+	-- Settings:
+	--   Title: string - Notification title
+	--   Description: string - Notification description  
+	--   Variant: string - "default", "success", "error", "warning", or "info" (optional, defaults to "default")
+	--   Lifetime: number - Duration in seconds (optional, defaults to 3)
+	--   SizeX: number - Width in pixels (optional, defaults to 320)
+	--   Style: string - "None", "Confirm", or "Cancel" (optional)
+	--   Callback: function - Called when interactable is clicked (optional)
 	function WindowFunctions:Notify(Settings)
 		local NotificationFunctions = {}
+		
+		-- Determine variant colors (shadcn-inspired)
+		local variants = {
+			default = {
+				bg = Color3.fromRGB(24, 24, 27),       -- zinc-900
+				border = Color3.fromRGB(63, 63, 70),   -- zinc-700
+				accent = Color3.fromRGB(113, 113, 122), -- zinc-500
+				title = Color3.fromRGB(250, 250, 250), -- zinc-50
+				desc = Color3.fromRGB(161, 161, 170)   -- zinc-400
+			},
+			success = {
+				bg = Color3.fromRGB(20, 83, 45),       -- green-900/10
+				border = Color3.fromRGB(34, 197, 94),  -- green-500
+				accent = Color3.fromRGB(34, 197, 94),  -- green-500
+				title = Color3.fromRGB(240, 253, 244), -- green-50
+				desc = Color3.fromRGB(134, 239, 172)   -- green-300
+			},
+			error = {
+				bg = Color3.fromRGB(127, 29, 29),      -- red-900/10
+				border = Color3.fromRGB(239, 68, 68),  -- red-500
+				accent = Color3.fromRGB(239, 68, 68),  -- red-500
+				title = Color3.fromRGB(254, 242, 242), -- red-50
+				desc = Color3.fromRGB(252, 165, 165)   -- red-300
+			},
+			warning = {
+				bg = Color3.fromRGB(120, 53, 15),      -- orange-900/10
+				border = Color3.fromRGB(249, 115, 22), -- orange-500
+				accent = Color3.fromRGB(249, 115, 22), -- orange-500
+				title = Color3.fromRGB(255, 247, 237), -- orange-50
+				desc = Color3.fromRGB(253, 186, 116)   -- orange-300
+			},
+			info = {
+				bg = Color3.fromRGB(12, 74, 110),      -- blue-900/10
+				border = Color3.fromRGB(59, 130, 246), -- blue-500
+				accent = Color3.fromRGB(59, 130, 246), -- blue-500
+				title = Color3.fromRGB(239, 246, 255), -- blue-50
+				desc = Color3.fromRGB(147, 197, 253)   -- blue-300
+			}
+		}
+		
+		local variant = variants[Settings.Variant or "default"] or variants.default
 
 	local notification = Instance.new("Frame")
 	notification.Name = "Notification"
 	notification.AnchorPoint = Vector2.new(0.5, 0.5)
 	notification.AutomaticSize = Enum.AutomaticSize.Y
-	notification.BackgroundColor3 = Color3.fromRGB(25, 25, 28)
-	notification.BackgroundTransparency = 0
+	notification.BackgroundColor3 = variant.bg
+	notification.BackgroundTransparency = 0.05
 	notification.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	notification.BorderSizePixel = 0
 	notification.Position = UDim2.fromScale(0.5, 0.5)
-	notification.Size = UDim2.fromOffset(Settings.SizeX or 270, 0)
+	notification.Size = UDim2.fromOffset(Settings.SizeX or 320, 0)
+	notification.ClipsDescendants = false
 
 	notification.Parent = notifications
+	
+	-- Subtle shadow effect
+	local shadow = Instance.new("ImageLabel")
+	shadow.Name = "Shadow"
+	shadow.Image = "rbxassetid://5554236805"
+	shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+	shadow.ImageTransparency = 0.7
+	shadow.ScaleType = Enum.ScaleType.Slice
+	shadow.SliceCenter = Rect.new(23, 23, 277, 277)
+	shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+	shadow.BackgroundTransparency = 1
+	shadow.Position = UDim2.fromScale(0.5, 0.5)
+	shadow.Size = UDim2.new(1, 30, 1, 30)
+	shadow.ZIndex = 0
+	shadow.Parent = notification
 
 	local notificationUIStroke = Instance.new("UIStroke")
 	notificationUIStroke.Name = "NotificationUIStroke"
 	notificationUIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	notificationUIStroke.Color = Color3.fromRGB(60, 60, 65)
-	notificationUIStroke.Transparency = 0.3
+	notificationUIStroke.Color = variant.border
+	notificationUIStroke.Transparency = 0.5
 	notificationUIStroke.Thickness = 1
 	notificationUIStroke.Parent = notification
 
 	local notificationUICorner = Instance.new("UICorner")
 	notificationUICorner.Name = "NotificationUICorner"
-	notificationUICorner.CornerRadius = UDim.new(0, 10)
+	notificationUICorner.CornerRadius = UDim.new(0, 12)
 	notificationUICorner.Parent = notification
 
 		local notificationUIScale = Instance.new("UIScale")
 		notificationUIScale.Name = "NotificationUIScale"
 		notificationUIScale.Parent = notification
-		notificationUIScale.Scale = 0
+		notificationUIScale.Scale = 0.8
 
-		local notificationInformation = Instance.new("Frame")
-		notificationInformation.Name = "NotificationInformation"
-		notificationInformation.AutomaticSize = Enum.AutomaticSize.Y
-		notificationInformation.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		notificationInformation.BackgroundTransparency = 1
-		notificationInformation.BorderColor3 = Color3.fromRGB(0, 0, 0)
-		notificationInformation.BorderSizePixel = 0
-		notificationInformation.Size = UDim2.fromScale(1, 1)
+	local notificationInformation = Instance.new("Frame")
+	notificationInformation.Name = "NotificationInformation"
+	notificationInformation.AutomaticSize = Enum.AutomaticSize.Y
+	notificationInformation.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	notificationInformation.BackgroundTransparency = 1
+	notificationInformation.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	notificationInformation.BorderSizePixel = 0
+	notificationInformation.Size = UDim2.new(1, 0, 0, 0)
+	notificationInformation.Parent = notification
+
+	local notificationUIListLayout = Instance.new("UIListLayout")
+	notificationUIListLayout.Name = "NotificationUIListLayout"
+	notificationUIListLayout.Padding = UDim.new(0, 4)
+	notificationUIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	notificationUIListLayout.Parent = notificationInformation
 
 	local notificationTitle = Instance.new("TextLabel")
 	notificationTitle.Name = "NotificationTitle"
@@ -5754,24 +5951,19 @@ function MacLib:Window(Settings)
 	)
 	notificationTitle.RichText = true
 	notificationTitle.Text = Settings.Title
-	notificationTitle.TextColor3 = Color3.fromRGB(240, 240, 245)
-	notificationTitle.TextSize = 13
-	notificationTitle.TextTransparency = 0.1
+	notificationTitle.TextColor3 = variant.title
+	notificationTitle.TextSize = 14
+	notificationTitle.TextTransparency = 0
 	notificationTitle.TextTruncate = Enum.TextTruncate.SplitWord
 	notificationTitle.TextXAlignment = Enum.TextXAlignment.Left
 	notificationTitle.TextYAlignment = Enum.TextYAlignment.Top
-	notificationTitle.AutomaticSize = Enum.AutomaticSize.XY
+	notificationTitle.AutomaticSize = Enum.AutomaticSize.Y
 	notificationTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	notificationTitle.BackgroundTransparency = 1
 	notificationTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	notificationTitle.BorderSizePixel = 0
-	notificationTitle.Size = UDim2.new(1, -12, 0, 0)
-
-	local notificationTitleUIPadding = Instance.new("UIPadding")
-	notificationTitleUIPadding.Name = "NotificationTitleUIPadding"
-	notificationTitleUIPadding.PaddingRight = UDim.new(0, 25)
-	notificationTitleUIPadding.Parent = notificationTitle
-
+	notificationTitle.Size = UDim2.new(1, 0, 0, 0)
+	notificationTitle.LayoutOrder = 1
 	notificationTitle.Parent = notificationInformation
 
 	local notificationDescription = Instance.new("TextLabel")
@@ -5782,86 +5974,93 @@ function MacLib:Window(Settings)
 		Enum.FontStyle.Normal
 	)
 	notificationDescription.Text = Settings.Description
-	notificationDescription.TextColor3 = Color3.fromRGB(180, 180, 190)
-	notificationDescription.TextSize = 11
-	notificationDescription.TextTransparency = 0.3
+	notificationDescription.TextColor3 = variant.desc
+	notificationDescription.TextSize = 12
+	notificationDescription.TextTransparency = 0
 	notificationDescription.TextWrapped = true
 	notificationDescription.RichText = true
 	notificationDescription.TextXAlignment = Enum.TextXAlignment.Left
 	notificationDescription.TextYAlignment = Enum.TextYAlignment.Top
-	notificationDescription.AutomaticSize = Enum.AutomaticSize.XY
+	notificationDescription.AutomaticSize = Enum.AutomaticSize.Y
 	notificationDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	notificationDescription.BackgroundTransparency = 1
 	notificationDescription.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	notificationDescription.BorderSizePixel = 0
-	notificationDescription.Size = UDim2.new(1, -12, 0, 0)
-
-	local notificationDescriptionUIPadding = Instance.new("UIPadding")
-	notificationDescriptionUIPadding.Name = "NotificationDescriptionUIPadding"
-	notificationDescriptionUIPadding.PaddingRight = UDim.new(0, 25)
-	notificationDescriptionUIPadding.PaddingTop = UDim.new(0, 16)
-	notificationDescriptionUIPadding.Parent = notificationDescription
-
+	notificationDescription.Size = UDim2.new(1, 0, 0, 0)
+	notificationDescription.LayoutOrder = 2
 	notificationDescription.Parent = notificationInformation
 
 	local notificationUIPadding = Instance.new("UIPadding")
 	notificationUIPadding.Name = "NotificationUIPadding"
-	notificationUIPadding.PaddingBottom = UDim.new(0, 12)
-	notificationUIPadding.PaddingLeft = UDim.new(0, 12)
-	notificationUIPadding.PaddingRight = UDim.new(0, 12)
-	notificationUIPadding.PaddingTop = UDim.new(0, 12)
+	notificationUIPadding.PaddingBottom = UDim.new(0, 14)
+	notificationUIPadding.PaddingLeft = UDim.new(0, 16)
+	notificationUIPadding.PaddingRight = UDim.new(0, 40)
+	notificationUIPadding.PaddingTop = UDim.new(0, 14)
 	notificationUIPadding.Parent = notificationInformation
-
-		notificationInformation.Parent = notification
 
 		local notificationControls = Instance.new("Frame")
 		notificationControls.Name = "NotificationControls"
-		notificationControls.AutomaticSize = Enum.AutomaticSize.Y
 		notificationControls.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		notificationControls.BackgroundTransparency = 1
 		notificationControls.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		notificationControls.BorderSizePixel = 0
 		notificationControls.Size = UDim2.fromScale(1, 1)
+		notificationControls.ZIndex = 10
 
 		local interactable = Instance.new("TextButton")
 		interactable.Name = "Interactable"
-		interactable.FontFace = Font.new(assets.interFont)
-		interactable.Text = "✓"
-		interactable.TextColor3 = Color3.fromRGB(255, 255, 255)
-		interactable.TextSize = 17
-		interactable.TextTransparency = 0.2
-		interactable.AnchorPoint = Vector2.new(1, 0.5)
+		interactable.FontFace = Font.new(assets.interFont, Enum.FontWeight.Medium)
+		interactable.Text = "×"
+		interactable.TextColor3 = variant.desc
+		interactable.TextSize = 20
+		interactable.TextTransparency = 0.3
+		interactable.AnchorPoint = Vector2.new(1, 0)
 		interactable.AutomaticSize = Enum.AutomaticSize.XY
 		interactable.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		interactable.BackgroundTransparency = 1
 		interactable.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		interactable.BorderSizePixel = 0
-		interactable.LayoutOrder = 1
-		interactable.Position = UDim2.fromScale(1, 0.5)
+		interactable.Position = UDim2.new(1, -12, 0, 10)
+		interactable.ZIndex = 11
 		interactable.Parent = notificationControls
-
-		local uIPadding = Instance.new("UIPadding")
-		uIPadding.Name = "UIPadding"
-		uIPadding.PaddingBottom = UDim.new(0, 6)
-		uIPadding.PaddingRight = UDim.new(0, 13)
-		uIPadding.PaddingTop = UDim.new(0, 6)
-		uIPadding.Parent = notificationControls
+		
+		-- Hover effect for close button
+		interactable.MouseEnter:Connect(function()
+			Tween(interactable, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+				TextTransparency = 0
+			}):Play()
+		end)
+		
+		interactable.MouseLeave:Connect(function()
+			Tween(interactable, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
+				TextTransparency = 0.3
+			}):Play()
+		end)
 
 		notificationControls.Parent = notification
 
 		local tweens = {
-			In = Tween(notificationUIScale, TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
+			In = Tween(notificationUIScale, TweenInfo.new(0.3, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
 				Scale = Settings.Scale or 1
 			}),
-			Out = Tween(notificationUIScale, TweenInfo.new(0.2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {
-				Scale = 0
+			Out = Tween(notificationUIScale, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+				Scale = 0.8
+			}),
+			FadeOut = Tween(notification, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+				BackgroundTransparency = 1
 			}),
 		}
 
 		local styles = {
 			None = function() interactable:Destroy() end,
-			Confirm = function() interactable.Text = "✓" end,
-			Cancel = function() interactable.Text = "✗" end
+			Confirm = function() 
+				interactable.Text = "✓" 
+				interactable.TextSize = 18
+			end,
+			Cancel = function() 
+				interactable.Text = "×" 
+				interactable.TextSize = 20
+			end
 		}
 
 		local style = styles[Settings.Style] or function() interactable:Destroy() end
@@ -5884,8 +6083,20 @@ function MacLib:Window(Settings)
 			if Settings.Lifetime ~= 0 then
 				task.wait(Settings.Lifetime)
 
+				-- Fade out with scale
 				local out = tweens.Out
+				local fadeOut = tweens.FadeOut
 				out:Play()
+				fadeOut:Play()
+				
+				-- Fade out stroke and shadow
+				Tween(notificationUIStroke, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+					Transparency = 1
+				}):Play()
+				Tween(shadow, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+					ImageTransparency = 1
+				}):Play()
+				
 				out.Completed:Wait()
 				notification:Destroy()
 			end
@@ -5908,7 +6119,18 @@ function MacLib:Window(Settings)
 			task.cancel(AnimateNotification)
 
 			local out = tweens.Out
+			local fadeOut = tweens.FadeOut
 			out:Play()
+			fadeOut:Play()
+			
+			-- Fade out stroke and shadow
+			Tween(notificationUIStroke, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+				Transparency = 1
+			}):Play()
+			Tween(shadow, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.In), {
+				ImageTransparency = 1
+			}):Play()
+			
 			out.Completed:Wait()
 			notification:Destroy()
 		end
@@ -6558,6 +6780,58 @@ function MacLib:Window(Settings)
 		return out
 	end
 
+	function MacLib:ExportConfig()
+		if isStudio then return false, "Config system unavailable in Studio." end
+		
+		local data = {
+			objects = {}
+		}
+
+		for flag, option in next, MacLib.Options do
+			if not ClassParser[option.Class] then continue end
+			if option.IgnoreConfig then continue end
+
+			table.insert(data.objects, ClassParser[option.Class].Save(flag, option))
+		end	
+
+		local success, encoded = pcall(HttpService.JSONEncode, HttpService, data)
+		if not success then
+			return false, "Unable to encode config data"
+		end
+
+		-- Copy to clipboard
+		setclipboard(encoded)
+		
+		return true, encoded
+	end
+
+	function MacLib:ImportConfig(configString)
+		if isStudio then return false, "Config system unavailable in Studio." end
+		
+		if not configString or configString == "" then
+			return false, "No config data provided"
+		end
+
+		local success, decoded = pcall(HttpService.JSONDecode, HttpService, configString)
+		if not success then 
+			return false, "Invalid config data. Unable to decode JSON." 
+		end
+
+		if not decoded.objects then
+			return false, "Invalid config format"
+		end
+
+		for _, option in next, decoded.objects do
+			if ClassParser[option.type] then
+				task.spawn(function() 
+					ClassParser[option.type].Load(option.flag, option) 
+				end)
+			end
+		end
+
+		return true
+	end
+
 	macLib.Enabled = false
 
 	local assetList = {}
@@ -6620,7 +6894,8 @@ function MacLib:Demo()
 					Lifetime = 5
 				})
 			end,
-		})
+		}),
+		Button
 	}
 
 	local tabGroups = {
