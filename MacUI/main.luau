@@ -43,7 +43,21 @@ local assets = {
 	roundBottom = "rbxassetid://16287194510",
 }
 
-local ICONS__ = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Footagesus/Icons/main/Main.lua"))()
+-- Load icons with error handling
+local ICONS__
+local iconLoadSuccess = pcall(function()
+	ICONS__ = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Footagesus/Icons/main/Main.lua"))()
+	
+	-- Set Icons Type
+	if ICONS__ and ICONS__.SetIconsType then
+		ICONS__.SetIconsType("lucide") -- lucide, craft and more...
+	end
+end)
+
+if not iconLoadSuccess then
+	warn("Failed to load icon library")
+	ICONS__ = nil
+end
 
 --// Functions
 local function Tween(instance, tweeninfo, propertytable)
@@ -1121,8 +1135,10 @@ function MacLib:Window(Settings)
 	
 	-- Get scaling icon from lucide
 	if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
-		local scalingIcon = ICONS__.Icon("scaling") or ICONS__.Icon("maximize-2") or ICONS__.Icon("expand")
-		if scalingIcon then
+		local success, scalingIcon = pcall(function()
+			return ICONS__.Icon("scaling") or ICONS__.Icon("maximize-2") or ICONS__.Icon("expand")
+		end)
+		if success and scalingIcon then
 			resizeIcon.Image = scalingIcon[1]
 			if scalingIcon[2] then
 				resizeIcon.ImageRectOffset = scalingIcon[2].ImageRectPosition or Vector2.zero
@@ -1781,13 +1797,16 @@ function MacLib:Window(Settings)
 			tabSwitcherUIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 			tabSwitcherUIListLayout.Parent = tabSwitcher
 			
-			print("KONTENT")
-			local tabImage
-	        local assetsIcon = ICONS__
+		print("KONTENT")
+		local tabImage
+        local assetsIcon = ICONS__
+		
+		if Settings.Image and assetsIcon and assetsIcon.Icon then
+			local success, iconData = pcall(function()
+				return assetsIcon.Icon(Settings.Image)
+			end)
 			
-			if Settings.Image and assetsIcon.Icon(Settings.Image) then
-				local iconData = assetsIcon.Icon(Settings.Image)
-			
+			if success and iconData then
 				local tabImage = Instance.new("ImageLabel")
 				tabImage.Name = "TabImage"
 				tabImage.ImageTransparency = 0.4
@@ -1800,6 +1819,7 @@ function MacLib:Window(Settings)
 				tabImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				tabImage.BorderSizePixel = 0
 				tabImage.Parent = tabSwitcher
+			end
 			elseif Settings.Image and string.find(Settings.Image, "rbxassetid://") then
 				local tabImage = Instance.new("ImageLabel")
 				tabImage.Name = "TabImage"
@@ -1962,11 +1982,13 @@ function MacLib:Window(Settings)
 				local collapseText = nil
 				local headerButton = nil
 
-				local arrowIconData = { down = nil, up = nil }
-				if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
+			local arrowIconData = { down = nil, up = nil }
+			if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
+				pcall(function()
 					arrowIconData.down = ICONS__.Icon("arrow-down") or ICONS__.Icon("chevron-down")
 					arrowIconData.up = ICONS__.Icon("arrow-up") or ICONS__.Icon("chevron-up")
-				end
+				end)
+			end
 
 				local function applyCollapseIcon()
 					if collapseIcon then
