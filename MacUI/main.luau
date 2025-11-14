@@ -43,25 +43,29 @@ local assets = {
 	roundBottom = "rbxassetid://16287194510",
 }
 
--- Load icons with error handling
-local ICONS__
-local iconLoadSuccess = pcall(function()
-	ICONS__ = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Footagesus/Icons/main/Main.lua"))()
-	
-	-- Set Icons Type
-	if ICONS__ and ICONS__.SetIconsType then
-		ICONS__.SetIconsType("lucide") -- lucide, craft and more...
+local IconsURL = "https://raw.githubusercontent.com/Footagesus/Icons/main/Main-v2.lua"
+
+local Icons
+pcall(function()
+	Icons = loadstring(
+		game.HttpGetAsync and game:HttpGetAsync(IconsURL)
+		or HttpService:GetAsync(IconsURL) -- studio
+	)()
+	if Icons and Icons.SetIconsType then
+		Icons.SetIconsType("lucide")
 	end
 end)
-
-if not iconLoadSuccess then
-	warn("Failed to load icon library")
-	ICONS__ = nil
-end
 
 --// Functions
 local function Tween(instance, tweeninfo, propertytable)
 	return TweenService:Create(instance, tweeninfo, propertytable)
+end
+
+local function Icon(iconName, formatdefault)
+	if Icons and typeof(Icons) == "table" and Icons.Icon then
+		return Icons.Icon(iconName, nil, formatdefault ~= false)
+	end
+	return nil
 end
 
 --// Library Functions
@@ -1134,16 +1138,12 @@ function MacLib:Window(Settings)
 	resizeIcon.Parent = resizeHandle
 	
 	-- Get scaling icon from lucide
-	if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
-		local success, scalingIcon = pcall(function()
-			return ICONS__.Icon("scaling") or ICONS__.Icon("maximize-2") or ICONS__.Icon("expand")
-		end)
-		if success and scalingIcon then
-			resizeIcon.Image = scalingIcon[1]
-			if scalingIcon[2] then
-				resizeIcon.ImageRectOffset = scalingIcon[2].ImageRectPosition or Vector2.zero
-				resizeIcon.ImageRectSize = scalingIcon[2].ImageRectSize or Vector2.zero
-			end
+	local scalingIcon = Icon("scaling") or Icon("maximize-2") or Icon("expand")
+	if scalingIcon then
+		resizeIcon.Image = scalingIcon[1]
+		if scalingIcon[2] then
+			resizeIcon.ImageRectOffset = scalingIcon[2].ImageRectPosition or Vector2.zero
+			resizeIcon.ImageRectSize = scalingIcon[2].ImageRectSize or Vector2.zero
 		end
 	end
 	
@@ -1799,14 +1799,10 @@ function MacLib:Window(Settings)
 			
 		print("KONTENT")
 		local tabImage
-        local assetsIcon = ICONS__
 		
-		if Settings.Image and assetsIcon and assetsIcon.Icon then
-			local success, iconData = pcall(function()
-				return assetsIcon.Icon(Settings.Image)
-			end)
+		if Settings.Image and Icon(Settings.Image) then
+			local iconData = Icon(Settings.Image)
 			
-			if success and iconData then
 				local tabImage = Instance.new("ImageLabel")
 				tabImage.Name = "TabImage"
 				tabImage.ImageTransparency = 0.4
@@ -1819,7 +1815,6 @@ function MacLib:Window(Settings)
 				tabImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				tabImage.BorderSizePixel = 0
 				tabImage.Parent = tabSwitcher
-			end
 			elseif Settings.Image and string.find(Settings.Image, "rbxassetid://") then
 				local tabImage = Instance.new("ImageLabel")
 				tabImage.Name = "TabImage"
@@ -1983,12 +1978,8 @@ function MacLib:Window(Settings)
 				local headerButton = nil
 
 			local arrowIconData = { down = nil, up = nil }
-			if ICONS__ and typeof(ICONS__) == "table" and ICONS__.Icon then
-				pcall(function()
-					arrowIconData.down = ICONS__.Icon("arrow-down") or ICONS__.Icon("chevron-down")
-					arrowIconData.up = ICONS__.Icon("arrow-up") or ICONS__.Icon("chevron-up")
-				end)
-			end
+			arrowIconData.down = Icon("arrow-down") or Icon("chevron-down")
+			arrowIconData.up = Icon("arrow-up") or Icon("chevron-up")
 
 				local function applyCollapseIcon()
 					if collapseIcon then
