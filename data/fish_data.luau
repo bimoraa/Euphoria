@@ -1,4 +1,4 @@
--- discord.gg/getsades-- Total Fishes: 238
+-- discord.gg/getsades-- Total Fishes: 331
 
 return {
     -- Reef Chromis (Common)
@@ -714,7 +714,7 @@ return {
             Default = NumberRange.new(2.5, 3)
         },
         Probability = {
-            Chance = 0.002857142857142857
+            Chance = 0.0033333333333333335
         }
     },
     -- Lavafin Tuna (Epic)
@@ -833,7 +833,7 @@ return {
             Tier = 2,
             TierName = "Uncommon"
         },
-        SellPrice = 135,
+        SellPrice = 95,
         Variants = {},
         Weight = {
             Big = NumberRange.new(2.5999999046325684, 3.299999952316284),
@@ -1029,7 +1029,7 @@ return {
             Default = NumberRange.new(5.400000095367432, 6.400000095367432)
         },
         Probability = {
-            Chance = 1.14E-05
+            Chance = 1.25E-05
         }
     },
     -- Scissortail Dartfish (Uncommon)
@@ -1915,7 +1915,7 @@ return {
             Default = NumberRange.new(1.940000057220459, 2.5199999809265137)
         },
         Probability = {
-            Chance = 0.002857142857142857
+            Chance = 0.0033333333333333335
         }
     },
     -- Bleekers Damsel (Uncommon)
@@ -3518,7 +3518,7 @@ return {
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 345000,
+        SellPrice = 355000,
         Variants = {
             [1] = "Color Burn",
         },
@@ -3583,7 +3583,7 @@ return {
             Tier = 6,
             TierName = "Mythic"
         },
-        SellPrice = 89500,
+        SellPrice = 115500,
         Variants = {
             [1] = "Color Burn",
         },
@@ -4101,25 +4101,25 @@ return {
             Chance = 0.001
         }
     },
-    -- Freshwater Piranha (Rare)
+    -- Ancient Lochness Monster (SECRET)
     [195] = {
         Data = {
-            Id = 284,
+            Id = 345,
             Type = "Fish",
-            Name = "Freshwater Piranha",
+            Name = "Ancient Lochness Monster",
             Description = "",
-            Icon = "rbxassetid://133381366802339",
-            Tier = 3,
-            TierName = "Rare"
+            Icon = "rbxassetid://122849883484708",
+            Tier = 7,
+            TierName = "SECRET"
         },
-        SellPrice = 410,
+        SellPrice = 100000,
         Variants = {},
         Weight = {
-            Big = NumberRange.new(18, 24),
-            Default = NumberRange.new(12, 16)
+            Big = NumberRange.new(338000, 381000),
+            Default = NumberRange.new(260000, 295000)
         },
         Probability = {
-            Chance = 0.0033333333333333335
+            Chance = 3.33E-07
         }
     },
     -- Drippy Tucanare (Uncommon)
@@ -4261,7 +4261,7 @@ return {
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 325000,
+        SellPrice = 440000,
         Variants = {
             [1] = "Color Burn",
         },
@@ -4813,7 +4813,7 @@ return {
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 345000,
+        SellPrice = 375000,
         Variants = {
             [1] = "Color Burn",
         },
@@ -4911,25 +4911,25 @@ return {
             Chance = 4.08E-06
         }
     },
-    -- Skeleton Narwhal (SECRET)
+    -- Bloodmoon Whale (SECRET)
     [233] = {
         Data = {
-            Id = 339,
+            Id = 342,
             Type = "Fish",
-            Name = "Skeleton Narwhal",
+            Name = "Bloodmoon Whale",
             Description = "",
-            Icon = "rbxassetid://72248976760148",
+            Icon = "rbxassetid://113886190969614",
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 135000,
+        SellPrice = 540000,
         Variants = {},
         Weight = {
-            Big = NumberRange.new(620, 700),
-            Default = NumberRange.new(339, 509)
+            Big = NumberRange.new(472112, 525584),
+            Default = NumberRange.new(362784, 464176)
         },
         Probability = {
-            Chance = 1.67E-06
+            Chance = 2.00E-07
         }
     },
     -- Talon Serpent (SECRET)
@@ -5016,25 +5016,1990 @@ return {
             Chance = 0.001
         }
     },
-    -- Bloodmoon Whale (SECRET)
+    -- Skeleton Narwhal (SECRET)
     [238] = {
         Data = {
-            Id = 342,
+            Id = 339,
             Type = "Fish",
-            Name = "Bloodmoon Whale",
+            Name = "Skeleton Narwhal",
             Description = "",
-            Icon = "rbxassetid://113886190969614",
+            Icon = "rbxassetid://72248976760148",
             Tier = 7,
             TierName = "SECRET"
         },
-        SellPrice = 500000,
+        SellPrice = 135000,
         Variants = {},
         Weight = {
-            Big = NumberRange.new(472112, 525584),
-            Default = NumberRange.new(362784, 464176)
+            Big = NumberRange.new(620, 700),
+            Default = NumberRange.new(339, 509)
         },
         Probability = {
-            Chance = 2.00E-07
+            Chance = 1.67E-06
+        }
+    },
+    -- Wing Parrotfish (Uncommon)
+    [239] = {
+        Data = {
+            Id = 378,
+            Type = "Fish",
+            Name = "Wing Parrotfish",
+            Description = "",
+            Icon = "rbxassetid://124783376175888",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 85,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(1.1699999570846558, 1.5),
+            Default = NumberRange.new(0.5199999809265137, 0.7799999713897705)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Traffic Cone Fish (Rare)
+    [240] = {
+        Data = {
+            Id = 377,
+            Type = "Fish",
+            Name = "Traffic Cone Fish",
+            Description = "",
+            Icon = "rbxassetid://113998108351187",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 495,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(7, 9),
+            Default = NumberRange.new(2, 3)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Toothy Fish (Rare)
+    [241] = {
+        Data = {
+            Id = 376,
+            Type = "Fish",
+            Name = "Toothy Fish",
+            Description = "",
+            Icon = "rbxassetid://136937049057582",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 520,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(77, 94),
+            Default = NumberRange.new(52, 65)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Thinkler Fish (Uncommon)
+    [242] = {
+        Data = {
+            Id = 375,
+            Type = "Fish",
+            Name = "Thinkler Fish",
+            Description = "",
+            Icon = "rbxassetid://109016567709360",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 82,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6.5, 9),
+            Default = NumberRange.new(3.700000047683716, 4.800000190734863)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Sona Fin Fish (Common)
+    [243] = {
+        Data = {
+            Id = 374,
+            Type = "Fish",
+            Name = "Sona Fin Fish",
+            Description = "",
+            Icon = "rbxassetid://123007215107239",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 28,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.200000047683716, 3.4000000953674316),
+            Default = NumberRange.new(1.5, 1.899999976158142)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Sea Crustacean (Mythic)
+    [244] = {
+        Data = {
+            Id = 373,
+            Type = "Fish",
+            Name = "Sea Crustacean",
+            Description = "",
+            Icon = "rbxassetid://115338077693444",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 65000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(15422, 17230),
+            Default = NumberRange.new(12410, 13615)
+        },
+        Probability = {
+            Chance = 2.00E-05
+        }
+    },
+    -- Runic Squid (Mythic)
+    [245] = {
+        Data = {
+            Id = 372,
+            Type = "Fish",
+            Name = "Runic Squid",
+            Description = "",
+            Icon = "rbxassetid://76096764311236",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 114000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6380, 7032),
+            Default = NumberRange.new(4923, 5700)
+        },
+        Probability = {
+            Chance = 1.11E-05
+        }
+    },
+    -- Runic Sea Crustacean (Mythic)
+    [246] = {
+        Data = {
+            Id = 371,
+            Type = "Fish",
+            Name = "Runic Sea Crustacean",
+            Description = "",
+            Icon = "rbxassetid://78787372617743",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 78000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(15422, 17230),
+            Default = NumberRange.new(12410, 13615)
+        },
+        Probability = {
+            Chance = 2.00E-05
+        }
+    },
+    -- Runic Lobster (Legendary)
+    [247] = {
+        Data = {
+            Id = 370,
+            Type = "Fish",
+            Name = "Runic Lobster",
+            Description = "",
+            Icon = "rbxassetid://75142053727355",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 6000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(23, 31),
+            Default = NumberRange.new(15, 19)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Runic Axolotl (Legendary)
+    [248] = {
+        Data = {
+            Id = 369,
+            Type = "Fish",
+            Name = "Runic Axolotl",
+            Description = "",
+            Icon = "rbxassetid://77334109072314",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 9600,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.5, 9.5),
+            Default = NumberRange.new(5.800000190734863, 7.199999809265137)
+        },
+        Probability = {
+            Chance = 0.0001
+        }
+    },
+    -- Purp Blisfish (Common)
+    [249] = {
+        Data = {
+            Id = 368,
+            Type = "Fish",
+            Name = "Purp Blisfish",
+            Description = "",
+            Icon = "rbxassetid://119189756405143",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 73,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(1.5499999523162842, 1.7999999523162842),
+            Default = NumberRange.new(0.6899999976158142, 1.100000023841858)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Primordial Octopus (Mythic)
+    [250] = {
+        Data = {
+            Id = 367,
+            Type = "Fish",
+            Name = "Primordial Octopus",
+            Description = "",
+            Icon = "rbxassetid://102375471622278",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 105000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(5800, 6008),
+            Default = NumberRange.new(3900, 4400)
+        },
+        Probability = {
+            Chance = 6.67E-06
+        }
+    },
+    -- Primal Lobster (Legendary)
+    [251] = {
+        Data = {
+            Id = 366,
+            Type = "Fish",
+            Name = "Primal Lobster",
+            Description = "",
+            Icon = "rbxassetid://134352063604414",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(23, 31),
+            Default = NumberRange.new(15, 19)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Primal Axolotl (Legendary)
+    [252] = {
+        Data = {
+            Id = 365,
+            Type = "Fish",
+            Name = "Primal Axolotl",
+            Description = "",
+            Icon = "rbxassetid://127892490832450",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 8000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.5, 9.5),
+            Default = NumberRange.new(5.800000190734863, 7.199999809265137)
+        },
+        Probability = {
+            Chance = 0.0001
+        }
+    },
+    -- Pirate Blue Lobster (Rare)
+    [253] = {
+        Data = {
+            Id = 364,
+            Type = "Fish",
+            Name = "Pirate Blue Lobster",
+            Description = "",
+            Icon = "rbxassetid://136311954875874",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.5999999046325684, 4.199999809265137),
+            Default = NumberRange.new(2.5, 3.0999999046325684)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Night Glider Fish (Common)
+    [254] = {
+        Data = {
+            Id = 363,
+            Type = "Fish",
+            Name = "Night Glider Fish",
+            Description = "",
+            Icon = "rbxassetid://93808950497100",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 28,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.4300000071525574, 0.5799999833106995),
+            Default = NumberRange.new(0.10999999940395355, 0.2800000011920929)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Lunar Crescent Fish (Rare)
+    [255] = {
+        Data = {
+            Id = 362,
+            Type = "Fish",
+            Name = "Lunar Crescent Fish",
+            Description = "",
+            Icon = "rbxassetid://100769354091343",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 490,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(10.600000381469727, 14.100000381469727),
+            Default = NumberRange.new(5.5, 9.199999809265137)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Liar Nose Fish (Rare)
+    [256] = {
+        Data = {
+            Id = 361,
+            Type = "Fish",
+            Name = "Liar Nose Fish",
+            Description = "",
+            Icon = "rbxassetid://122543032863960",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 490,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(28, 39),
+            Default = NumberRange.new(17, 22)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- 1x1x1x1 Shark (SECRET)
+    [257] = {
+        Data = {
+            Id = 445,
+            Type = "Fish",
+            Name = "1x1x1x1 Shark",
+            Description = "",
+            Icon = "rbxassetid://126602140465429",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 150000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(176575, 211890),
+            Default = NumberRange.new(104482, 135827)
+        },
+        Probability = {
+            Chance = 4.00E-07
+        }
+    },
+    -- Gladiator Shark (SECRET)
+    [258] = {
+        Data = {
+            Id = 359,
+            Type = "Fish",
+            Name = "Gladiator Shark",
+            Description = "",
+            Icon = "rbxassetid://131785277053113",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 190000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(19428, 25000),
+            Default = NumberRange.new(10290, 16431)
+        },
+        Probability = {
+            Chance = 1.00E-06
+        }
+    },
+    -- Foxtrot Koanfish (Uncommon)
+    [259] = {
+        Data = {
+            Id = 358,
+            Type = "Fish",
+            Name = "Foxtrot Koanfish",
+            Description = "",
+            Icon = "rbxassetid://115020830553781",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 87,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6.800000190734863, 8.899999618530273),
+            Default = NumberRange.new(5.099999904632568, 6.199999809265137)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Fossilized Shark (Mythic)
+    [260] = {
+        Data = {
+            Id = 357,
+            Type = "Fish",
+            Name = "Fossilized Shark",
+            Description = "",
+            Icon = "rbxassetid://95113752323029",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 94000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(3838, 4545),
+            Default = NumberRange.new(2222, 3333)
+        },
+        Probability = {
+            Chance = 1.00E-05
+        }
+    },
+    -- Flying Manta (Legendary)
+    [261] = {
+        Data = {
+            Id = 356,
+            Type = "Fish",
+            Name = "Flying Manta",
+            Description = "",
+            Icon = "rbxassetid://89252022082531",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 15000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(1052, 1273),
+            Default = NumberRange.new(647, 853)
+        },
+        Probability = {
+            Chance = 6.67E-05
+        }
+    },
+    -- Flatheaded Whale Shark (Mythic)
+    [262] = {
+        Data = {
+            Id = 355,
+            Type = "Fish",
+            Name = "Flatheaded Whale Shark",
+            Description = "",
+            Icon = "rbxassetid://73809550216371",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 140000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(13000, 16000),
+            Default = NumberRange.new(8500, 9500)
+        },
+        Probability = {
+            Chance = 5.00E-06
+        }
+    },
+    -- Doober Fish (Uncommon)
+    [263] = {
+        Data = {
+            Id = 354,
+            Type = "Fish",
+            Name = "Doober Fish",
+            Description = "",
+            Icon = "rbxassetid://104826665812171",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 93,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.11999999731779099, 0.17000000178813934),
+            Default = NumberRange.new(0.05000000074505806, 0.07999999821186066)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Dogfish (Epic)
+    [264] = {
+        Data = {
+            Id = 353,
+            Type = "Fish",
+            Name = "Dogfish",
+            Description = "",
+            Icon = "rbxassetid://124798847622372",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 3333,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(19, 21),
+            Default = NumberRange.new(9, 10)
+        },
+        Probability = {
+            Chance = 0.0005
+        }
+    },
+    -- Cavern Dweller (Mythic)
+    [265] = {
+        Data = {
+            Id = 352,
+            Type = "Fish",
+            Name = "Cavern Dweller",
+            Description = "",
+            Icon = "rbxassetid://110427632040144",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 135000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3965, 4852),
+            Default = NumberRange.new(2934, 3371)
+        },
+        Probability = {
+            Chance = 8.33E-06
+        }
+    },
+    -- Boney Eel (Rare)
+    [266] = {
+        Data = {
+            Id = 351,
+            Type = "Fish",
+            Name = "Boney Eel",
+            Description = "",
+            Icon = "rbxassetid://85394749821305",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 450,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(1.5199999809265137, 1.899999976158142),
+            Default = NumberRange.new(0.9100000262260437, 1.3700000047683716)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Blobby Shieldfish (Epic)
+    [267] = {
+        Data = {
+            Id = 350,
+            Type = "Fish",
+            Name = "Blobby Shieldfish",
+            Description = "",
+            Icon = "rbxassetid://78472043782085",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1600,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.299999952316284, 4.400000095367432),
+            Default = NumberRange.new(1.100000023841858, 2.200000047683716)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Baby Shrimp (Uncommon)
+    [268] = {
+        Data = {
+            Id = 349,
+            Type = "Fish",
+            Name = "Baby Shrimp",
+            Description = "",
+            Icon = "rbxassetid://100664684321181",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 79,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.10000000149011612, 0.11999999731779099),
+            Default = NumberRange.new(0.03999999910593033, 0.07999999821186066)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Angrylion Fish (Epic)
+    [269] = {
+        Data = {
+            Id = 348,
+            Type = "Fish",
+            Name = "Angrylion Fish",
+            Description = "",
+            Icon = "rbxassetid://135099762730215",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 3330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(135, 221),
+            Default = NumberRange.new(75, 105)
+        },
+        Probability = {
+            Chance = 0.0005
+        }
+    },
+    -- Ancient Squid (Mythic)
+    [270] = {
+        Data = {
+            Id = 347,
+            Type = "Fish",
+            Name = "Ancient Squid",
+            Description = "",
+            Icon = "rbxassetid://103962641004338",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 95000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6380, 7032),
+            Default = NumberRange.new(4923, 5700)
+        },
+        Probability = {
+            Chance = 1.11E-05
+        }
+    },
+    -- Ancient Pufferfish (Legendary)
+    [271] = {
+        Data = {
+            Id = 346,
+            Type = "Fish",
+            Name = "Ancient Pufferfish",
+            Description = "",
+            Icon = "rbxassetid://94080226439959",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 4500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.0999999046325684, 3.799999952316284),
+            Default = NumberRange.new(2.200000047683716, 2.5999999046325684)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Freshwater Piranha (Rare)
+    [272] = {
+        Data = {
+            Id = 284,
+            Type = "Fish",
+            Name = "Freshwater Piranha",
+            Description = "",
+            Icon = "rbxassetid://133381366802339",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 410,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(18, 24),
+            Default = NumberRange.new(12, 16)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Plasma Serpent (Mythic)
+    [273] = {
+        Data = {
+            Id = 380,
+            Type = "Fish",
+            Name = "Plasma Serpent",
+            Description = "",
+            Icon = "rbxassetid://129918689550932",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 98000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6800, 9300),
+            Default = NumberRange.new(3800, 5800)
+        },
+        Probability = {
+            Chance = 4.44E-06
+        }
+    },
+    -- Cryoshade Glider (SECRET)
+    [274] = {
+        Data = {
+            Id = 379,
+            Type = "Fish",
+            Name = "Cryoshade Glider",
+            Description = "",
+            Icon = "rbxassetid://107008051913908",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 120000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(14500, 17200),
+            Default = NumberRange.new(10500, 11500)
+        },
+        Probability = {
+            Chance = 2.22E-06
+        }
+    },
+    -- Starlight Manta Ray (Mythic)
+    [275] = {
+        Data = {
+            Id = 381,
+            Type = "Fish",
+            Name = "Starlight Manta Ray",
+            Description = "",
+            Icon = "rbxassetid://132585714096538",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 33000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(120.80000305175781, 160.5),
+            Default = NumberRange.new(86.30000305175781, 110.0999984741211)
+        },
+        Probability = {
+            Chance = 1.25E-05
+        }
+    },
+    -- Starlight Crab (Epic)
+    [276] = {
+        Data = {
+            Id = 383,
+            Type = "Fish",
+            Name = "Starlight Crab",
+            Description = "",
+            Icon = "rbxassetid://116185409462303",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.5, 10.699999809265137),
+            Default = NumberRange.new(5.400000095367432, 6.400000095367432)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Parrot Blopfish (Rare)
+    [277] = {
+        Data = {
+            Id = 385,
+            Type = "Fish",
+            Name = "Parrot Blopfish",
+            Description = "",
+            Icon = "rbxassetid://118232728651933",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 410,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4, 6),
+            Default = NumberRange.new(2.0999999046325684, 3)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Green Gillfish (Uncommon)
+    [278] = {
+        Data = {
+            Id = 391,
+            Type = "Fish",
+            Name = "Green Gillfish",
+            Description = "",
+            Icon = "rbxassetid://138551053618250",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 65,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.5, 4.800000190734863),
+            Default = NumberRange.new(2.200000047683716, 3.299999952316284)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Cypress Ratua (Uncommon)
+    [279] = {
+        Data = {
+            Id = 390,
+            Type = "Fish",
+            Name = "Cypress Ratua",
+            Description = "",
+            Icon = "rbxassetid://120326003916500",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 65,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.5, 4.800000190734863),
+            Default = NumberRange.new(2.200000047683716, 3.299999952316284)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Fish Fossil (Legendary)
+    [280] = {
+        Data = {
+            Id = 389,
+            Type = "Fish",
+            Name = "Fish Fossil",
+            Description = "",
+            Icon = "rbxassetid://137098484897071",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 3580,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(7.800000190734863, 9.399999618530273),
+            Default = NumberRange.new(2.299999952316284, 4.699999809265137)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Glacierfin Snapper (Uncommon)
+    [281] = {
+        Data = {
+            Id = 388,
+            Type = "Fish",
+            Name = "Glacierfin Snapper",
+            Description = "",
+            Icon = "rbxassetid://122228140520012",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 120,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.399999618530273, 9.5),
+            Default = NumberRange.new(6, 7)
+        },
+        Probability = {
+            Chance = 0.01
+        }
+    },
+    -- Curious Garfish (Uncommon)
+    [282] = {
+        Data = {
+            Id = 387,
+            Type = "Fish",
+            Name = "Curious Garfish",
+            Description = "",
+            Icon = "rbxassetid://110265016364630",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 68,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.399999618530273, 9.5),
+            Default = NumberRange.new(6, 7)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Iron Domefin (Epic)
+    [283] = {
+        Data = {
+            Id = 386,
+            Type = "Fish",
+            Name = "Iron Domefin",
+            Description = "",
+            Icon = "rbxassetid://118826363919078",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1150,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(13, 17),
+            Default = NumberRange.new(10.199999809265137, 12)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Cute Octopus (Rare)
+    [284] = {
+        Data = {
+            Id = 382,
+            Type = "Fish",
+            Name = "Cute Octopus",
+            Description = "",
+            Icon = "rbxassetid://101240566251348",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 402,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8.5, 10.699999809265137),
+            Default = NumberRange.new(5.400000095367432, 6.400000095367432)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Freshwater Piranha (Rare)
+    [285] = {
+        Data = {
+            Id = 384,
+            Type = "Fish",
+            Name = "Freshwater Piranha",
+            Description = "",
+            Icon = "rbxassetid://138330943047773",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 410,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(18, 24),
+            Default = NumberRange.new(12, 16)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Coral (Common)
+    [286] = {
+        Data = {
+            Id = 392,
+            Type = "Fish",
+            Name = "Coral",
+            Description = "",
+            Icon = "rbxassetid://96235449127344",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 25,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.20000000298023224, 0.4000000059604645),
+            Default = NumberRange.new(0.05999999865889549, 0.11999999731779099)
+        },
+        Probability = {
+            Chance = 0.16666666666666666
+        }
+    },
+    -- Boltback Fish (Uncommon)
+    [287] = {
+        Data = {
+            Id = 395,
+            Type = "Fish",
+            Name = "Boltback Fish",
+            Description = "",
+            Icon = "rbxassetid://87304583998131",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 115,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.20000000298023224, 0.4000000059604645),
+            Default = NumberRange.new(0.05999999865889549, 0.11999999731779099)
+        },
+        Probability = {
+            Chance = 0.01
+        }
+    },
+    -- Sophisticated Angler (Uncommon)
+    [288] = {
+        Data = {
+            Id = 393,
+            Type = "Fish",
+            Name = "Sophisticated Angler",
+            Description = "",
+            Icon = "rbxassetid://96450948294793",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 84,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.20000000298023224, 0.4000000059604645),
+            Default = NumberRange.new(0.05999999865889549, 0.11999999731779099)
+        },
+        Probability = {
+            Chance = 0.014285714285714285
+        }
+    },
+    -- Smarty Mcfish (Uncommon)
+    [289] = {
+        Data = {
+            Id = 394,
+            Type = "Fish",
+            Name = "Smarty Mcfish",
+            Description = "",
+            Icon = "rbxassetid://94221709472146",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 82,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(0.20000000298023224, 0.4000000059604645),
+            Default = NumberRange.new(0.05999999865889549, 0.11999999731779099)
+        },
+        Probability = {
+            Chance = 0.014285714285714285
+        }
+    },
+    -- Yellow Spinefin (Uncommon)
+    [290] = {
+        Data = {
+            Id = 405,
+            Type = "Fish",
+            Name = "Yellow Spinefin",
+            Description = "",
+            Icon = "rbxassetid://140293601164118",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.4000000953674316, 2.9000000953674316),
+            Default = NumberRange.new(1.399999976158142, 1.7999999523162842)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- ElRetro Gran Maja (SECRET)
+    [291] = {
+        Data = {
+            Id = 427,
+            Type = "Fish",
+            Name = "ElRetro Gran Maja",
+            Description = "",
+            Icon = "rbxassetid://87213487175221",
+            Tier = 7,
+            TierName = "SECRET"
+        },
+        SellPrice = 360000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(280000, 325000),
+            Default = NumberRange.new(205000, 240000)
+        },
+        Probability = {
+            Chance = 2.50E-07
+        }
+    },
+    -- Violet Divafish (Common)
+    [292] = {
+        Data = {
+            Id = 407,
+            Type = "Fish",
+            Name = "Violet Divafish",
+            Description = "",
+            Icon = "rbxassetid://122211520622139",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 20,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2, 2.4000000953674316),
+            Default = NumberRange.new(1.2000000476837158, 1.5)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Turqoi Backfin (Uncommon)
+    [293] = {
+        Data = {
+            Id = 408,
+            Type = "Fish",
+            Name = "Turqoi Backfin",
+            Description = "",
+            Icon = "rbxassetid://106185428761933",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2, 2.4000000953674316),
+            Default = NumberRange.new(1.2000000476837158, 1.5)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Tree Frog (Rare)
+    [294] = {
+        Data = {
+            Id = 409,
+            Type = "Fish",
+            Name = "Tree Frog",
+            Description = "",
+            Icon = "rbxassetid://80655916696311",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2, 2.5),
+            Default = NumberRange.new(1.2000000476837158, 1.600000023841858)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Trav Grupper (Legendary)
+    [295] = {
+        Data = {
+            Id = 410,
+            Type = "Fish",
+            Name = "Trav Grupper",
+            Description = "",
+            Icon = "rbxassetid://111686486825787",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 15000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(7, 9),
+            Default = NumberRange.new(4, 6)
+        },
+        Probability = {
+            Chance = 6.67E-05
+        }
+    },
+    -- Studded Jellyfish (Legendary)
+    [296] = {
+        Data = {
+            Id = 411,
+            Type = "Fish",
+            Name = "Studded Jellyfish",
+            Description = "",
+            Icon = "rbxassetid://137910385069866",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(60, 77),
+            Default = NumberRange.new(33, 48)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Studded Dolphin (Epic)
+    [297] = {
+        Data = {
+            Id = 412,
+            Type = "Fish",
+            Name = "Studded Dolphin",
+            Description = "",
+            Icon = "rbxassetid://118480628740391",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(32, 38),
+            Default = NumberRange.new(19, 24)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Steelfin Marlin (Rare)
+    [298] = {
+        Data = {
+            Id = 413,
+            Type = "Fish",
+            Name = "Steelfin Marlin",
+            Description = "",
+            Icon = "rbxassetid://74650607758460",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(33, 41),
+            Default = NumberRange.new(17, 25)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Starry Night Shark (Mythic)
+    [299] = {
+        Data = {
+            Id = 414,
+            Type = "Fish",
+            Name = "Starry Night Shark",
+            Description = "",
+            Icon = "rbxassetid://85086243829526",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 75000,
+        Variants = {
+            [1] = "Color Burn",
+        },
+        Weight = {
+            Big = NumberRange.new(1510, 1740),
+            Default = NumberRange.new(1160, 1270)
+        },
+        Probability = {
+            Chance = 2.00E-05
+        }
+    },
+    -- Shedletsky Guppy (Epic)
+    [300] = {
+        Data = {
+            Id = 415,
+            Type = "Fish",
+            Name = "Shedletsky Guppy",
+            Description = "",
+            Icon = "rbxassetid://101611169865190",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.199999809265137, 5),
+            Default = NumberRange.new(2.4000000953674316, 3.200000047683716)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Retro Crocodile (Legendary)
+    [301] = {
+        Data = {
+            Id = 446,
+            Type = "Fish",
+            Name = "Retro Crocodile",
+            Description = "",
+            Icon = "rbxassetid://86938160716648",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(41, 49),
+            Default = NumberRange.new(24, 31)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Purple Razorback (Uncommon)
+    [302] = {
+        Data = {
+            Id = 416,
+            Type = "Fish",
+            Name = "Purple Razorback",
+            Description = "",
+            Icon = "rbxassetid://124695608237391",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.700000047683716, 3.299999952316284),
+            Default = NumberRange.new(1.600000023841858, 2.0999999046325684)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Lumina Stinger (Legendary)
+    [303] = {
+        Data = {
+            Id = 417,
+            Type = "Fish",
+            Name = "Lumina Stinger",
+            Description = "",
+            Icon = "rbxassetid://104139252072812",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(120, 140),
+            Default = NumberRange.new(65, 88)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Leaf Fin (Common)
+    [304] = {
+        Data = {
+            Id = 418,
+            Type = "Fish",
+            Name = "Leaf Fin",
+            Description = "",
+            Icon = "rbxassetid://140112807282792",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 20,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4, 4.800000190734863),
+            Default = NumberRange.new(2.4000000953674316, 3.0999999046325684)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Lady Luminelle (Uncommon)
+    [305] = {
+        Data = {
+            Id = 419,
+            Type = "Fish",
+            Name = "Lady Luminelle",
+            Description = "",
+            Icon = "rbxassetid://122152368670912",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.5, 3),
+            Default = NumberRange.new(1.399999976158142, 1.899999976158142)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Happy Sunfish (Uncommon)
+    [306] = {
+        Data = {
+            Id = 420,
+            Type = "Fish",
+            Name = "Happy Sunfish",
+            Description = "",
+            Icon = "rbxassetid://70479460586644",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.299999952316284, 3.9000000953674316),
+            Default = NumberRange.new(1.899999976158142, 2.5)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Gumball Whale (Rare)
+    [307] = {
+        Data = {
+            Id = 421,
+            Type = "Fish",
+            Name = "Gumball Whale",
+            Description = "",
+            Icon = "rbxassetid://120585557484652",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.5999999046325684, 4.400000095367432),
+            Default = NumberRange.new(2.0999999046325684, 2.799999952316284)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Guest Guppy (Rare)
+    [308] = {
+        Data = {
+            Id = 422,
+            Type = "Fish",
+            Name = "Guest Guppy",
+            Description = "",
+            Icon = "rbxassetid://108835728416359",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(14, 16),
+            Default = NumberRange.new(8, 10)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Grumpy Angler (Rare)
+    [309] = {
+        Data = {
+            Id = 423,
+            Type = "Fish",
+            Name = "Grumpy Angler",
+            Description = "",
+            Icon = "rbxassetid://111356644977460",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.700000047683716, 4.400000095367432),
+            Default = NumberRange.new(2.0999999046325684, 2.799999952316284)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Frostbreaker Whale (Mythic)
+    [310] = {
+        Data = {
+            Id = 424,
+            Type = "Fish",
+            Name = "Frostbreaker Whale",
+            Description = "",
+            Icon = "rbxassetid://136615659816850",
+            Tier = 6,
+            TierName = "Mythic"
+        },
+        SellPrice = 145000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(26000, 33000),
+            Default = NumberRange.new(18000, 22000)
+        },
+        Probability = {
+            Chance = 5.00E-06
+        }
+    },
+    -- Friendly Lobster (Epic)
+    [311] = {
+        Data = {
+            Id = 425,
+            Type = "Fish",
+            Name = "Friendly Lobster",
+            Description = "",
+            Icon = "rbxassetid://137153575325442",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(7, 8),
+            Default = NumberRange.new(4, 5)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Enchanted Turtle (Epic)
+    [312] = {
+        Data = {
+            Id = 426,
+            Type = "Fish",
+            Name = "Enchanted Turtle",
+            Description = "",
+            Icon = "rbxassetid://100202738318932",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(5.099999904632568, 6.099999904632568),
+            Default = NumberRange.new(3, 3.9000000953674316)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- King Frog (Epic)
+    [313] = {
+        Data = {
+            Id = 360,
+            Type = "Fish",
+            Name = "King Frog",
+            Description = "",
+            Icon = "rbxassetid://107539230294032",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 4000,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3001, 3001),
+            Default = NumberRange.new(2696, 2696)
+        },
+        Probability = {
+            Chance = 0.0003332222592469177
+        }
+    },
+    -- Disco Party Puffer (Epic)
+    [314] = {
+        Data = {
+            Id = 428,
+            Type = "Fish",
+            Name = "Disco Party Puffer",
+            Description = "",
+            Icon = "rbxassetid://81180761060405",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 2400,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.299999952316284, 4),
+            Default = NumberRange.new(1.899999976158142, 2.5)
+        },
+        Probability = {
+            Chance = 0.0005
+        }
+    },
+    -- Cousin Tentacles (Legendary)
+    [315] = {
+        Data = {
+            Id = 429,
+            Type = "Fish",
+            Name = "Cousin Tentacles",
+            Description = "",
+            Icon = "rbxassetid://84052975001558",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6, 8),
+            Default = NumberRange.new(3, 5)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Classic Goldfish (Common)
+    [316] = {
+        Data = {
+            Id = 430,
+            Type = "Fish",
+            Name = "Classic Goldfish",
+            Description = "",
+            Icon = "rbxassetid://101426127102104",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 20,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.200000047683716, 2.5999999046325684),
+            Default = NumberRange.new(1.2999999523162842, 1.7000000476837158)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Classic Dorhey Tang (Uncommon)
+    [317] = {
+        Data = {
+            Id = 431,
+            Type = "Fish",
+            Name = "Classic Dorhey Tang",
+            Description = "",
+            Icon = "rbxassetid://108600494137652",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.799999952316284, 4.599999904632568),
+            Default = NumberRange.new(2.200000047683716, 2.9000000953674316)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Classic Angler (Epic)
+    [318] = {
+        Data = {
+            Id = 432,
+            Type = "Fish",
+            Name = "Classic Angler",
+            Description = "",
+            Icon = "rbxassetid://116353079150728",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8, 10),
+            Default = NumberRange.new(5, 6)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Cantelope Puffer (Uncommon)
+    [319] = {
+        Data = {
+            Id = 433,
+            Type = "Fish",
+            Name = "Cantelope Puffer",
+            Description = "",
+            Icon = "rbxassetid://136380956166771",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.699999809265137, 5.599999904632568),
+            Default = NumberRange.new(2.700000047683716, 3.5999999046325684)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Builderman Guppy (Rare)
+    [320] = {
+        Data = {
+            Id = 434,
+            Type = "Fish",
+            Name = "Builderman Guppy",
+            Description = "",
+            Icon = "rbxassetid://115945392034086",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.0999999046325684, 2.5),
+            Default = NumberRange.new(1.2000000476837158, 1.600000023841858)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Brighteyes Guppy (Epic)
+    [321] = {
+        Data = {
+            Id = 435,
+            Type = "Fish",
+            Name = "Brighteyes Guppy",
+            Description = "",
+            Icon = "rbxassetid://84533446308508",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.5, 4.199999809265137),
+            Default = NumberRange.new(2, 2.5999999046325684)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Boned Arrowhead Fish (Common)
+    [322] = {
+        Data = {
+            Id = 436,
+            Type = "Fish",
+            Name = "Boned Arrowhead Fish",
+            Description = "",
+            Icon = "rbxassetid://123712872087272",
+            Tier = 1,
+            TierName = "Common"
+        },
+        SellPrice = 20,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(3.299999952316284, 4),
+            Default = NumberRange.new(1.899999976158142, 2.5)
+        },
+        Probability = {
+            Chance = 0.5
+        }
+    },
+    -- Blue Shell Crab (Legendary)
+    [323] = {
+        Data = {
+            Id = 437,
+            Type = "Fish",
+            Name = "Blue Shell Crab",
+            Description = "",
+            Icon = "rbxassetid://97862084509972",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(46, 60),
+            Default = NumberRange.new(26, 35)
+        },
+        Probability = {
+            Chance = 0.0002
+        }
+    },
+    -- Blocky Octopus (Epic)
+    [324] = {
+        Data = {
+            Id = 438,
+            Type = "Fish",
+            Name = "Blocky Octopus",
+            Description = "",
+            Icon = "rbxassetid://114941091584027",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(295, 352),
+            Default = NumberRange.new(150, 240)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Blockmine Fish (Uncommon)
+    [325] = {
+        Data = {
+            Id = 439,
+            Type = "Fish",
+            Name = "Blockmine Fish",
+            Description = "",
+            Icon = "rbxassetid://136270282783680",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(6, 8),
+            Default = NumberRange.new(3, 5)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Block Fish (Epic)
+    [326] = {
+        Data = {
+            Id = 440,
+            Type = "Fish",
+            Name = "Block Fish",
+            Description = "",
+            Icon = "rbxassetid://124410297821349",
+            Tier = 4,
+            TierName = "Epic"
+        },
+        SellPrice = 1100,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2, 2.5),
+            Default = NumberRange.new(1.2000000476837158, 1.600000023841858)
+        },
+        Probability = {
+            Chance = 0.001
+        }
+    },
+    -- Beach Ball (Uncommon)
+    [327] = {
+        Data = {
+            Id = 441,
+            Type = "Fish",
+            Name = "Beach Ball",
+            Description = "",
+            Icon = "rbxassetid://99523992488689",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(4.900000095367432, 5.800000190734863),
+            Default = NumberRange.new(2.9000000953674316, 3.700000047683716)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Angry Rocky (Uncommon)
+    [328] = {
+        Data = {
+            Id = 442,
+            Type = "Fish",
+            Name = "Angry Rocky",
+            Description = "",
+            Icon = "rbxassetid://86379985934607",
+            Tier = 2,
+            TierName = "Uncommon"
+        },
+        SellPrice = 55,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(8, 10),
+            Default = NumberRange.new(4, 6)
+        },
+        Probability = {
+            Chance = 0.02
+        }
+    },
+    -- Ancient Crawler (Rare)
+    [329] = {
+        Data = {
+            Id = 443,
+            Type = "Fish",
+            Name = "Ancient Crawler",
+            Description = "",
+            Icon = "rbxassetid://132304105842168",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(24, 28),
+            Default = NumberRange.new(17, 20)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Alienhead Squid (Rare)
+    [330] = {
+        Data = {
+            Id = 444,
+            Type = "Fish",
+            Name = "Alienhead Squid",
+            Description = "",
+            Icon = "rbxassetid://104195278889702",
+            Tier = 3,
+            TierName = "Rare"
+        },
+        SellPrice = 330,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(18, 22),
+            Default = NumberRange.new(10, 14)
+        },
+        Probability = {
+            Chance = 0.0033333333333333335
+        }
+    },
+    -- Winged Seahorse (Legendary)
+    [331] = {
+        Data = {
+            Id = 406,
+            Type = "Fish",
+            Name = "Winged Seahorse",
+            Description = "",
+            Icon = "rbxassetid://128407329321611",
+            Tier = 5,
+            TierName = "Legendary"
+        },
+        SellPrice = 5500,
+        Variants = {},
+        Weight = {
+            Big = NumberRange.new(2.799999952316284, 3.299999952316284),
+            Default = NumberRange.new(1.600000023841858, 2.0999999046325684)
+        },
+        Probability = {
+            Chance = 0.0002
         }
     }
 }
