@@ -134,134 +134,6 @@ function MacLib:Window(Settings)
     gradient.Rotation = 135
     gradient.Parent = base
 
-	local function playBootAnimation()
-		local tweenService = game:GetService("TweenService")
-
-		-- Setup blur effect
-		local blur = game:GetService("Lighting"):FindFirstChild("Blur") or Instance.new("BlurEffect")
-		blur.Parent = game:GetService("Lighting")
-		blur.Size = 0
-		
-		-- Boot sound with better timing
-		local sound = Instance.new("Sound")
-		sound.SoundId = "rbxassetid://6230186752"
-		sound.Volume = 0.4
-		sound.Parent = base
-		sound:Play()
-		
-		local camera = game.Workspace.CurrentCamera
-		local originalFOV = camera.FieldOfView
-		local targetFOV = 30
-		local originalBlurSize = 0
-		local targetBlurSize = 18
-
-		-- Initial state: centered but scaled down and transparent
-		base.Size = UDim2.fromScale(0, 0)
-		base.Position = UDim2.fromScale(0.5, 0.5)
-		base.Visible = true
-		base.BackgroundTransparency = 1
-		
-		-- Ultra smooth camera zoom with Sine easing
-		local cameraTweenInfo = TweenInfo.new(
-			1.4,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.InOut
-		)
-		
-		local cameraTween = tweenService:Create(camera, cameraTweenInfo, {
-			FieldOfView = targetFOV
-		})
-		
-		-- Smooth blur in with Sine easing
-		local blurInTweenInfo = TweenInfo.new(
-			0.9,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.Out
-		)
-		
-		local blurTween = tweenService:Create(blur, blurInTweenInfo, {
-			Size = targetBlurSize
-		})
-		
-		-- Start camera and blur simultaneously
-		cameraTween:Play()
-		blurTween:Play()
-		
-		task.wait(0.25)
-		
-		-- Modern multi-stage UI animation
-		-- Stage 1: Quick scale from 0 to slightly oversized (overshoot effect)
-		local stage1ScaleTweenInfo = TweenInfo.new(
-			0.5,
-			Enum.EasingStyle.Quart,
-			Enum.EasingDirection.Out
-		)
-		
-		local stage1ScaleTween = tweenService:Create(base, stage1ScaleTweenInfo, {
-			Size = UDim2.new(Settings.Size.X.Scale * 1.02, Settings.Size.X.Offset, Settings.Size.Y.Scale * 1.02, Settings.Size.Y.Offset)
-		})
-		
-		-- Stage 1: Fade in simultaneously with fast fade
-		local stage1FadeTweenInfo = TweenInfo.new(
-			0.4,
-			Enum.EasingStyle.Quart,
-			Enum.EasingDirection.Out
-		)
-		
-		local stage1FadeTween = tweenService:Create(base, stage1FadeTweenInfo, {
-			BackgroundTransparency = 0
-		})
-		
-		stage1ScaleTween:Play()
-		stage1FadeTween:Play()
-		
-		task.wait(0.5)
-		
-		-- Stage 2: Settle to exact size with smooth bounce back
-		local stage2ScaleTweenInfo = TweenInfo.new(
-			0.35,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.InOut
-		)
-		
-		local stage2ScaleTween = tweenService:Create(base, stage2ScaleTweenInfo, {
-			Size = Settings.Size
-		})
-		
-		stage2ScaleTween:Play()
-		
-		task.wait(0.6)
-
-		-- Ultra smooth blur and camera restoration with Sine
-		local blurOutTweenInfo = TweenInfo.new(
-			1.1,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.InOut
-		)
-		
-		local reverseBlurTween = tweenService:Create(blur, blurOutTweenInfo, {
-			Size = originalBlurSize
-		})
-		
-		local reverseCameraTweenInfo = TweenInfo.new(
-			1.4,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.InOut
-		)
-		
-		local reverseCameraTween = tweenService:Create(camera, reverseCameraTweenInfo, {
-			FieldOfView = originalFOV
-		})
-
-		reverseBlurTween:Play()
-		reverseCameraTween:Play()
-		
-		-- Clean up sound after animation
-		task.wait(1.4)
-		sound:Destroy()
-	end
-	
-
 	local baseUIScale = Instance.new("UIScale")
 	baseUIScale.Name = "BaseUIScale"
 	baseUIScale.Parent = base
@@ -1207,10 +1079,7 @@ function MacLib:Window(Settings)
 	end)
 	
 	base.Parent = macLib
-
-	spawn(function()
-		playBootAnimation()
-	end)
+	base.Visible = true
 
 	function WindowFunctions:UpdateTitle(NewTitle)
 		title.Text = NewTitle
@@ -1274,8 +1143,10 @@ function MacLib:Window(Settings)
 			DepthOfField.NearIntensity = 1
 			DepthOfField.Name = HS:GenerateGUID(true)
 			DepthOfField:AddTag(".")
+			DepthOfField.Enabled = false
 		elseif v:IsA("DepthOfFieldEffect") and v:HasTag(".") then
 			DepthOfField = v
+			DepthOfField.Enabled = false
 		end
 	end
 
@@ -1287,6 +1158,7 @@ function MacLib:Window(Settings)
 		DepthOfField.NearIntensity = 1
 		DepthOfField.Name = HS:GenerateGUID(true)
 		DepthOfField:AddTag(".")
+		DepthOfField.Enabled = false
 	end
 
 	local frame = Instance.new('Frame')
@@ -6455,6 +6327,20 @@ function MacLib:Window(Settings)
 		if onUnloadCallback then
 			onUnloadCallback()  
 		end
+		
+		-- Clean up DepthOfField effect
+		if DepthOfField then
+			DepthOfField.Enabled = false
+			DepthOfField.Parent = nil
+			DepthOfField:Destroy()
+		end
+		
+		-- Clean up any blur effects that might be left
+		local existingBlur = game:GetService("Lighting"):FindFirstChild("Blur")
+		if existingBlur then
+			existingBlur:Destroy()
+		end
+		
 		macLib:Destroy()
 		unloaded = true
 	end
