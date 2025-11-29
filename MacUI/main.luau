@@ -14,7 +14,6 @@ local LocalPlayer = Players.LocalPlayer
 
 local windowState
 local togglePos
-local acrylicBlur
 local hasGlobalSetting
 
 local tabs = {}
@@ -24,7 +23,6 @@ local unloaded = false
 
 local assets = {
 	interFont = "rbxassetid://12187365364",
-	userInfoBlurred = "rbxassetid://18824089198",
 	toggleBackground = "rbxassetid://18772190202",
 	togglerHead = "rbxassetid://18772309008",
 	buttonImage = "rbxassetid://10709791437",
@@ -71,11 +69,6 @@ end
 --// Library Functions
 function MacLib:Window(Settings)
 	local WindowFunctions = {Settings = Settings}
-	if Settings.AcrylicBlur ~= nil then
-		acrylicBlur = Settings.AcrylicBlur
-	else
-		acrylicBlur = true
-	end
 
 	local macLib = Instance.new("ScreenGui")
 	macLib.Name = "MacLib"
@@ -117,7 +110,7 @@ function MacLib:Window(Settings)
     base.AnchorPoint = Vector2.new(0.5, 0.5)
     base.BackgroundColor3 = Color3.fromRGB(39, 39, 42) -- #27272A
     base.ClipsDescendants = true
-    base.BackgroundTransparency = Settings.AcrylicBlur and 0.2 or 0
+    base.BackgroundTransparency = 0
     base.BorderColor3 = Color3.fromRGB(0, 0, 0)
     base.BorderSizePixel = 0
     base.Position = UDim2.fromScale(0.5, 0.5)
@@ -136,11 +129,6 @@ function MacLib:Window(Settings)
 
 	local function playBootAnimation()
 		local tweenService = game:GetService("TweenService")
-
-		-- Setup blur effect
-		local blur = game:GetService("Lighting"):FindFirstChild("Blur") or Instance.new("BlurEffect")
-		blur.Parent = game:GetService("Lighting")
-		blur.Size = 0
 		
 		-- Boot sound with better timing
 		local sound = Instance.new("Sound")
@@ -152,8 +140,6 @@ function MacLib:Window(Settings)
 		local camera = game.Workspace.CurrentCamera
 		local originalFOV = camera.FieldOfView
 		local targetFOV = 30
-		local originalBlurSize = 0
-		local targetBlurSize = 18
 
 		-- Initial state: centered but scaled down and transparent
 		base.Size = UDim2.fromScale(0, 0)
@@ -172,20 +158,8 @@ function MacLib:Window(Settings)
 			FieldOfView = targetFOV
 		})
 		
-		-- Smooth blur in with Sine easing
-		local blurInTweenInfo = TweenInfo.new(
-			0.9,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.Out
-		)
-		
-		local blurTween = tweenService:Create(blur, blurInTweenInfo, {
-			Size = targetBlurSize
-		})
-		
-		-- Start camera and blur simultaneously
+		-- Start camera animation
 		cameraTween:Play()
-		blurTween:Play()
 		
 		task.wait(0.25)
 		
@@ -232,17 +206,7 @@ function MacLib:Window(Settings)
 		
 		task.wait(0.6)
 
-		-- Ultra smooth blur and camera restoration with Sine
-		local blurOutTweenInfo = TweenInfo.new(
-			1.1,
-			Enum.EasingStyle.Sine,
-			Enum.EasingDirection.InOut
-		)
-		
-		local reverseBlurTween = tweenService:Create(blur, blurOutTweenInfo, {
-			Size = originalBlurSize
-		})
-		
+		-- Ultra smooth camera restoration with Sine
 		local reverseCameraTweenInfo = TweenInfo.new(
 			1.4,
 			Enum.EasingStyle.Sine,
@@ -253,7 +217,6 @@ function MacLib:Window(Settings)
 			FieldOfView = originalFOV
 		})
 
-		reverseBlurTween:Play()
 		reverseCameraTween:Play()
 		
 		-- Clean up sound after animation
@@ -1254,231 +1217,6 @@ function MacLib:Window(Settings)
 			toggle()
 		end
 	end)
-
-	local BlurTarget = base
-
-	local HS = game:GetService('HttpService')
-	local camera = workspace.CurrentCamera
-	local MTREL = "Glass"
-	local binds = {}
-	local wedgeguid = HS:GenerateGUID(true)
-
-	local DepthOfField
-
-	for _,v in pairs(game:GetService("Lighting"):GetChildren()) do
-		if not v:IsA("DepthOfFieldEffect") and v:HasTag(".") then
-			DepthOfField = Instance.new('DepthOfFieldEffect')
-			DepthOfField.FarIntensity = 0
-			DepthOfField.FocusDistance = 51.6
-			DepthOfField.InFocusRadius = 50
-			DepthOfField.NearIntensity = 1
-			DepthOfField.Name = HS:GenerateGUID(true)
-			DepthOfField:AddTag(".")
-		elseif v:IsA("DepthOfFieldEffect") and v:HasTag(".") then
-			DepthOfField = v
-		end
-	end
-
-	if not DepthOfField then
-		DepthOfField = Instance.new('DepthOfFieldEffect')
-		DepthOfField.FarIntensity = 0
-		DepthOfField.FocusDistance = 51.6
-		DepthOfField.InFocusRadius = 50
-		DepthOfField.NearIntensity = 1
-		DepthOfField.Name = HS:GenerateGUID(true)
-		DepthOfField:AddTag(".")
-	end
-
-	local frame = Instance.new('Frame')
-	frame.Parent = BlurTarget
-	frame.Size = UDim2.new(0.97, 0, 0.97, 0)
-	frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-	frame.AnchorPoint = Vector2.new(0.5, 0.5)
-	frame.BackgroundTransparency = 1
-	frame.Name = HS:GenerateGUID(true)
-
-	do
-		local function IsNotNaN(x)
-			return x == x
-		end
-		local continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
-		while not continue do
-			RunService.RenderStepped:wait()
-			continue = IsNotNaN(camera:ScreenPointToRay(0,0).Origin.x)
-		end
-	end
-
-	local DrawQuad; do
-		local acos, max, pi, sqrt = math.acos, math.max, math.pi, math.sqrt
-		local sz = 0.2
-
-		local function DrawTriangle(v1, v2, v3, p0, p1)
-			local s1 = (v1 - v2).magnitude
-			local s2 = (v2 - v3).magnitude
-			local s3 = (v3 - v1).magnitude
-			local smax = max(s1, s2, s3)
-			local A, B, C
-			if s1 == smax then
-				A, B, C = v1, v2, v3
-			elseif s2 == smax then
-				A, B, C = v2, v3, v1
-			elseif s3 == smax then
-				A, B, C = v3, v1, v2
-			end
-
-			local para = ( (B-A).x*(C-A).x + (B-A).y*(C-A).y + (B-A).z*(C-A).z ) / (A-B).magnitude
-			local perp = sqrt((C-A).magnitude^2 - para*para)
-			local dif_para = (A - B).magnitude - para
-
-			local st = CFrame.new(B, A)
-			local za = CFrame.Angles(pi/2,0,0)
-
-			local cf0 = st
-
-			local Top_Look = (cf0 * za).lookVector
-			local Mid_Point = A + CFrame.new(A, B).lookVector * para
-			local Needed_Look = CFrame.new(Mid_Point, C).lookVector
-			local dot = Top_Look.x*Needed_Look.x + Top_Look.y*Needed_Look.y + Top_Look.z*Needed_Look.z
-
-			local ac = CFrame.Angles(0, 0, acos(dot))
-
-			cf0 = cf0 * ac
-			if ((cf0 * za).lookVector - Needed_Look).magnitude > 0.01 then
-				cf0 = cf0 * CFrame.Angles(0, 0, -2*acos(dot))
-			end
-			cf0 = cf0 * CFrame.new(0, perp/2, -(dif_para + para/2))
-
-			local cf1 = st * ac * CFrame.Angles(0, pi, 0)
-			if ((cf1 * za).lookVector - Needed_Look).magnitude > 0.01 then
-				cf1 = cf1 * CFrame.Angles(0, 0, 2*acos(dot))
-			end
-			cf1 = cf1 * CFrame.new(0, perp/2, dif_para/2)
-
-			if not p0 then
-				p0 = Instance.new('Part')
-				p0.FormFactor = 'Custom'
-				p0.TopSurface = 0
-				p0.BottomSurface = 0
-				p0.Anchored = true
-				p0.CanCollide = false
-				p0.CastShadow = false
-				p0.Material = MTREL
-				p0.Size = Vector3.new(sz, sz, sz)
-				p0.Name = HS:GenerateGUID(true)
-				local mesh = Instance.new('SpecialMesh', p0)
-				mesh.MeshType = 2
-				mesh.Name = wedgeguid
-			end
-			p0[wedgeguid].Scale = Vector3.new(0, perp/sz, para/sz)
-			p0.CFrame = cf0
-
-			if not p1 then
-				p1 = p0:clone()
-			end
-			p1[wedgeguid].Scale = Vector3.new(0, perp/sz, dif_para/sz)
-			p1.CFrame = cf1
-
-			return p0, p1
-		end
-
-		function DrawQuad(v1, v2, v3, v4, parts)
-			parts[1], parts[2] = DrawTriangle(v1, v2, v3, parts[1], parts[2])
-			parts[3], parts[4] = DrawTriangle(v3, v2, v4, parts[3], parts[4])
-		end
-	end
-
-	if binds[frame] then
-		return binds[frame].parts
-	end
-
-	local parts = {}
-
-	local parents = {}
-	do
-		local function add(child)
-			if child:IsA'GuiObject' then
-				parents[#parents + 1] = child
-				add(child.Parent)
-			end
-		end
-		add(frame)
-	end
-
-	local function IsVisible(instance)
-		while instance do
-			if instance:IsA("GuiObject") then
-				if not instance.Visible then
-					return false
-				end
-			elseif instance:IsA("ScreenGui") then
-				if not instance.Enabled then
-					return false
-				end
-				break
-			end
-			instance = instance.Parent
-		end
-		return true
-	end
-
-	local function UpdateOrientation(fetchProps)
-		if not IsVisible(frame) or not acrylicBlur or unloaded then
-			for _, pt in pairs(parts) do
-				pt.Parent = nil
-				DepthOfField.Enabled = false
-				DepthOfField.Parent = nil
-			end
-			return
-		end
-		if not DepthOfField.Parent then
-			DepthOfField.Parent = game:GetService("Lighting")
-		end
-		DepthOfField.Enabled = true
-		local properties = {
-			Transparency = 0.98;
-			BrickColor = BrickColor.new('Institutional white');
-		}
-		local zIndex = 1 - 0.05*frame.ZIndex
-
-		local tl, br = frame.AbsolutePosition, frame.AbsolutePosition + frame.AbsoluteSize
-		local tr, bl = Vector2.new(br.x, tl.y), Vector2.new(tl.x, br.y)
-		do
-			local rot = 0;
-			for _, v in ipairs(parents) do
-				rot = rot + v.Rotation
-			end
-			if rot ~= 0 and rot%180 ~= 0 then
-				local mid = tl:lerp(br, 0.5)
-				local s, c = math.sin(math.rad(rot)), math.cos(math.rad(rot))
-				local vec = tl
-				tl = Vector2.new(c*(tl.x - mid.x) - s*(tl.y - mid.y), s*(tl.x - mid.x) + c*(tl.y - mid.y)) + mid
-				tr = Vector2.new(c*(tr.x - mid.x) - s*(tr.y - mid.y), s*(tr.x - mid.x) + c*(tr.y - mid.y)) + mid
-				bl = Vector2.new(c*(bl.x - mid.x) - s*(bl.y - mid.y), s*(bl.x - mid.x) + c*(bl.y - mid.y)) + mid
-				br = Vector2.new(c*(br.x - mid.x) - s*(br.y - mid.y), s*(br.x - mid.x) + c*(br.y - mid.y)) + mid
-			end
-		end
-		DrawQuad(
-			camera:ScreenPointToRay(tl.x, tl.y, zIndex).Origin, 
-			camera:ScreenPointToRay(tr.x, tr.y, zIndex).Origin, 
-			camera:ScreenPointToRay(bl.x, bl.y, zIndex).Origin, 
-			camera:ScreenPointToRay(br.x, br.y, zIndex).Origin, 
-			parts
-		)
-		if fetchProps then
-			for _, pt in pairs(parts) do
-				pt.Parent = camera
-			end
-			for propName, propValue in pairs(properties) do
-				for _, pt in pairs(parts) do
-					pt[propName] = propValue
-				end
-			end
-		end
-	end
-
-	UpdateOrientation(true)
-
-	RunService.RenderStepped:connect(UpdateOrientation)
 
 	function WindowFunctions:GlobalSetting(Settings)
 		hasGlobalSetting = true
@@ -6505,22 +6243,13 @@ function MacLib:Window(Settings)
 		MenuKeybind = Keycode
 	end
 
-	function WindowFunctions:SetAcrylicBlurState(State)
-		acrylicBlur = State
-		base.BackgroundTransparency = State and 0.2 or 0
-	end
-
-	function WindowFunctions:GetAcrylicBlurState()
-		return acrylicBlur
-	end
-
 	local function _SetUserInfoState(State)
 		if State then
 			headshot.Image = (isReady and headshotImage) or "rbxassetid://0"
 			username.Text = "@" .. LocalPlayer.Name
 			displayName.Text = LocalPlayer.DisplayName
 		else
-			headshot.Image = assets.userInfoBlurred
+			headshot.Image = "rbxassetid://0"
 			local nameLength = #LocalPlayer.Name
 			local displayNameLength = #LocalPlayer.DisplayName
 			username.Text = "@" .. string.rep(".", nameLength)
@@ -6868,22 +6597,9 @@ function MacLib:Demo()
 		DisabledWindowControls = {},
 		ShowUserInfo = true,
 		Keybind = Enum.KeyCode.RightControl,
-		AcrylicBlur = true,
 	})
 
 	local globalSettings = {
-		UIBlurToggle = Window:GlobalSetting({
-			Name = "UI Blur",
-			Default = Window:GetAcrylicBlurState(),
-			Callback = function(bool)
-				Window:SetAcrylicBlurState(bool)
-				Window:Notify({
-					Title = Window.Settings.Title,
-					Description = (bool and "Enabled" or "Disabled") .. " UI Blur",
-					Lifetime = 5
-				})
-			end,
-		}),
 		NotificationToggler = Window:GlobalSetting({
 			Name = "Notifications",
 			Default = Window:GetNotificationsState(),
