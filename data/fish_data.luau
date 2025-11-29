@@ -22,7 +22,7 @@ return {
             Chance = 0.5
         }
     },
-    -- Abyss Seahorse (Legendary)
+    -- Abyss Seahorse (Mythic)
     [2] = {
         Data = {
             Id = 15,
@@ -31,7 +31,7 @@ return {
             Description = "",
             Icon = "rbxassetid://140212951494890",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 38500,
         Variants = {},
@@ -127,7 +127,7 @@ return {
             Chance = 0.008
         }
     },
-    -- Blue Lobster (Epic)
+    -- Blue Lobster (Legendary)
     [7] = {
         Data = {
             Id = 22,
@@ -136,7 +136,7 @@ return {
             Description = "",
             Icon = "rbxassetid://79569787883962",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 11355,
         Variants = {},
@@ -148,7 +148,7 @@ return {
             Chance = 4.00E-05
         }
     },
-    -- Blueflame Ray (Legendary)
+    -- Blueflame Ray (Mythic)
     [8] = {
         Data = {
             Id = 47,
@@ -157,7 +157,7 @@ return {
             Description = "",
             Icon = "rbxassetid://113303332536600",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 45000,
         Variants = {},
@@ -190,7 +190,7 @@ return {
             Chance = 0.06666666666666667
         }
     },
-    -- Bumblebee Grouper (Epic)
+    -- Bumblebee Grouper (Legendary)
     [10] = {
         Data = {
             Id = 37,
@@ -199,7 +199,7 @@ return {
             Description = "",
             Icon = "rbxassetid://138718017852833",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 3225,
         Variants = {},
@@ -211,7 +211,7 @@ return {
             Chance = 0.0002
         }
     },
-    -- Candy Butterfly (Uncommon)
+    -- Candy Butterfly (Rare)
     [11] = {
         Data = {
             Id = 59,
@@ -220,7 +220,7 @@ return {
             Description = "",
             Icon = "rbxassetid://118627817589849",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Rare"
         },
         SellPrice = 419,
         Variants = {},
@@ -253,7 +253,7 @@ return {
             Chance = 0.003076923076923077
         }
     },
-    -- Chrome Tuna (Epic)
+    -- Chrome Tuna (Legendary)
     [13] = {
         Data = {
             Id = 53,
@@ -262,7 +262,7 @@ return {
             Description = "",
             Icon = "rbxassetid://103021560011734",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 4050,
         Variants = {},
@@ -316,7 +316,7 @@ return {
             Chance = 0.02
         }
     },
-    -- Copperband Butterfly (Uncommon)
+    -- Copperband Butterfly (Common)
     [16] = {
         Data = {
             Id = 67,
@@ -325,7 +325,7 @@ return {
             Description = "",
             Icon = "rbxassetid://79518413256091",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Common"
         },
         SellPrice = 76,
         Variants = {},
@@ -442,7 +442,7 @@ return {
             Chance = 0.001
         }
     },
-    -- Dotted Stingray (Legendary)
+    -- Dotted Stingray (Mythic)
     [22] = {
         Data = {
             Id = 75,
@@ -451,7 +451,7 @@ return {
             Description = "",
             Icon = "rbxassetid://132465838670740",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 31500,
         Variants = {},
@@ -463,7 +463,7 @@ return {
             Chance = 1.10E-05
         }
     },
-    -- Enchanted Angelfish (Epic)
+    -- Enchanted Angelfish (Legendary)
     [23] = {
         Data = {
             Id = 14,
@@ -472,7 +472,7 @@ return {
             Description = "",
             Icon = "rbxassetid://108347802265821",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 4200,
         Variants = {},
@@ -484,7 +484,7 @@ return {
             Chance = 0.0002
         }
     },
-    -- Fire Goby (Uncommon)
+    -- Fire Goby (Rare)
     [24] = {
         Data = {
             Id = 41,
@@ -493,7 +493,7 @@ return {
             Description = "",
             Icon = "rbxassetid://94533805203782",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Rare"
         },
         SellPrice = 347,
         Variants = {},
@@ -547,7 +547,7 @@ return {
             Chance = 0.01
         }
     },
-    -- Greenbee Grouper (Epic)
+    -- Greenbee Grouper (Legendary)
     [27] = {
         Data = {
             Id = 25,
@@ -556,7 +556,7 @@ return {
             Description = "",
             Icon = "rbxassetid://79015880866732",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 5732,
         Variants = {},
@@ -568,7 +568,7 @@ return {
             Chance = 0.00016666666666666666
         }
     },
-    -- Hammerhead Shark (Legendary)
+    -- Hammerhead Shark (Mythic)
     [28] = {
         Data = {
             Id = 52,
@@ -577,7 +577,7 @@ return {
             Description = "",
             Icon = "rbxassetid://91373020648344",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 46500,
         Variants = {
@@ -591,7 +591,7 @@ return {
             Chance = 1.00E-05
         }
     },
-    -- Hawks Turtle (Legendary)
+    -- Hawks Turtle (Mythic)
     [29] = {
         Data = {
             Id = 21,
@@ -600,7 +600,7 @@ return {
             Description = "",
             Icon = "rbxassetid://129453304232199",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 40500,
         Variants = {},
@@ -612,7 +612,7 @@ return {
             Chance = 1.33E-05
         }
     },
-    -- Starjam Tang (Epic)
+    -- Starjam Tang (Legendary)
     [30] = {
         Data = {
             Id = 24,
@@ -621,7 +621,7 @@ return {
             Description = "",
             Icon = "rbxassetid://129447526017878",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 4200,
         Variants = {},
@@ -654,7 +654,7 @@ return {
             Chance = 0.5
         }
     },
-    -- Jewel Tang (Uncommon)
+    -- Jewel Tang (Rare)
     [32] = {
         Data = {
             Id = 60,
@@ -663,7 +663,7 @@ return {
             Description = "",
             Icon = "rbxassetid://130344776739450",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Rare"
         },
         SellPrice = 347,
         Variants = {},
@@ -717,7 +717,7 @@ return {
             Chance = 0.0033333333333333335
         }
     },
-    -- Lavafin Tuna (Epic)
+    -- Lavafin Tuna (Legendary)
     [35] = {
         Data = {
             Id = 48,
@@ -726,7 +726,7 @@ return {
             Description = "",
             Icon = "rbxassetid://96111934641941",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 4500,
         Variants = {},
@@ -738,7 +738,7 @@ return {
             Chance = 0.00010001000100010001
         }
     },
-    -- Lobster (Epic)
+    -- Lobster (Legendary)
     [36] = {
         Data = {
             Id = 36,
@@ -747,7 +747,7 @@ return {
             Description = "",
             Icon = "rbxassetid://106973499045957",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 15750,
         Variants = {},
@@ -759,7 +759,7 @@ return {
             Chance = 4.00E-05
         }
     },
-    -- Loggerhead Turtle (Legendary)
+    -- Loggerhead Turtle (Mythic)
     [37] = {
         Data = {
             Id = 34,
@@ -768,7 +768,7 @@ return {
             Description = "",
             Icon = "rbxassetid://91953712080535",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 27000,
         Variants = {},
@@ -801,7 +801,7 @@ return {
             Chance = 0.0006666666666666666
         }
     },
-    -- Magic Tang (Epic)
+    -- Magic Tang (Legendary)
     [39] = {
         Data = {
             Id = 16,
@@ -810,7 +810,7 @@ return {
             Description = "",
             Icon = "rbxassetid://88573644059627",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 4500,
         Variants = {},
@@ -843,7 +843,7 @@ return {
             Chance = 0.01818181818181818
         }
     },
-    -- Manta Ray (Legendary)
+    -- Manta Ray (Mythic)
     [41] = {
         Data = {
             Id = 54,
@@ -852,7 +852,7 @@ return {
             Description = "",
             Icon = "rbxassetid://88385941559907",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 24750,
         Variants = {},
@@ -885,7 +885,7 @@ return {
             Chance = 0.001
         }
     },
-    -- Maze Angelfish (Rare)
+    -- Maze Angelfish (Uncommon)
     [43] = {
         Data = {
             Id = 23,
@@ -894,7 +894,7 @@ return {
             Description = "",
             Icon = "rbxassetid://133123622412997",
             Tier = 3,
-            TierName = "Rare"
+            TierName = "Uncommon"
         },
         SellPrice = 153,
         Variants = {},
@@ -1011,7 +1011,7 @@ return {
             Chance = 0.001
         }
     },
-    -- Prismy Seahorse (Legendary)
+    -- Prismy Seahorse (Mythic)
     [49] = {
         Data = {
             Id = 35,
@@ -1020,7 +1020,7 @@ return {
             Description = "",
             Icon = "rbxassetid://105300029672501",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 29250,
         Variants = {},
@@ -1032,7 +1032,7 @@ return {
             Chance = 1.25E-05
         }
     },
-    -- Scissortail Dartfish (Uncommon)
+    -- Scissortail Dartfish (Rare)
     [50] = {
         Data = {
             Id = 29,
@@ -1041,7 +1041,7 @@ return {
             Description = "",
             Icon = "rbxassetid://90918658215983",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Rare"
         },
         SellPrice = 369,
         Variants = {},
@@ -1263,7 +1263,7 @@ return {
             Chance = 0.5
         }
     },
-    -- White Clownfish (Uncommon)
+    -- White Clownfish (Rare)
     [61] = {
         Data = {
             Id = 28,
@@ -1272,7 +1272,7 @@ return {
             Description = "",
             Icon = "rbxassetid://94709558139061",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Rare"
         },
         SellPrice = 347,
         Variants = {},
@@ -1305,7 +1305,7 @@ return {
             Chance = 0.02
         }
     },
-    -- Yellowfin Tuna (Epic)
+    -- Yellowfin Tuna (Legendary)
     [63] = {
         Data = {
             Id = 73,
@@ -1314,7 +1314,7 @@ return {
             Description = "",
             Icon = "rbxassetid://86565235696991",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 3600,
         Variants = {},
@@ -1454,7 +1454,7 @@ return {
             Chance = 0.008
         }
     },
-    -- Slurpfish Chromis (Uncommon)
+    -- Slurpfish Chromis (Legendary)
     [70] = {
         Data = {
             Id = 86,
@@ -1463,7 +1463,7 @@ return {
             Description = "",
             Icon = "rbxassetid://73157781682607",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Legendary"
         },
         SellPrice = 3830,
         Variants = {},
@@ -1580,7 +1580,7 @@ return {
             Chance = 0.01818181818181818
         }
     },
-    -- Gingerbread Turtle (Legendary)
+    -- Gingerbread Turtle (Mythic)
     [76] = {
         Data = {
             Id = 97,
@@ -1589,7 +1589,7 @@ return {
             Description = "",
             Icon = "rbxassetid://105391647263950",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 38750,
         Variants = {},
@@ -1918,7 +1918,7 @@ return {
             Chance = 0.0033333333333333335
         }
     },
-    -- Bleekers Damsel (Uncommon)
+    -- Bleekers Damsel (Common)
     [92] = {
         Data = {
             Id = 121,
@@ -1927,7 +1927,7 @@ return {
             Description = "",
             Icon = "rbxassetid://116977046936052",
             Tier = 2,
-            TierName = "Uncommon"
+            TierName = "Common"
         },
         SellPrice = 74,
         Variants = {},
@@ -1983,7 +1983,7 @@ return {
             Chance = 0.02
         }
     },
-    -- Axolotl (Epic)
+    -- Axolotl (Legendary)
     [95] = {
         Data = {
             Id = 138,
@@ -1992,7 +1992,7 @@ return {
             Description = "",
             Icon = "rbxassetid://76558551981982",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 3971,
         Variants = {},
@@ -2090,7 +2090,7 @@ return {
             Chance = 2.00E-06
         }
     },
-    -- Plasma Shark (Legendary)
+    -- Plasma Shark (Mythic)
     [100] = {
         Data = {
             Id = 137,
@@ -2099,7 +2099,7 @@ return {
             Description = "",
             Icon = "rbxassetid://88847410678758",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 94500,
         Variants = {
@@ -2176,7 +2176,7 @@ return {
             Chance = 0.02
         }
     },
-    -- Strippled Seahorse (Legendary)
+    -- Strippled Seahorse (Mythic)
     [104] = {
         Data = {
             Id = 146,
@@ -2185,7 +2185,7 @@ return {
             Description = "",
             Icon = "rbxassetid://120444751052938",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 40500,
         Variants = {},
@@ -2197,7 +2197,7 @@ return {
             Chance = 1.05E-05
         }
     },
-    -- Thresher Shark (Legendary)
+    -- Thresher Shark (Mythic)
     [105] = {
         Data = {
             Id = 147,
@@ -2206,7 +2206,7 @@ return {
             Description = "",
             Icon = "rbxassetid://70681751795899",
             Tier = 5,
-            TierName = "Legendary"
+            TierName = "Mythic"
         },
         SellPrice = 44000,
         Variants = {
@@ -2346,7 +2346,7 @@ return {
             Chance = 0.0003333333333333333
         }
     },
-    -- King Crab (Mythic)
+    -- King Crab (SECRET)
     [112] = {
         Data = {
             Id = 158,
@@ -2355,7 +2355,7 @@ return {
             Description = "",
             Icon = "rbxassetid://136951139611035",
             Tier = 6,
-            TierName = "Mythic"
+            TierName = "SECRET"
         },
         SellPrice = 218500,
         Variants = {},
@@ -3123,7 +3123,7 @@ return {
             Chance = 6.67E-05
         }
     },
-    -- Pink Dolphin (Epic)
+    -- Pink Dolphin (Legendary)
     [149] = {
         Data = {
             Id = 207,
@@ -3132,7 +3132,7 @@ return {
             Description = "",
             Icon = "rbxassetid://86256600614394",
             Tier = 4,
-            TierName = "Epic"
+            TierName = "Legendary"
         },
         SellPrice = 3910,
         Variants = {},
@@ -3360,7 +3360,7 @@ return {
             Chance = 0.0033333333333333335
         }
     },
-    -- Antique Watch (Rare)
+    -- Antique Watch (Epic)
     [160] = {
         Data = {
             Id = 238,
@@ -3369,7 +3369,7 @@ return {
             Description = "",
             Icon = "rbxassetid://93941516308809",
             Tier = 3,
-            TierName = "Rare"
+            TierName = "Epic"
         },
         SellPrice = 1680,
         Variants = {},
@@ -3679,7 +3679,7 @@ return {
             Chance = 6.67E-06
         }
     },
-    -- Panther Eel (Mythic)
+    -- Panther Eel (SECRET)
     [175] = {
         Data = {
             Id = 248,
@@ -3688,7 +3688,7 @@ return {
             Description = "",
             Icon = "rbxassetid://101328665301159",
             Tier = 6,
-            TierName = "Mythic"
+            TierName = "SECRET"
         },
         SellPrice = 151500,
         Variants = {},
@@ -5247,7 +5247,7 @@ return {
             Chance = 0.0001
         }
     },
-    -- Purp Blisfish (Common)
+    -- Purp Blisfish (Uncommon)
     [249] = {
         Data = {
             Id = 368,
@@ -5256,7 +5256,7 @@ return {
             Description = "",
             Icon = "rbxassetid://119189756405143",
             Tier = 1,
-            TierName = "Common"
+            TierName = "Uncommon"
         },
         SellPrice = 73,
         Variants = {},
