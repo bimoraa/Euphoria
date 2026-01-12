@@ -9586,7 +9586,7 @@ Elements={},
 ContainerFrame=nil,
 UICorner=Window.UICorner-(Window.UIPadding/2),
 
-Gap=Window.NewElements and 1 or 6,
+Gap=Window.NewElements and 1 or 14,
 
 TabPaddingX=4+(Window.UIPadding/2),
 TabPaddingY=3+(Window.UIPadding/2),
@@ -10227,7 +10227,7 @@ Name="Container",
 },{
 af("UIListLayout",{
 FillDirection="Vertical",
-Padding=UDim.new(0,12),
+Padding=UDim.new(0,6),
 VerticalAlignment="Bottom",
 }),
 })
