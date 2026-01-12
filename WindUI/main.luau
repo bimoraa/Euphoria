@@ -8987,7 +8987,7 @@ ae("UIListLayout",{
 FillDirection="Vertical",
 HorizontalAlignment=al.TextXAlignment,
 VerticalAlignment="Center",
-Padding=UDim.new(0,4)
+Padding=UDim.new(0,6)
 })
 })
 
@@ -9586,7 +9586,7 @@ Elements={},
 ContainerFrame=nil,
 UICorner=Window.UICorner-(Window.UIPadding/2),
 
-Gap=Window.NewElements and 8 or 15,
+Gap=Window.NewElements and 1 or 6,
 
 TabPaddingX=4+(Window.UIPadding/2),
 TabPaddingY=3+(Window.UIPadding/2),
@@ -10910,7 +10910,7 @@ OnDestroyCallback=nil,
 
 IsPC=false,
 
-Gap=10,
+Gap=5,
 
 TopBarButtons={},
 AllElements={},
@@ -11036,7 +11036,7 @@ not au.HideSearchBar and-45 or 0
 Position=UDim2.new(0,0,1,0),
 AnchorPoint=Vector2.new(0,1),
 BackgroundTransparency=1,
-ScrollBarThickness=ae.TouchEnabled and 10 or 8,
+ScrollBarThickness=4,
 ScrollBarImageColor3=Color3.fromRGB(255,255,255),
 ScrollBarImageTransparency=0.3,
 ElasticBehavior=ae.TouchEnabled and"Always"or"Never",
