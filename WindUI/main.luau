@@ -10216,12 +10216,12 @@ BackgroundTransparency=1,
 Size=UDim2.new(1,0,0,0),
 AutomaticSize="Y",
 Name="Content",
-Visible=true,
+Visible=ak.Opened or false,
 Position=UDim2.new(0,0,0,ap.HeaderSize)
 },{
 af("UIListLayout",{
 FillDirection="Vertical",
-Padding=UDim.new(0,ao.Gap),
+Padding=UDim.new(0,12),
 VerticalAlignment="Bottom",
 }),
 })
@@ -10240,6 +10240,7 @@ end
 function ap.Open(at)
 if ap.Expandable then
 ap.Opened=true
+as.Content.Visible=true
 ah(as,0.33,{
 Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.AbsoluteSize.Y/an))
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
@@ -10254,6 +10255,12 @@ ah(as,0.26,{
 Size=UDim2.new(1,0,0,ap.HeaderSize)
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 ah(ar.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+task.delay(0.26,function()
+if not ap.Opened then
+as.Content.Visible=false
+end
+end)
 end
 end
 
