@@ -5033,13 +5033,7 @@ if type(ag)~="number"or ag~=math.floor(ag)then
 return nil,1
 end
 
-
-
-
-
-
 local ah=#af
-
 
 if ah==0 or ag<1 or ag>ah then
 return nil,2
@@ -5062,29 +5056,48 @@ if ai==aj then return"Squircle-BL-BR"end
 return"Square"
 end
 
-local ai=1
-local aj=0
-local ak=ai
 
-for al=1,ah do
-local am=af[al]
-if isDelimiter(am)then
-if ag>=ai and ag<al then
-local an=ag-ai+1
-return calculate(an,aj)
+local ai
+local aj={}
+
+for ak=1,ah do
+local al=af[ak]
+if isDelimiter(al)then
+
+if ai and ag>=ai and ag<ak then
+local am=0
+for an=ai,ak-1 do
+if not isDelimiter(af[an])then
+am=am+1
+if an==ag then
+return calculate(am,#aj)
 end
-ai=al+1
-aj=0
+end
+end
+end
+
+ai=ak+1
+aj={}
 else
-aj=aj+1
-ak=al
+
+if ai==nil then
+ai=ak
+end
+table.insert(aj,ak)
 end
 end
 
 
-if ag>=ai and ag<=ah then
-local al=ag-ai+1
-return calculate(al,aj)
+if ai and ag>=ai then
+local ak=0
+for al=ai,ah do
+if not isDelimiter(af[al])then
+ak=ak+1
+if al==ag then
+return calculate(ak,#aj)
+end
+end
+end
 end
 
 return nil,4
