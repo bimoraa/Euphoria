@@ -9586,7 +9586,7 @@ Elements={},
 ContainerFrame=nil,
 UICorner=Window.UICorner-(Window.UIPadding/2),
 
-Gap=Window.NewElements and 1 or 14,
+Gap=Window.NewElements and 8 or 15,
 
 TabPaddingX=4+(Window.UIPadding/2),
 TabPaddingY=3+(Window.UIPadding/2),
@@ -10213,24 +10213,17 @@ PaddingRight=UDim.new(0,11),
 }),
 af("Frame",{
 BackgroundTransparency=1,
-Size=UDim2.new(1,0,1,-ap.HeaderSize),
-Name="Content",
-Visible=ak.Opened or false,
-Position=UDim2.new(0,0,0,ap.HeaderSize),
-ClipsDescendants=false,
-},{
-af("Frame",{
-BackgroundTransparency=1,
 Size=UDim2.new(1,0,0,0),
 AutomaticSize="Y",
-Name="Container",
+Name="Content",
+Visible=true,
+Position=UDim2.new(0,0,0,ap.HeaderSize)
 },{
 af("UIListLayout",{
 FillDirection="Vertical",
-Padding=UDim.new(0,6),
+Padding=UDim.new(0,ao.Gap),
 VerticalAlignment="Bottom",
 }),
-})
 })
 })
 
@@ -10240,16 +10233,15 @@ if not ap.Expandable then
 ap.Expandable=true
 ar.Visible=true
 end
-au.Parent=as.Content.Container
+au.Parent=as.Content
 return aj.New(au,an)
 end
 
 function ap.Open(at)
 if ap.Expandable then
 ap.Opened=true
-as.Content.Visible=true
 ah(as,0.33,{
-Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.Container.AbsoluteSize.Y/an))
+Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.AbsoluteSize.Y/an))
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 
 ah(ar.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
@@ -10262,12 +10254,6 @@ ah(as,0.26,{
 Size=UDim2.new(1,0,0,ap.HeaderSize)
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 ah(ar.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
-
-task.delay(0.26,function()
-if not ap.Opened then
-as.Content.Visible=false
-end
-end)
 end
 end
 
@@ -10281,7 +10267,7 @@ end
 end
 end)
 
-ae.AddSignal(as.Content.Container.UIListLayout:GetPropertyChangedSignal"AbsoluteContentSize",function()
+ae.AddSignal(as.Content.UIListLayout:GetPropertyChangedSignal"AbsoluteContentSize",function()
 if ap.Opened then
 ap:Open()
 end
@@ -10924,7 +10910,7 @@ OnDestroyCallback=nil,
 
 IsPC=false,
 
-Gap=14,
+Gap=10,
 
 TopBarButtons={},
 AllElements={},
@@ -11050,7 +11036,7 @@ not au.HideSearchBar and-45 or 0
 Position=UDim2.new(0,0,1,0),
 AnchorPoint=Vector2.new(0,1),
 BackgroundTransparency=1,
-ScrollBarThickness=4,
+ScrollBarThickness=ae.TouchEnabled and 10 or 8,
 ScrollBarImageColor3=Color3.fromRGB(255,255,255),
 ScrollBarImageTransparency=0.3,
 ElasticBehavior=ae.TouchEnabled and"Always"or"Never",
