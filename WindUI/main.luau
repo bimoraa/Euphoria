@@ -9779,6 +9779,7 @@ CanvasSize=UDim2.new(0,0,0,0),
 AnchorPoint=Vector2.new(0,1),
 Position=UDim2.new(0,0,1,0),
 AutomaticCanvasSize="Y",
+ClipsDescendants=false,
 
 ScrollingDirection="Y",
 VerticalScrollBarPosition="Right",
