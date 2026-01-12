@@ -10213,17 +10213,24 @@ PaddingRight=UDim.new(0,11),
 }),
 af("Frame",{
 BackgroundTransparency=1,
-Size=UDim2.new(1,0,0,0),
-AutomaticSize="Y",
+Size=UDim2.new(1,0,1,-ap.HeaderSize),
 Name="Content",
 Visible=ak.Opened or false,
-Position=UDim2.new(0,0,0,ap.HeaderSize)
+Position=UDim2.new(0,0,0,ap.HeaderSize),
+ClipsDescendants=false,
+},{
+af("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+Name="Container",
 },{
 af("UIListLayout",{
 FillDirection="Vertical",
 Padding=UDim.new(0,12),
 VerticalAlignment="Bottom",
 }),
+})
 })
 })
 
@@ -10233,7 +10240,7 @@ if not ap.Expandable then
 ap.Expandable=true
 ar.Visible=true
 end
-au.Parent=as.Content
+au.Parent=as.Content.Container
 return aj.New(au,an)
 end
 
@@ -10242,7 +10249,7 @@ if ap.Expandable then
 ap.Opened=true
 as.Content.Visible=true
 ah(as,0.33,{
-Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.AbsoluteSize.Y/an))
+Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.Container.AbsoluteSize.Y/an))
 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
 
 ah(ar.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
@@ -10274,7 +10281,7 @@ end
 end
 end)
 
-ae.AddSignal(as.Content.UIListLayout:GetPropertyChangedSignal"AbsoluteContentSize",function()
+ae.AddSignal(as.Content.Container.UIListLayout:GetPropertyChangedSignal"AbsoluteContentSize",function()
 if ap.Opened then
 ap:Open()
 end
@@ -10917,7 +10924,7 @@ OnDestroyCallback=nil,
 
 IsPC=false,
 
-Gap=5,
+Gap=14,
 
 TopBarButtons={},
 AllElements={},
