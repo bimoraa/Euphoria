@@ -5064,30 +5064,31 @@ end
 
 local ai=1
 local aj=0
+local ak=ai
 
-for ak=1,ah do
-local al=af[ak]
-if isDelimiter(al)then
-if ag>=ai and ag<=ak-1 then
-local am=ag-ai+1
-return calculate(am,aj)
+for al=1,ah do
+local am=af[al]
+if isDelimiter(am)then
+if ag>=ai and ag<al then
+local an=ag-ai+1
+return calculate(an,aj)
 end
-ai=ak+1
+ai=al+1
 aj=0
 else
 aj=aj+1
+ak=al
 end
 end
 
 
 if ag>=ai and ag<=ah then
-local ak=ag-ai+1
-return calculate(ak,aj)
+local al=ag-ai+1
+return calculate(al,aj)
 end
 
 return nil,4
 end
-
 
 return function(af)
 local ag={
@@ -9779,7 +9780,6 @@ CanvasSize=UDim2.new(0,0,0,0),
 AnchorPoint=Vector2.new(0,1),
 Position=UDim2.new(0,0,1,0),
 AutomaticCanvasSize="Y",
-ClipsDescendants=false,
 
 ScrollingDirection="Y",
 VerticalScrollBarPosition="Right",
