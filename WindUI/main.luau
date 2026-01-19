@@ -7357,26 +7357,31 @@ if az then
 
 j.UIElements.TabItem=ak("TextButton",{
 Size=UDim2.new(1,0,0,32),
-BackgroundTransparency=1,
+BackgroundTransparency=0.95,
+BackgroundColor3=Color3.new(1,1,1),
+ThemeTag={
+BackgroundColor3="Text",
+},
 Parent=an.UIElements.Menu.Frame.ScrollingFrame,
 Text="",
 Active=not j.Locked,
 },{
+ak("UICorner",{
+CornerRadius=UDim.new(0,6),
+}),
+ak("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+Name="Highlight",
+}),
 ak("Frame",{
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
 Name="Frame",
 },{
-ak("UIPadding",{
-PaddingTop=UDim.new(0,6),
-PaddingLeft=UDim.new(0,10),
-PaddingRight=UDim.new(0,10),
-PaddingBottom=UDim.new(0,6),
-}),
 ak("Frame",{
-Size=UDim2.new(1,0,0,0),
+Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
-AutomaticSize="Y",
 Name="Title",
 },{
 ak("TextLabel",{
@@ -7389,20 +7394,10 @@ TextColor3="Text",
 TextSize=14,
 BackgroundTransparency=1,
 TextTransparency=aq=="Dropdown"and.4 or.05,
-Size=UDim2.new(1,0,0,0),
-AutomaticSize="Y",
+Size=UDim2.new(1,0,1,0),
+Position=UDim2.new(0,10,0,0),
 }),
 })
-}),
-ak("Frame",{
-Size=UDim2.new(1,0,1,0),
-BackgroundColor3=Color3.new(1,1,1),
-BackgroundTransparency=1,
-Name="Highlight",
-},{
-ak("UICorner",{
-CornerRadius=UDim.new(0,6),
-}),
 }),
 })
 else
@@ -7522,7 +7517,7 @@ end
 
 if j.Selected and not j.Locked then
 if az then
-j.UIElements.TabItem.Highlight.BackgroundTransparency=0.9
+j.UIElements.TabItem.BackgroundTransparency=0.85
 j.UIElements.TabItem.Frame.Title.TextLabel.TextTransparency=0
 else
 j.UIElements.TabItem.ImageTransparency=.95
@@ -7544,7 +7539,7 @@ if an.Multi then
 if not j.Selected then
 j.Selected=true
 if az then
-al(j.UIElements.TabItem.Highlight,0.1,{BackgroundTransparency=0.9}):Play()
+al(j.UIElements.TabItem,0.1,{BackgroundTransparency=0.85}):Play()
 else
 al(j.UIElements.TabItem,0.1,{ImageTransparency=.95}):Play()
 al(j.UIElements.TabItem.Highlight,0.1,{ImageTransparency=.75}):Play()
@@ -7560,7 +7555,7 @@ return
 end
 j.Selected=false
 if az then
-al(j.UIElements.TabItem.Highlight,0.1,{BackgroundTransparency=1}):Play()
+al(j.UIElements.TabItem,0.1,{BackgroundTransparency=0.95}):Play()
 else
 al(j.UIElements.TabItem,0.1,{ImageTransparency=1}):Play()
 al(j.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play()
@@ -7580,7 +7575,7 @@ end
 else
 for m,p in next,an.Tabs do
 if az then
-al(p.UIElements.TabItem.Highlight,0.1,{BackgroundTransparency=1}):Play()
+al(p.UIElements.TabItem,0.1,{BackgroundTransparency=0.95}):Play()
 else
 al(p.UIElements.TabItem,0.1,{ImageTransparency=1}):Play()
 al(p.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play()
@@ -7593,7 +7588,7 @@ p.Selected=false
 end
 j.Selected=true
 if az then
-al(j.UIElements.TabItem.Highlight,0.1,{BackgroundTransparency=0.9}):Play()
+al(j.UIElements.TabItem,0.1,{BackgroundTransparency=0.85}):Play()
 else
 al(j.UIElements.TabItem,0.1,{ImageTransparency=.95}):Play()
 al(j.UIElements.TabItem.Highlight,0.1,{ImageTransparency=.75}):Play()
@@ -7610,14 +7605,14 @@ elseif aq=="Menu"then
 if not j.Locked then
 aj.AddSignal(j.UIElements.TabItem.MouseEnter,function()
 if az then
-al(j.UIElements.TabItem.Highlight,0.08,{BackgroundTransparency=0.9}):Play()
+al(j.UIElements.TabItem,0.08,{BackgroundTransparency=0.9}):Play()
 else
 al(j.UIElements.TabItem,0.08,{ImageTransparency=.95}):Play()
 end
 end)
 aj.AddSignal(j.UIElements.TabItem.InputEnded,function()
 if az then
-al(j.UIElements.TabItem.Highlight,0.08,{BackgroundTransparency=1}):Play()
+al(j.UIElements.TabItem,0.08,{BackgroundTransparency=0.95}):Play()
 else
 al(j.UIElements.TabItem,0.08,{ImageTransparency=1}):Play()
 end
