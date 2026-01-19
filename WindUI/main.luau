@@ -7313,7 +7313,7 @@ table.insert(ay,{Index=az,Tab=aA})
 end
 
 local az=1
-local aA=5
+local aA=15
 
 local function createChunk()
 local aB=math.min(az+aA-1,#ay)
@@ -7544,12 +7544,17 @@ end
 az=aB+1
 
 
+if az%30==0 or az>#ay then
+RecalculateCanvasSize()
+RecalculateListSize()
+end
+
+
 if az<=#ay then
 task.wait()
 createChunk()
 else
 
-task.defer(function()
 ar:Display()
 RecalculateCanvasSize()
 RecalculateListSize()
@@ -7568,7 +7573,6 @@ Callback()
 
 an.Values=aw
 at=false
-end)
 end
 end
 
