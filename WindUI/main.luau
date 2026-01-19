@@ -7276,7 +7276,7 @@ end
 
 
 local aw=0
-local ax=50
+local ax=10
 
 for ay,az in next,av do
 if(az.Type~="Divider")then
@@ -9824,7 +9824,7 @@ end
 ap.UIElements.ContainerFrame=ah("ScrollingFrame",{
 Size=UDim2.new(1,0,1,ap.ShowTabTitle and-((Window.UIPadding*2.4)+12)or 0),
 BackgroundTransparency=1,
-ScrollBarThickness=0,
+ScrollBarThickness=4,
 ElasticBehavior="Never",
 CanvasSize=UDim2.new(0,0,0,0),
 AnchorPoint=Vector2.new(0,1),
@@ -11083,7 +11083,7 @@ not au.HideSearchBar and-45 or 0
 Position=UDim2.new(0,0,1,0),
 AnchorPoint=Vector2.new(0,1),
 BackgroundTransparency=1,
-ScrollBarThickness=0,
+ScrollBarThickness=4,
 ElasticBehavior="Never",
 CanvasSize=UDim2.new(0,0,0,0),
 AutomaticCanvasSize="Y",
@@ -11621,7 +11621,7 @@ am("ScrollingFrame",{
 Name="Center",
 BackgroundTransparency=1,
 AutomaticSize="Y",
-ScrollBarThickness=0,
+ScrollBarThickness=4,
 ScrollingDirection="X",
 AutomaticCanvasSize="X",
 CanvasSize=UDim2.new(0,0,0,0),
