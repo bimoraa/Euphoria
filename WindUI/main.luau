@@ -7065,12 +7065,16 @@ CornerRadius=UDim.new(0,ao.MenuCorner-ao.MenuPadding),
 }),
 ak("ScrollingFrame",{
 Size=UDim2.new(1,0,1,0),
-ScrollBarThickness=0,
+ScrollBarThickness=4,
+ScrollBarImageColor3=Color3.fromRGB(255,255,255),
+ScrollBarImageTransparency=0.7,
+TopImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+MidImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+BottomImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
 ScrollingDirection="Y",
 AutomaticCanvasSize="Y",
 CanvasSize=UDim2.new(0,0,0,0),
 BackgroundTransparency=1,
-ScrollBarImageTransparency=1,
 },{
 an.UIElements.UIListLayout,
 })
@@ -7276,7 +7280,7 @@ end
 
 
 local aw=0
-local ax=10
+local ax=5
 
 for ay,az in next,av do
 if(az.Type~="Divider")then
@@ -9824,7 +9828,12 @@ end
 ap.UIElements.ContainerFrame=ah("ScrollingFrame",{
 Size=UDim2.new(1,0,1,ap.ShowTabTitle and-((Window.UIPadding*2.4)+12)or 0),
 BackgroundTransparency=1,
-ScrollBarThickness=4,
+ScrollBarThickness=6,
+ScrollBarImageColor3=Color3.fromRGB(255,255,255),
+ScrollBarImageTransparency=0.7,
+TopImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+MidImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+BottomImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
 ElasticBehavior="Never",
 CanvasSize=UDim2.new(0,0,0,0),
 AnchorPoint=Vector2.new(0,1),
@@ -11084,12 +11093,17 @@ Position=UDim2.new(0,0,1,0),
 AnchorPoint=Vector2.new(0,1),
 BackgroundTransparency=1,
 ScrollBarThickness=4,
+ScrollBarImageColor3=Color3.fromRGB(255,255,255),
+ScrollBarImageTransparency=0.7,
+TopImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+MidImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+BottomImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
 ElasticBehavior="Never",
 CanvasSize=UDim2.new(0,0,0,0),
 AutomaticCanvasSize="Y",
 ScrollingDirection="Y",
 ClipsDescendants=true,
-VerticalScrollBarPosition="Left",
+VerticalScrollBarPosition="Right",
 },{
 am("Frame",{
 BackgroundTransparency=1,
@@ -11622,6 +11636,11 @@ Name="Center",
 BackgroundTransparency=1,
 AutomaticSize="Y",
 ScrollBarThickness=4,
+ScrollBarImageColor3=Color3.fromRGB(255,255,255),
+ScrollBarImageTransparency=0.7,
+TopImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+MidImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
+BottomImage="rbxasset://textures/ui/Scroll/scroll-middle.png",
 ScrollingDirection="X",
 AutomaticCanvasSize="X",
 CanvasSize=UDim2.new(0,0,0,0),
