@@ -7369,6 +7369,9 @@ Active=not j.Locked,
 ak("UICorner",{
 CornerRadius=UDim.new(0,6),
 }),
+ak("UIPadding",{
+PaddingLeft=UDim.new(0,10),
+}),
 ak("Frame",{
 Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
@@ -7394,8 +7397,8 @@ TextColor3="Text",
 TextSize=14,
 BackgroundTransparency=1,
 TextTransparency=aq=="Dropdown"and.4 or.05,
-Size=UDim2.new(1,0,1,0),
-Position=UDim2.new(0,10,0,0),
+Size=UDim2.new(1,-10,1,0),
+Position=UDim2.new(0,0,0,0),
 }),
 })
 }),
