@@ -4,7 +4,7 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.64  |  2026-01-22  |  Roblox UI Library for scripts
+    v1.6.64  |  2026-01-23  |  Roblox UI Library for scripts
     
     To view the source code, see the `src/` folder on the official GitHub repository.
     
@@ -4499,6 +4499,15 @@ end
 end
 
 return ag
+end
+
+function ae.GetAutoLoad(af)
+for ag,ah in pairs(ae.Configs)do
+if ah.AutoLoad then
+return ag,ah
+end
+end
+return false
 end
 
 function ae.DeleteConfig(af,ag)
