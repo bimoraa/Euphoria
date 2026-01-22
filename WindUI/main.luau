@@ -4510,6 +4510,26 @@ end
 return false
 end
 
+function ae.HasAutoLoad(af)
+return ae:GetAutoLoad()~=false
+end
+
+function ae.UpdateConfig(af,ag,ah)
+if not ag then return false,"Config name is required"end
+
+local ai=ae.Configs[ag]or ae:CreateConfig(ag,ah)
+if not ai then return false,"Failed to create or get config"end
+
+if ah~=nil then ai:SetAutoLoad(ah)end
+ad.CurrentConfig=ai
+
+local aj,ak=pcall(function()return ai:Save()end)
+if aj and ak then
+return true,"Config updated"
+end
+return false,"Failed to save config: "..tostring(ak)
+end
+
 function ae.DeleteConfig(af,ag)
 if not delfile then
 return false,"delfile function is not available"
@@ -4559,6 +4579,26 @@ end
 
 function ae.GetConfig(af,ag)
 return ae.Configs[ag]
+end
+
+function ae.SelectConfig(af,ag)
+if not ag then
+return false,"Config name is required"
+end
+
+local ah=ae.Configs[ag]
+if ah then
+ah:SetAsCurrent()
+return ah
+end
+
+local ai=ae.Path..ag..".json"
+if isfile and isfile(ai)then
+local aj=ae:CreateConfig(ag)
+return aj
+end
+
+return false,"Config not found"
 end
 
 function ae.ExportConfig(af,ag)
