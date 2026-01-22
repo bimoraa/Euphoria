@@ -4,7 +4,7 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.64  |  2026-01-19  |  Roblox UI Library for scripts
+    v1.6.64  |  2026-01-22  |  Roblox UI Library for scripts
     
     To view the source code, see the `src/` folder on the official GitHub repository.
     
@@ -4550,6 +4550,98 @@ end
 
 function ae.GetConfig(af,ag)
 return ae.Configs[ag]
+end
+
+function ae.ExportConfig(af,ag)
+local ah=ae.Configs[ag]
+if not ah then
+return false,"Config not found"
+end
+
+local ai=ah:Save()
+if not ai then
+return false,"Failed to get config data"
+end
+
+local aj=ac:JSONEncode(ai)
+
+if setclipboard then
+setclipboard(aj)
+return true,"Config exported to clipboard"
+elseif toclipboard then
+toclipboard(aj)
+return true,"Config exported to clipboard"
+else
+return false,"Clipboard function not available"
+end
+end
+
+function ae.ImportConfig(af,ag,ah)
+if not ag then
+return false,"Config name is required"
+end
+
+if not ah or ah==""then
+return false,"Config data is empty"
+end
+
+local ai,aj=pcall(function()
+return ac:JSONDecode(ah)
+end)
+
+if not ai then
+return false,"Invalid config data format"
+end
+
+if not aj.__version or not aj.__elements then
+return false,"Invalid config format"
+end
+
+local ak=ae.Path..ag..".json"
+
+if writefile then
+local al,am=pcall(function()
+writefile(ak,ah)
+end)
+
+if not al then
+return false,"Failed to save config: "..tostring(am)
+end
+else
+return false,"writefile function not available"
+end
+
+local al=ae:CreateConfig(ag,aj.__autoload or false)
+if al then
+al:Load()
+return true,"Config imported successfully"
+else
+return false,"Failed to create config"
+end
+end
+
+function ae.ExportToClipboard(af)
+if not ad or not ad.CurrentConfig then
+return false,"No current config selected"
+end
+
+local ag
+for ah,ai in pairs(ae.Configs)do
+if ai==ad.CurrentConfig then
+ag=ah
+break
+end
+end
+
+if not ag then
+return false,"Current config not found"
+end
+
+return ae:ExportConfig(ag)
+end
+
+function ae.ImportFromClipboard(af,ag,ah)
+return ae:ImportConfig(ag,ah)
 end
 
 return ae end function a.z()
