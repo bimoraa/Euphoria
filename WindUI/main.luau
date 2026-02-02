@@ -4,7 +4,7 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.64  |  2026-01-23  |  Roblox UI Library for scripts
+    v1.6.64  |  2026-02-02  |  Roblox UI Library for scripts
     
     To view the source code, see the `src/` folder on the official GitHub repository.
     
@@ -4287,15 +4287,50 @@ if not isfolder(ae.Path)then
 makefolder(ae.Path)
 end
 
-local ah=ae:AllConfigs()
 
-for ai,aj in next,ah do
-if isfile and readfile and isfile(aj..".json")then
-ae.Configs[aj]=readfile(aj..".json")
-end
-end
+task.spawn(function()
+task.wait(0.1)
+ae:LoadAutoloadConfig()
+end)
 
 return ae
+end
+
+function ae.LoadAutoloadConfig(af)
+if not listfiles or not isfile or not readfile then
+return false,"File functions not available"
+end
+
+local ag=ae:AllConfigs()
+
+for ah,ai in next,ag do
+local aj=ae.Path..ai..".json"
+
+if isfile(aj)then
+local ak,al=pcall(function()
+return ac:JSONDecode(readfile(aj))
+end)
+
+if ak and al and al.__autoload==true then
+
+local am=ae:CreateConfig(ai,true)
+if am then
+local an=pcall(function()
+am:Load()
+end)
+
+if an then
+if ad.Debug then
+print("[ WindUI.ConfigManager ] AutoLoaded config: "..ai)
+end
+return true,ai
+end
+end
+end
+end
+end
+
+return false,"No autoload config found"
 end
 
 function ae.SetPath(af,ag)
@@ -4492,9 +4527,17 @@ end
 function ae.GetAutoLoadConfigs(af)
 local ag={}
 
-for ah,ai in pairs(ae.Configs)do
-if ai.AutoLoad then
-table.insert(ag,ah)
+
+local ah=ae:AllConfigs()
+for ai,aj in next,ah do
+local ak=ae.Path..aj..".json"
+if isfile and isfile(ak)then
+local al,am=pcall(function()
+return ac:JSONDecode(readfile(ak))
+end)
+if al and am and am.__autoload==true then
+table.insert(ag,aj)
+end
 end
 end
 
@@ -4502,12 +4545,27 @@ return ag
 end
 
 function ae.GetAutoLoad(af)
-for ag,ah in pairs(ae.Configs)do
-if ah.AutoLoad then
-return ag,ah
+
+local ag=ae:AllConfigs()
+for ah,ai in next,ag do
+local aj=ae.Path..ai..".json"
+if isfile and isfile(aj)then
+local ak,al=pcall(function()
+return ac:JSONDecode(readfile(aj))
+end)
+if ak and al and al.__autoload==true then
+return ai
 end
 end
-return false
+end
+
+
+for ah,ai in pairs(ae.Configs)do
+if type(ai)=="table"and ai.AutoLoad then
+return ah,ai
+end
+end
+return nil
 end
 
 function ae.HasAutoLoad(af)
@@ -10100,6 +10158,504 @@ return ak.__type,ak
 end
 
 return af end function a.V()
+local aa=a.load'c'local ae=
+aa.New
+
+local af={}
+
+function af.New(ah,aj)
+local ak={
+__type="ConfigSection",
+Title=aj.Title or"Configuration",
+Desc=aj.Desc or nil,
+Icon=aj.Icon or"settings",
+IconThemed=aj.IconThemed or false,
+Section=aj.Section or"Configuration",
+SectionIcon=aj.SectionIcon or nil,
+Window=aj.Window,
+UIElements={},
+
+
+SelectedConfig=nil,
+InputPath=nil,
+ImportData=nil,
+DropdownRef=nil,
+AutoloadLabel=nil,
+}
+
+local al=aj.Window
+local am=aj.WindUI
+local an=al and al.ConfigManager or nil
+
+
+local ao=game:GetService"RunService":IsStudio()
+
+if ao then a.load'B'
+
+{
+Title="Configuration",
+Desc="Config system unavailable in Studio environment.",
+Parent=aj.Parent,
+Window=aj.Window,
+Tab=aj.Tab,
+Index=aj.Index,
+ElementTable=ak,
+ParentConfig=aj,
+}
+
+return ak.__type,ak
+end
+
+if not an then a.load'B'
+{
+Title="Configuration",
+Desc="ConfigManager not initialized. Please set Window.Folder and initialize ConfigManager.",
+Parent=aj.Parent,
+Window=aj.Window,
+Tab=aj.Tab,
+Index=aj.Index,
+ElementTable=ak,
+ParentConfig=aj,
+}
+
+return ak.__type,ak
+end local ap=
+
+
+aj.Tab
+local aq=aj.ParentTable
+
+
+local function RefreshConfigList()
+if an and an.AllConfigs then
+return an:AllConfigs()
+end
+return{}
+end
+
+
+local function GetAutoloadConfigName()
+if an and an.GetAutoLoad then
+local ar=an:GetAutoLoad()
+return ar or"None"
+end
+return"None"
+end
+
+local ar=aq:Section{
+Title=ak.Section,
+Box=true,
+}
+
+ar:Input{
+Title="Config Name",
+Desc="Enter a name for your config",
+Placeholder="Enter config name...",
+Callback=function(as)
+ak.InputPath=as
+end
+}
+
+
+local as=ar:Dropdown{
+Title="Select Config",
+Desc="Choose a config to load or overwrite",
+Multi=false,
+AllowNone=true,
+Values=RefreshConfigList(),
+Callback=function(as)
+ak.SelectedConfig=as
+end
+}
+ak.DropdownRef=as
+
+ar:Divider()
+
+
+ar:Button{
+Title="Create Config",
+Desc="Create a new config with the entered name",
+Callback=function()
+if not ak.InputPath or ak.InputPath==""then
+am:Notify{
+Title="Configuration",
+Content="Config name cannot be empty.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+local at=an:CreateConfig(ak.InputPath)
+if at then
+at:Save()
+end
+return at
+end)
+
+if at and au then
+am:Notify{
+Title="Configuration",
+Content="Created config: "..ak.InputPath,
+Duration=3,
+}
+
+
+if as.Refresh then
+as:Refresh(RefreshConfigList())
+end
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to create config: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Button{
+Title="Load Config",
+Desc="Load the selected config",
+Callback=function()
+if not ak.SelectedConfig then
+am:Notify{
+Title="Configuration",
+Content="Please select a config to load.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+local at=an:SelectConfig(ak.SelectedConfig)
+if at and at.Load then
+return at:Load()
+end
+return false,"Config not found"
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Loaded config: "..ak.SelectedConfig,
+Duration=3,
+}
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to load config: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Button{
+Title="Save Config",
+Desc="Save/overwrite the selected config",
+Callback=function()
+if not ak.SelectedConfig then
+am:Notify{
+Title="Configuration",
+Content="Please select a config to save.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+local at=an:SelectConfig(ak.SelectedConfig)
+if at and at.Save then
+return at:Save()
+end
+return false,"Config not found"
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Saved config: "..ak.SelectedConfig,
+Duration=3,
+}
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to save config: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Button{
+Title="Delete Config",
+Desc="Delete the selected config",
+Callback=function()
+if not ak.SelectedConfig then
+am:Notify{
+Title="Configuration",
+Content="Please select a config to delete.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+return an:DeleteConfig(ak.SelectedConfig)
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Deleted config: "..ak.SelectedConfig,
+Duration=3,
+}
+
+ak.SelectedConfig=nil
+if as.Refresh then
+as:Refresh(RefreshConfigList())
+end
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to delete config: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Button{
+Title="Refresh List",
+Desc="Refresh the config list",
+Callback=function()
+if as.Refresh then
+as:Refresh(RefreshConfigList())
+end
+am:Notify{
+Title="Configuration",
+Content="Config list refreshed.",
+Duration=2,
+}
+end
+}
+
+ar:Divider()
+
+
+ar:Paragraph{
+Title="Import / Export",
+Desc="Share configs via clipboard",
+}
+
+
+ar:Button{
+Title="Export to Clipboard",
+Desc="Copy current config to clipboard",
+Callback=function()
+if not ak.SelectedConfig then
+am:Notify{
+Title="Configuration",
+Content="Please select a config to export.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+return an:ExportConfig(ak.SelectedConfig)
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Config exported to clipboard!",
+Duration=3,
+}
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to export: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Input{
+Title="Import Data",
+Desc="Paste config JSON data here",
+Placeholder="Paste config data...",
+Callback=function(at)
+ak.ImportData=at
+end
+}
+
+
+ar:Button{
+Title="Import Config",
+Desc="Import config from pasted data",
+Callback=function()
+if not ak.ImportData or ak.ImportData==""then
+am:Notify{
+Title="Configuration",
+Content="Please paste config data first.",
+Duration=3,
+}
+return
+end
+
+if not ak.InputPath or ak.InputPath==""then
+am:Notify{
+Title="Configuration",
+Content="Please enter a config name first.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+return an:ImportConfig(ak.InputPath,ak.ImportData)
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Config imported successfully!",
+Duration=3,
+}
+
+if as.Refresh then
+as:Refresh(RefreshConfigList())
+end
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to import: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+ar:Divider()
+
+
+ar:Button{
+Title="Set as Autoload",
+Desc="Set selected config to load automatically",
+Callback=function()
+if not ak.SelectedConfig then
+am:Notify{
+Title="Configuration",
+Content="Please select a config to set as autoload.",
+Duration=3,
+}
+return
+end
+
+local at,au=pcall(function()
+local at=an:SelectConfig(ak.SelectedConfig)
+if at then
+
+for au,av in pairs(an.Configs)do
+if av.AutoLoad then
+av:SetAutoLoad(false)
+av:Save()
+end
+end
+
+at:SetAutoLoad(true)
+at:Save()
+return true
+end
+return false
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Set "..ak.SelectedConfig.." as autoload.",
+Duration=3,
+}
+
+if ak.AutoloadLabel and ak.AutoloadLabel.SetTitle then
+ak.AutoloadLabel:SetTitle("Autoload: "..ak.SelectedConfig)
+end
+else
+am:Notify{
+Title="Configuration",
+Content="Failed to set autoload: "..tostring(au),
+Duration=3,
+}
+end
+end
+}
+
+
+ar:Button{
+Title="Clear Autoload",
+Desc="Remove autoload setting",
+Callback=function()
+local at=pcall(function()
+for at,au in pairs(an.Configs)do
+if au.AutoLoad then
+au:SetAutoLoad(false)
+au:Save()
+end
+end
+end)
+
+if at then
+am:Notify{
+Title="Configuration",
+Content="Autoload cleared.",
+Duration=3,
+}
+
+if ak.AutoloadLabel and ak.AutoloadLabel.SetTitle then
+ak.AutoloadLabel:SetTitle"Autoload: None"
+end
+end
+end
+}
+
+
+local at=ar:Paragraph{
+Title="Autoload: "..GetAutoloadConfigName(),
+Desc="Currently configured autoload config",
+}
+ak.AutoloadLabel=at
+
+
+function ak.RefreshConfigs(au)
+if as and as.Refresh then
+as:Refresh(RefreshConfigList())
+end
+end
+
+function ak.GetSelectedConfig(au)
+return ak.SelectedConfig
+end
+
+function ak.SelectConfig(au,av)
+ak.SelectedConfig=av
+if as and as.Select then
+as:Select(av)
+end
+end
+
+return ak.__type,ak
+end
+
+return af end function a.W()
+
 return{
 Elements={
 Paragraph=a.load'C',
@@ -10116,6 +10672,7 @@ Divider=a.load'K',
 Space=a.load'S',
 Image=a.load'T',
 Group=a.load'U',
+ConfigSection=a.load'V',
 
 },
 Load=function(aa,ae,af,ah,aj,ak,al,am,an)
@@ -10230,7 +10787,7 @@ end
 end
 end,
 
-}end function a.W()
+}end function a.X()
 local aa=(cloneref or clonereference or function(aa)return aa end)
 
 aa(game:GetService"UserInputService")
@@ -10666,7 +11223,7 @@ end
 
 
 
-local ay=a.load'V'
+local ay=a.load'W'
 
 ay.Load(ap,ap.UIElements.ContainerFrame,ay.Elements,Window,WindUI,nil,ay,ao)
 
@@ -10712,6 +11269,23 @@ end
 
 function ap.Select(az)
 return am:SelectTab(ap.Index)
+end
+
+function ap.InsertConfigSection(az,aA)
+aA=aA or{}
+aA.Title=aA.Title or"Configuration"
+aA.Tab=ap
+aA.ParentType=ap.__type
+aA.ParentTable=ap
+aA.Parent=ap.UIElements.ContainerFrame
+aA.Window=Window
+aA.WindUI=WindUI
+aA.UIScale=ao
+
+local aB=a.load'V'local
+b, d=aB:New(aA)
+
+return d
 end
 
 task.spawn(function()
@@ -10810,7 +11384,7 @@ am.OnChangeFunc(ao)
 end
 end
 
-return am end function a.X()
+return am end function a.Y()
 
 local aa={}
 
@@ -10819,7 +11393,7 @@ local ae=a.load'c'
 local af=ae.New
 local ah=ae.Tween
 
-local aj=a.load'W'
+local aj=a.load'X'
 
 function aa.New(ak,al,am,an,ao)
 local ap={
@@ -10987,7 +11561,7 @@ return ap
 end
 
 
-return aa end function a.Y()
+return aa end function a.Z()
 return{
 Tab="table-of-contents",
 Paragraph="type",
@@ -10999,7 +11573,7 @@ Input="text-cursor-input",
 Dropdown="chevrons-up-down",
 Code="terminal",
 Colorpicker="palette",
-}end function a.Z()
+}end function a._()
 local aa=(cloneref or clonereference or function(aa)return aa end)
 
 aa(game:GetService"UserInputService")
@@ -11023,7 +11597,7 @@ Radius=22,
 Width=400,
 MaxHeight=380,
 
-Icons=a.load'Y'
+Icons=a.load'Z'
 }
 
 
@@ -11524,7 +12098,7 @@ an:Open()
 return an
 end
 
-return ae end function a._()
+return ae end function a.aa()
 local aa=(cloneref or clonereference or function(aa)return aa end)
 
 local ae=aa(game:GetService"UserInputService")
@@ -12972,8 +13546,8 @@ au:EditOpenButton(au.OpenButton)
 end
 
 
-local z=a.load'W'
-local A=a.load'X'
+local z=a.load'X'
+local A=a.load'Y'
 local B=z.Init(au,at.WindUI,at.WindUI.TooltipGui)
 B:OnChange(function(C)au.CurrentTab=C end)
 
@@ -13368,7 +13942,7 @@ end)
 
 
 if not au.HideSearchBar then
-local M=a.load'Z'
+local M=a.load'_'
 local N=false
 
 
@@ -13712,7 +14286,7 @@ ae:SetLanguage(ap.Language)
 
 
 function ae.CreateWindow(ax,ay)
-local az=a.load'_'
+local az=a.load'aa'
 
 if not aa:IsStudio()then
 if not isfolder"WindUI"then
