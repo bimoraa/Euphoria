@@ -7350,6 +7350,9 @@ viewportHeight=0,
 textWidth=ao,
 scrollConnection=nil,
 lastValues=nil,
+needsInit=false,
+doInit=nil,
+initVersion=0,
 }
 
 if not aq.Callback then
@@ -7816,7 +7819,7 @@ aq._OriginalValues=aB
 local b=aq.UIElements.Menu.Frame.ScrollingFrame
 
 
-if aB==av.lastValues and av.enabled and#av.pool>0 then
+if aB==av.lastValues and av.enabled then
 
 local d={}
 if aq.Multi and typeof(aq.Value)=="table"then
@@ -7828,11 +7831,13 @@ local f=(not aq.Multi)and(typeof(aq.Value)=="table"and aq.Value.Title or aq.Valu
 
 
 local g=av.allItems or av.items
+if g then
 for h,j in ipairs(g)do
 if aq.Multi then
 j.Selected=d[j.Name]or false
 else
 j.Selected=(f==j.Name)
+end
 end
 end
 
@@ -8180,20 +8185,33 @@ b.AutomaticCanvasSize=Enum.AutomaticSize.None
 ensureSpacers()
 buildVirtualItems(aB)
 av.allItems=av.items
-ensurePool()
 RecalculateCanvasSize()
 RecalculateListSize()
+
+
+
+av.initVersion=av.initVersion+1
+local h=av.initVersion
+av.needsInit=true
+av.doInit=function()
+if not av.needsInit or av.initVersion~=h then return end
+av.needsInit=false
+av.doInit=nil
+ensurePool()
 refreshVisible()
+if av.scrollConnection then
+av.scrollConnection:Disconnect()
+end
+av.scrollConnection=b:GetPropertyChangedSignal"CanvasPosition":Connect(refreshVisible)
+end
+
+
+task.delay(0,av.doInit)
 
 aq.Values=aB
 av.lastValues=aB
 Callback()
 ax=false
-
-if av.scrollConnection then
-av.scrollConnection:Disconnect()
-end
-av.scrollConnection=b:GetPropertyChangedSignal"CanvasPosition":Connect(refreshVisible)
 else
 av.enabled=false
 if av.scrollConnection then
@@ -8484,6 +8502,11 @@ RecalculateCanvasSize()
 
 function au.Open(aA)
 if as then
+
+if av.needsInit and av.doInit then
+av.doInit()
+end
+
 aq.UIElements.Menu.Visible=true
 aq.UIElements.MenuCanvas.Visible=true
 aq.UIElements.MenuCanvas.Active=true
