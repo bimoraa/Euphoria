@@ -4353,6 +4353,26 @@ return true
 end
 
 function ae.CreateConfig(af,ag,ah)
+if not ag then
+return false,"No config file is selected"
+end
+
+
+if ae.Configs[ag]then
+local ai=ae.Configs[ag]
+if ah~=nil then
+ai.AutoLoad=ah
+end
+
+if ad._AllFlaggedElements then
+for aj,ak in next,ad._AllFlaggedElements do
+ai.Elements[aj]=ak
+end
+end
+ai:SetAsCurrent()
+return ai
+end
+
 local ai={
 Path=ae.Path..ag..".json",
 Elements={},
@@ -4361,8 +4381,23 @@ AutoLoad=ah or false,
 Version=1.2,
 }
 
-if not ag then
-return false,"No config file is selected"
+
+if ad._AllFlaggedElements then
+for aj,ak in next,ad._AllFlaggedElements do
+ai.Elements[aj]=ak
+end
+end
+for aj,ak in pairs(ae.Configs)do
+if ak.Elements then
+for al,am in next,ak.Elements do
+ai.Elements[al]=am
+end
+end
+end
+if ad.PendingFlags then
+for aj,ak in next,ad.PendingFlags do
+ai.Elements[aj]=ak
+end
 end
 
 function ai.SetAsCurrent(aj)
@@ -4386,6 +4421,12 @@ ai.AutoLoad=ak
 end
 
 function ai.Save(aj)
+
+if ad._AllFlaggedElements then
+for ak,al in next,ad._AllFlaggedElements do
+ai.Elements[ak]=al
+end
+end
 if ad.PendingFlags then
 for ak,al in next,ad.PendingFlags do
 ai:Register(ak,al)
@@ -4439,6 +4480,12 @@ __custom={}
 al=am
 end
 
+
+if ad._AllFlaggedElements then
+for am,an in next,ad._AllFlaggedElements do
+ai.Elements[am]=an
+end
+end
 if ad.PendingFlags then
 for am,an in next,ad.PendingFlags do
 ai:Register(am,an)
@@ -4583,6 +4630,33 @@ function ae.HasAutoLoad(af)
 return ae:GetAutoLoad()~=false
 end
 
+function ae.ClearAllAutoLoad(af)
+
+for ag,ah in pairs(ae.Configs)do
+if type(ah)=="table"and ah.AutoLoad then
+ah:SetAutoLoad(false)
+pcall(function()ah:Save()end)
+end
+end
+
+
+local ag=ae:AllConfigs()
+for ah,ai in next,ag do
+local aj=ae.Path..ai..".json"
+if isfile and isfile(aj)then
+local ak,al=pcall(function()
+return ac:JSONDecode(readfile(aj))
+end)
+if ak and al and al.__autoload==true then
+al.__autoload=false
+pcall(function()
+writefile(aj,ac:JSONEncode(al))
+end)
+end
+end
+end
+end
+
 function ae.UpdateConfig(af,ag,ah)
 if not ag then return false,"Config name is required"end
 
@@ -4671,23 +4745,37 @@ return false,"Config not found"
 end
 
 function ae.ExportConfig(af,ag)
-local ah=ae.Configs[ag]
-if not ah then
-return false,"Config not found"
-end
+local ah
 
-local ai=ah:Save()
-if not ai then
+local ai=ae.Configs[ag]
+if ai then
+local aj=ai:Save()
+if not aj then
 return false,"Failed to get config data"
 end
+ah=ac:JSONEncode(aj)
+else
 
-local aj=ac:JSONEncode(ai)
+local aj=ae.Path..ag..".json"
+if isfile and isfile(aj)then
+local ak,al=pcall(function()
+return readfile(aj)
+end)
+if ak and al then
+ah=al
+else
+return false,"Failed to read config file"
+end
+else
+return false,"Config not found"
+end
+end
 
 if setclipboard then
-setclipboard(aj)
+setclipboard(ah)
 return true,"Config exported to clipboard"
 elseif toclipboard then
-toclipboard(aj)
+toclipboard(ah)
 return true,"Config exported to clipboard"
 else
 return false,"Clipboard function not available"
@@ -10374,13 +10462,14 @@ end
 
 local at,au=pcall(function()
 local at=an:SelectConfig(ak.SelectedConfig)
-if at and at.Load then
-return at:Load()
+if at and type(at)=="table"and at.Load then
+at:Load()
+return true
 end
-return false,"Config not found"
+return false
 end)
 
-if at then
+if at and au then
 am:Notify{
 Title="Configuration",
 Content="Loaded config: "..ak.SelectedConfig,
@@ -10412,13 +10501,14 @@ end
 
 local at,au=pcall(function()
 local at=an:SelectConfig(ak.SelectedConfig)
-if at and at.Save then
-return at:Save()
+if at and type(at)=="table"and at.Save then
+at:Save()
+return true
 end
-return false,"Config not found"
+return false
 end)
 
-if at then
+if at and au then
 am:Notify{
 Title="Configuration",
 Content="Saved config: "..ak.SelectedConfig,
@@ -10511,11 +10601,11 @@ Duration=3,
 return
 end
 
-local at,au=pcall(function()
+local at,au,av=pcall(function()
 return an:ExportConfig(ak.SelectedConfig)
 end)
 
-if at then
+if at and au then
 am:Notify{
 Title="Configuration",
 Content="Config exported to clipboard!",
@@ -10524,7 +10614,7 @@ Duration=3,
 else
 am:Notify{
 Title="Configuration",
-Content="Failed to export: "..tostring(au),
+Content="Failed to export: "..tostring(av or au),
 Duration=3,
 }
 end
@@ -10564,11 +10654,11 @@ Duration=3,
 return
 end
 
-local at,au=pcall(function()
+local at,au,av=pcall(function()
 return an:ImportConfig(ak.InputPath,ak.ImportData)
 end)
 
-if at then
+if at and au then
 am:Notify{
 Title="Configuration",
 Content="Config imported successfully!",
@@ -10581,7 +10671,7 @@ end
 else
 am:Notify{
 Title="Configuration",
-Content="Failed to import: "..tostring(au),
+Content="Failed to import: "..tostring(av or au),
 Duration=3,
 }
 end
@@ -10605,16 +10695,11 @@ return
 end
 
 local at,au=pcall(function()
+
+an:ClearAllAutoLoad()
+
 local at=an:SelectConfig(ak.SelectedConfig)
-if at then
-
-for au,av in pairs(an.Configs)do
-if av.AutoLoad then
-av:SetAutoLoad(false)
-av:Save()
-end
-end
-
+if at and type(at)=="table"then
 at:SetAutoLoad(true)
 at:Save()
 return true
@@ -10622,7 +10707,7 @@ end
 return false
 end)
 
-if at then
+if at and au then
 am:Notify{
 Title="Configuration",
 Content="Set "..ak.SelectedConfig.." as autoload.",
@@ -10648,12 +10733,7 @@ Title="Clear Autoload",
 Desc="Remove autoload setting",
 Callback=function()
 local at=pcall(function()
-for at,au in pairs(an.Configs)do
-if au.AutoLoad then
-au:SetAutoLoad(false)
-au:Save()
-end
-end
+an:ClearAllAutoLoad()
 end)
 
 if at then
@@ -10737,6 +10817,10 @@ ar.ElementsModule=al local
 as, at=ap:New(ar)
 
 if ar.Flag and typeof(ar.Flag)=="string"then
+
+ah._AllFlaggedElements=ah._AllFlaggedElements or{}
+ah._AllFlaggedElements[ar.Flag]=at
+
 if ah.CurrentConfig then
 ah.CurrentConfig:Register(ar.Flag,at)
 
@@ -10744,7 +10828,7 @@ if ah.PendingConfigData and ah.PendingConfigData[ar.Flag]then
 local au=ah.PendingConfigData[ar.Flag]
 
 local av=ah.ConfigManager
-if av.Parser[au.__type]then
+if av and av.Parser[au.__type]then
 task.defer(function()
 local aw,ax=pcall(function()
 av.Parser[au.__type].Load(at,au)
@@ -12237,6 +12321,7 @@ AllElements={},
 ElementConfig={},
 
 PendingFlags={},
+_AllFlaggedElements={},
 
 IsToggleDragging=false,
 }
