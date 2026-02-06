@@ -7349,6 +7349,7 @@ poolSize=0,
 viewportHeight=0,
 textWidth=ao,
 scrollConnection=nil,
+lastValues=nil,
 }
 
 if not aq.Callback then
@@ -7622,61 +7623,6 @@ end
 return ay
 end
 
-
-
-local function cloneVirtualCell(ay)
-local az={}
-
-local aA=ay.TabItem:Clone()
-
-
-local aB=aA:FindFirstChild"Highlight"
-local b=aA:FindFirstChildWhichIsA"Frame"
-local d=b and b:FindFirstChild"IconHolder"
-local f=b and b:FindFirstChild"Title"
-local g=f and f:FindFirstChild"TextLabel"
-local h=f and f:FindFirstChild"Desc"
-
-
-if aB then
-aj.AddThemeObject(aB,{ImageColor3="DropdownTabBorder"})
-end
-if g then
-aj.AddThemeObject(g,{TextColor3="Text",BackgroundColor3="Text"})
-aj.AddFontObject(g)
-end
-if h then
-aj.AddThemeObject(h,{TextColor3="Text",BackgroundColor3="Text"})
-aj.AddFontObject(h)
-end
-
-az.TabItem=aA
-az.Highlight=aB
-az.TitleLabel=g
-az.DescLabel=h
-az.Icon=d
-az.data=nil
-az.onClick=nil
-
-
-aj.AddSignal(aA.MouseButton1Click,function()
-if az.onClick then
-az.onClick(az)
-end
-end)
-
-if at=="Menu"then
-aj.AddSignal(aA.MouseEnter,function()
-al(aA,0.08,{ImageTransparency=.95}):Play()
-end)
-aj.AddSignal(aA.InputEnded,function()
-al(aA,0.08,{ImageTransparency=1}):Play()
-end)
-end
-
-return az
-end
-
 local function RecalculateCanvasSize()
 if not(aq.UIElements.Menu and aq.UIElements.Menu.Frame and aq.UIElements.Menu.Frame.ScrollingFrame)then
 return
@@ -7870,6 +7816,84 @@ aq._OriginalValues=aB
 local b=aq.UIElements.Menu.Frame.ScrollingFrame
 
 
+if aB==av.lastValues and av.enabled and#av.pool>0 then
+
+local d={}
+if aq.Multi and typeof(aq.Value)=="table"then
+for f,g in ipairs(aq.Value)do
+d[typeof(g)=="table"and g.Title or g]=true
+end
+end
+local f=(not aq.Multi)and(typeof(aq.Value)=="table"and aq.Value.Title or aq.Value)
+
+
+local g=av.allItems or av.items
+for h,j in ipairs(g)do
+if aq.Multi then
+j.Selected=d[j.Name]or false
+else
+j.Selected=(f==j.Name)
+end
+end
+
+
+for h,j in ipairs(av.pool)do
+if j.data then
+applySelectionVisual(j,j.data)
+end
+end
+
+aq.Values=aB
+au:Display()
+ax=false
+return
+end
+
+
+if aB==av.lastValues and not av.enabled and#aq.Tabs>0 then
+local d={}
+if aq.Multi and typeof(aq.Value)=="table"then
+for f,g in ipairs(aq.Value)do
+d[typeof(g)=="table"and g.Title or g]=true
+end
+end
+local f=(not aq.Multi)and(typeof(aq.Value)=="table"and aq.Value.Title or aq.Value)
+
+for g,h in next,aq.Tabs do
+if aq.Multi then
+h.Selected=d[h.Name]or false
+else
+h.Selected=(f==h.Name)
+end
+
+if h.UIElements and h.UIElements.TabItem then
+if h.Selected then
+al(h.UIElements.TabItem,0.1,{ImageTransparency=0.95}):Play()
+al(h.UIElements.TabItem.Highlight,0.1,{ImageTransparency=0.75}):Play()
+al(h.UIElements.TabItem.Frame.Title.TextLabel,0.1,{TextTransparency=0}):Play()
+if h.UIElements.TabIcon then
+al(h.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=0}):Play()
+end
+else
+al(h.UIElements.TabItem,0.1,{ImageTransparency=1}):Play()
+al(h.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play()
+al(h.UIElements.TabItem.Frame.Title.TextLabel,0.1,{TextTransparency=at=="Dropdown"and 0.4 or 0.05}):Play()
+if h.UIElements.TabIcon then
+al(h.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=at=="Dropdown"and 0.2 or 0}):Play()
+end
+end
+end
+end
+
+aq.Values=aB
+au:Display()
+ax=false
+return
+end
+
+
+
+
 local d={}
 if av.enabled then
 for f,g in ipairs(av.pool)do
@@ -8041,13 +8065,7 @@ local h=math.ceil(g/math.max(av.avgHeight,1))+(an*2)
 local j=math.min(#av.items,h)
 
 while#av.pool<j do
-
-local l
-if#av.pool==0 then
-l=buildVirtualCell()
-else
-l=cloneVirtualCell(av.pool[1])
-end
+local l=buildVirtualCell()
 l.TabItem.Parent=b
 l.onClick=function(m)
 local p=m.data
@@ -8168,6 +8186,7 @@ RecalculateListSize()
 refreshVisible()
 
 aq.Values=aB
+av.lastValues=aB
 Callback()
 ax=false
 
@@ -8436,6 +8455,7 @@ aq.UIElements.MenuCanvas.Size=UDim2.new(0,p+6+6+5+5+18+6+6,aq.UIElements.MenuCan
 Callback()
 
 aq.Values=aB
+av.lastValues=aB
 ax=false
 end
 end
