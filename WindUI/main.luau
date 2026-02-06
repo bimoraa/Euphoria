@@ -7249,6 +7249,7 @@ local ax={}
 local ay={
 enabled=false,
 items={},
+allItems={},
 sourceValues={},
 prefixHeights={},
 totalHeight=0,
@@ -7918,7 +7919,8 @@ end
 end
 end
 else
-for x,z in ipairs(ay.items)do
+
+for x,z in ipairs(ay.allItems or ay.items)do
 z.Selected=false
 end
 v.Selected=true
@@ -7940,23 +7942,33 @@ end
 local function handleSearch(l)
 local m=string.lower(l or"")
 if ay.enabled then
+if not ay.allItems or#ay.allItems==0 then return end
 
-local p=at._OriginalValues or at.Values
-local r={}
 if m==""then
-for u,v in next,p do
-table.insert(r,v)
-end
+
+ay.items=ay.allItems
 else
-for u,v in next,p do
-local x=typeof(v)=="table"and v.Title or v
-if string.find(string.lower(x),m,1,true)then
-table.insert(r,v)
+
+local p={}
+for r,u in ipairs(ay.allItems)do
+if string.find(string.lower(u.Name),m,1,true)then
+table.insert(p,u)
 end
 end
+ay.items=p
 end
 
-buildVirtualItems(r)
+
+local p={}
+local r=0
+for u,v in ipairs(ay.items)do
+r+=v.Height
+p[u]=r
+end
+ay.prefixHeights=p
+ay.totalHeight=r
+ay.avgHeight=#ay.items>0 and(r/#ay.items)or 36
+
 ensurePool()
 RecalculateCanvasSize()
 RecalculateListSize()
@@ -7998,6 +8010,7 @@ ay.enabled=true
 g.AutomaticCanvasSize=Enum.AutomaticSize.None
 ensureSpacers()
 buildVirtualItems(f)
+ay.allItems=ay.items
 ensurePool()
 RecalculateCanvasSize()
 RecalculateListSize()
