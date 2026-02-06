@@ -7454,7 +7454,7 @@ b,
 am("Frame",{
 Size=UDim2.new(1,0,0,0),
 BackgroundTransparency=1,
-AutomaticSize="None",
+AutomaticSize="Y",
 Name="Title",
 },{
 am("TextLabel",{
