@@ -1,4 +1,4 @@
-
+```mermaid
 flowchart TD
     A(["Execute Script"]) --> B["Pilih Mobil"]:::step
     B --> C{"Pilih Mode"}:::decision
@@ -41,3 +41,4 @@ flowchart TD
     classDef optional fill:#1f1a0f,stroke:#fbbf24,color:#fef3c7,stroke-width:1px
     classDef go fill:#065f46,stroke:#34d399,color:#d1fae5,stroke-width:2px
     classDef done fill:#111,stroke:#30ff6a,color:#30ff6a,stroke-width:2px
+```
