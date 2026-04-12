@@ -3664,7 +3664,7 @@ function atom_ui:BuildToggleButton()
 end
 
 function atom_ui:BuildWatermark()
-    local initialText = self.config.Name .. " | 00:00:00 | 60 FPS"
+    local initialText = self.config.Name .. " | 00:00:00 | 60 FPS | 0ms"
     local initialWidth = measure_text_width(initialText, 14, Enum.Font.GothamSemibold) + 45
     
     self.watermark_frame = create("Frame", {
@@ -3713,7 +3713,11 @@ function atom_ui:_UpdateWatermark(dt)
 
     local timeNow = os.date("%H:%M:%S")
     local fpsCount = self._latestFPSValue > 0 and self._latestFPSValue or 0
-    local newText = self.config.Name .. " | " .. timeNow .. " | " .. fpsCount .. " FPS"
+    local ping_now = 0
+    pcall(function()
+        ping_now = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue())
+    end)
+    local newText = self.config.Name .. " | " .. timeNow .. " | " .. fpsCount .. " FPS | " .. ping_now .. " ms"
     if self.watermark_textLabel.Text ~= newText then
         self.watermark_textLabel.Text = newText
     end
@@ -3722,19 +3726,6 @@ function atom_ui:_UpdateWatermark(dt)
     if math.abs(newWidth - (self._watermarkLastWidth or 0)) > 1 then
         self._watermarkLastWidth = newWidth
         tween_to(self.watermark_frame, {Size = UDim2.new(0, newWidth, 0, 36 * scale_factor)}, 0.18)
-    end
-
-    if self.perf_label and self.perf_label.Parent then
-        local fps_now = self._latestFPSValue > 0 and self._latestFPSValue or 0
-        local ping_now = 0
-        pcall(function()
-            ping_now = math.floor(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue())
-        end)
-        local mem_mb = math.floor(collectgarbage("count") / 1024)
-        self.perf_label.Text = fps_now .. " FPS  •  " .. ping_now .. " ms  •  " .. mem_mb .. " MB"
-        self.perf_label.TextColor3 = fps_now > 0 and fps_now < 30 and Color3.fromRGB(160, 60, 60)
-            or fps_now > 0 and fps_now < 55 and Color3.fromRGB(140, 110, 40)
-            or Color3.fromRGB(48, 48, 48)
     end
 end
 
@@ -4063,15 +4054,6 @@ function atom_ui:BuildMainFrame()
         Position = UDim2.new(0, tabHeaderX, 0, 32 * scale_factor),
         TextSize = 12 * scale_factor, Size = UDim2.new(0, 260, 0, 16 * scale_factor),
         TextXAlignment = Enum.TextXAlignment.Left, Parent = self.main_frame
-    })
-
-    self.perf_label = create("TextLabel", {
-        FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.SemiBold),
-        TextColor3 = Color3.fromRGB(45, 45, 45), Text = "-- FPS  •  -- ms  •  -- MB",
-        BackgroundTransparency = 1, AnchorPoint = Vector2.new(0.5, 0.5),
-        Position = UDim2.new(0.5, 0, 0, 32 * scale_factor),
-        TextSize = 11 * scale_factor, Size = UDim2.new(0, 240 * scale_factor, 0, 16 * scale_factor),
-        TextXAlignment = Enum.TextXAlignment.Center, ZIndex = 2, Parent = self.main_frame
     })
 
     self.minimize_btn = create("Frame", {
