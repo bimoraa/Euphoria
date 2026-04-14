@@ -37,7 +37,13 @@ local ___loaders: { [number]: loader_config } = {
         url     = "https://api.luarmor.net/files/v3/loaders/69b3e3559dd7add9f6450a2e13e831ac.lua",
         version = "4.2.5",
         author  = "kimmy",
-    }
+    },
+    [77747658251236] = {
+        name    = "sailor-piece",
+        url     = "https://api.luarmor.net/files/v4/loaders/bb6b824d6b34ae2345aeedf237580bb5.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 local ___default_loader: loader_config = {
 	name    = "cedit",
