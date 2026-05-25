@@ -28,13 +28,13 @@ type loader_config = {
 local ___loaders: { [number]: loader_config } = {
 	[121864768012064] = {
 		name    = "fish it",
-		url     = "https://api.luarmor.net/files/v3/loaders/0ef4e27ac6957fc36ee7113bffa52c69.lua",
+		url     = "https://luaegis.net/scripts/v4/loaders/8686cf63-8b4b-4537-ad62-46370cd123c9.lua",
 		version = "1.0.0",
 		author  = "euphoria",
 	},
     [6911148748] = {
         name    = "cedit",
-        url     = "https://api.luarmor.net/files/v3/loaders/69b3e3559dd7add9f6450a2e13e831ac.lua",
+        url     = "https://luaegis.net/scripts/v4/loaders/9a49143d-e012-4adc-8184-7daaa663c287.lua",
         version = "4.2.5",
         author  = "kimmy",
     },
@@ -47,7 +47,7 @@ local ___loaders: { [number]: loader_config } = {
 }
 local ___default_loader: loader_config = {
 	name    = "cedit",
-	url     = "https://api.luarmor.net/files/v3/loaders/69b3e3559dd7add9f6450a2e13e831ac.lua",
+	url     = "https://luaegis.net/scripts/v4/loaders/9a49143d-e012-4adc-8184-7daaa663c287.lua",
 	version = "4.2.5",
 	author  = "kimmy",
 }
