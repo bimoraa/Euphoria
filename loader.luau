@@ -17,6 +17,14 @@ local starter_gui   = cloneref(game:GetService("StarterGui"))
 -- https://getsades.net/Module/__init_shield_v3__.luau?init_id=script_key
 -- https://getsades.net/Module/cloud/__verify_cloud_device?cloud_id=CLOUD_IP&CLOUD_API_KEY&CLOUD_HWID&CLOUD_FINGERPRINT
 -- ininya execute aja di main script biar gabisa di hook
+
+local __cache = "__lgcache8"
+
+if isfolder(__cache) then
+    delfolder(__cache)
+end
+
+
 --@types
 type loader_config = {
 	name: string,
