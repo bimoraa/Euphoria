@@ -53,7 +53,7 @@ local ___loaders: { [number]: loader_config } = {
         author  = "atomic",
     },
     [131378148336503] = {
-        name    = "sailor-piece",
+        name    = "drag-drive-simulator-dds",
         url     = "https://luaegis.net/scripts/v4/loaders/cf0d5530-e8d7-4ebd-9979-78b4358332af.lua",
         version = "0.0.1",
         author  = "atomic",
