@@ -58,6 +58,14 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+
+	--@temp
+	[132986577553100] = {
+        name    = "cdid-sapi-quest",
+        url     = "https://luaegis.net/scripts/v4/loaders/45250ba9-a034-47a0-b938-d6d4978e064c.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 local ___default_loader: loader_config = {
 	name    = "cedit",
