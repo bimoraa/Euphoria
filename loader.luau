@@ -58,7 +58,7 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
-    [131378148336503] = {
+    [93978595733734] = {
         name    = "violence-district",
         url     = "https://luaegis.net/scripts/v4/loaders/1878d5d6-3c23-4737-98a9-527a72648456.lua",
         version = "0.0.1",
