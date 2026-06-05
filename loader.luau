@@ -58,6 +58,18 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [131378148336503] = {
+        name    = "violence-district",
+        url     = "https://luaegis.net/scripts/v4/loaders/1878d5d6-3c23-4737-98a9-527a72648456.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
+    [131378148336503] = {
+        name    = "drag-drive-simulator-dds",
+        url     = "https://luaegis.net/scripts/v4/loaders/cf0d5530-e8d7-4ebd-9979-78b4358332af.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 
 	--@temp
 	[132986577553100] = {
