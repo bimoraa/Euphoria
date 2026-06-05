@@ -64,12 +64,7 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
-    [93978595733734] = {
-        name    = "drag-drive-simulator-dds",
-        url     = "https://luaegis.net/scripts/v4/loaders/cf0d5530-e8d7-4ebd-9979-78b4358332af.lua",
-        version = "0.0.1",
-        author  = "atomic",
-    },
+
 
 	--@temp
 	[132986577553100] = {
