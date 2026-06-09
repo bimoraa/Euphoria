@@ -66,7 +66,7 @@ local ___loaders: { [number]: loader_config } = {
     },
     [89469502395769] = {
         name    = "kick-a-lucky-block",
-        url     = "https://luaegis.net/scripts/v4/loaders/8e3ff1e0-f440-483f-90a1-ca3a473441a7.lua",
+        url     = "https://luaegis.net/scripts/v4/loaders/022ddf9e-e2da-461d-a1e5-4e421dadc2ec.lua",
         version = "0.0.1",
         author  = "atomic",
     },
