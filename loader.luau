@@ -70,7 +70,7 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
-    [97598239454123] = {
+    [133438856880402] = {
         name    = "grow-a-garden2",
         url     = "https://luaegis.net/scripts/v4/loaders/7b8ee026-c7cd-44ea-ba82-131087e8751a.lua",
         version = "0.0.1",
