@@ -4,25 +4,6 @@ local game          = cloneref(game)
 local http_service  = cloneref(game:GetService("HttpService"))
 local players       = cloneref(game:GetService("Players"))
 local starter_gui   = cloneref(game:GetService("StarterGui"))
---@eu_guards 
--- https://getsades.net/Module/__guard_core?init_id=script_key
--- https://getsades.net/Module/__whitelist_check.lua?key=script_key
--- https://getsades.net/Module/_init_safeguard_v2.luau?init_id=script_key
--- https://getsades.net/Module/____eu_validate____.luau?token=script_key
--- https://getsades.net/Module/guard_proxy/__init__.luau?init_id=script_key
--- https://getsades.net/Module/white_gatekeeper-01.luau?init_id=script_key
--- https://getsades.net/Module/secure/__init_guard_router.luau?key=script_key
--- https://getsades.net/Module/verify/____script_key_check.luau?init=script_key
--- https://getsades.net/Module/locks/__eu_whitelist_init.luau?init_id=script_key
--- https://getsades.net/Module/__init_shield_v3__.luau?init_id=script_key
--- https://getsades.net/Module/cloud/__verify_cloud_device?cloud_id=CLOUD_IP&CLOUD_API_KEY&CLOUD_HWID&CLOUD_FINGERPRINT
--- ininya execute aja di main script biar gabisa di hook
-
-local __cache = "__lgcache8"
-
-if isfolder(__cache) then
-    delfolder(__cache)
-end
 
 
 --@types
