@@ -13,60 +13,65 @@ type loader_config = {
 	version: string?,
 	author: string?,
 }
+
 --@list_game_loaders
 local ___loaders: { [number]: loader_config } = {
-	[121864768012064] = {
+	[6701277882] = {
 		name    = "fish it",
 		url     = "https://luaegis.net/scripts/v4/loaders/8686cf63-8b4b-4537-ad62-46370cd123c9.lua",
 		version = "1.0.0",
 		author  = "euphoria",
 	},
-    [6911148748] = {
+    [2640407187] = {
         name    = "cedit",
         url     = "https://luaegis.net/scripts/v4/loaders/9a49143d-e012-4adc-8184-7daaa663c287.lua",
         version = "4.2.5",
         author  = "kimmy",
     },
-    [77747658251236] = {
+    [9186719164] = {
         name    = "sailor-piece",
         url     = "https://api.luarmor.net/files/v4/loaders/bb6b824d6b34ae2345aeedf237580bb5.lua",
         version = "0.0.1",
         author  = "atomic",
     },
-    [131378148336503] = {
+    [7089588429] = {
         name    = "drag-drive-simulator-dds",
         url     = "https://luaegis.net/scripts/v4/loaders/cf0d5530-e8d7-4ebd-9979-78b4358332af.lua",
         version = "0.0.1",
         author  = "atomic",
     },
-    [93978595733734] = {
+    [6739698191] = {
         name    = "violence-district",
         url     = "https://luaegis.net/scripts/v4/loaders/1878d5d6-3c23-4737-98a9-527a72648456.lua",
         version = "0.0.1",
         author  = "atomic",
     },
-    [89469502395769] = {
+    [10004244222] = {
         name    = "kick-a-lucky-block",
         url     = "https://luaegis.net/scripts/v4/loaders/022ddf9e-e2da-461d-a1e5-4e421dadc2ec.lua",
         version = "0.0.1",
         author  = "atomic",
     },
-    [133438856880402] = {
+    [10200395747] = {
         name    = "grow-a-garden2",
         url     = "https://luaegis.net/scripts/v4/loaders/7b8ee026-c7cd-44ea-ba82-131087e8751a.lua",
         version = "0.0.1",
         author  = "atomic",
     },
+}
 
+--@list_place_loaders
+local ___place_loaders: { [number]: loader_config } = {
 
 	--@temp
-	[132986577553100] = {
+    [132986577553100] = {
         name    = "cdid-sapi-quest",
         url     = "https://luaegis.net/scripts/v4/loaders/45250ba9-a034-47a0-b938-d6d4978e064c.lua",
         version = "0.0.1",
         author  = "atomic",
     },
 }
+
 local ___default_loader: loader_config = {
 	name    = "cedit",
 	url     = "https://luaegis.net/scripts/v4/loaders/9a49143d-e012-4adc-8184-7daaa663c287.lua",
@@ -88,7 +93,7 @@ local function __load_script(url: string): boolean
 	local success: boolean, result: any = pcall(function()
 		local script_content: string = game:HttpGet(url)
 		local loaded_function: any = loadstring(script_content)
-		
+
 		if loaded_function then
 			loaded_function()
 			return true
@@ -96,17 +101,21 @@ local function __load_script(url: string): boolean
 			error("failed to compile script")
 		end
 	end)
-	
+
 	if not success then
 		warn("[loader] failed:", result)
 		__notify("euphoria loader", "failed to load script")
 		return false
 	end
-	
+
 	return true
 end
 --@main loader
-local current_place_id: number = game.PlaceId
-local loader_config: loader_config = ___loaders[current_place_id] or ___default_loader
+local place_id: number    = game.PlaceId
+local universe_id: number = game.GameId
+local loader_config: loader_config = ___place_loaders[place_id]
+	or ___loaders[universe_id]
+	or ___default_loader
+    
 --@main execution
 __load_script(loader_config.url)
