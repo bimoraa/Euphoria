@@ -58,6 +58,12 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [9826885587] = {
+        name    = "evomon",
+        url     = "https://luaegis.net/scripts/v4/loaders/d2d69abb-e664-42fc-8e8b-72666fd81acf.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 
 --@list_place_loaders
