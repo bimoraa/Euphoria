@@ -58,6 +58,12 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [5750914919] = {
+        name    = "fisch",
+        url     = "",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 
 --@list_place_loaders
