@@ -64,6 +64,12 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [5750914919] = {
+        name    = "fisch",
+        url     = "https://luaegis.net/scripts/v4/loaders/9332ba9b-6190-45b8-9e1c-0629282f9d78.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 
 --@list_place_loaders
