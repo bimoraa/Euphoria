@@ -70,6 +70,12 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [7613921865] = {
+        name    = "Anime Expeditions",
+        url     = "https://luaegis.net/scripts/v4/loaders/0400cbe0-d0a7-4c3d-a234-8dedb385cdb9.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
 
 --@list_place_loaders
