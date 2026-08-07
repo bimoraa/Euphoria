@@ -76,7 +76,14 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+    [10148749921] = {
+        name    = "Animal Hospital",
+        url     = "https://luaegis.net/scripts/v4/loaders/0400cbe0-d0a7-4c3d-a234-8dedb385cdb9.lua",
+        version = "0.0.1",
+        author  = "atomic",
+    },
 }
+
 
 --@list_place_loaders
 local ___place_loaders: { [number]: loader_config } = {
