@@ -78,7 +78,7 @@ local ___loaders: { [number]: loader_config } = {
     },
     [10148749921] = {
         name    = "Animal Hospital",
-        url     = "https://luaegis.net/scripts/v4/loaders/0400cbe0-d0a7-4c3d-a234-8dedb385cdb9.lua",
+        url     = "https://luaegis.net/scripts/v4/loaders/8a55ab5d-6ac7-4bd4-854b-69f3b577799e.lua",
         version = "0.0.1",
         author  = "atomic",
     },
@@ -97,12 +97,6 @@ local ___place_loaders: { [number]: loader_config } = {
     },
 }
 
-local ___default_loader: loader_config = {
-	name    = "cedit",
-	url     = "https://luaegis.net/scripts/v4/loaders/9a49143d-e012-4adc-8184-7daaa663c287.lua",
-	version = "4.2.5",
-	author  = "kimmy",
-}
 --@utility
 local function __notify(title: string, text: string): ()
 	pcall(function()
@@ -138,9 +132,14 @@ end
 --@main loader
 local place_id: number    = game.PlaceId
 local universe_id: number = game.GameId
-local loader_config: loader_config = ___place_loaders[place_id]
+local loader_config: loader_config? = ___place_loaders[place_id]
 	or ___loaders[universe_id]
-	or ___default_loader
     
 --@main execution
+if not loader_config then
+	warn("[loader] unsupported game:", place_id, universe_id)
+	__notify("euphoria loader", "this game is not supported")
+	return
+end
+
 __load_script(loader_config.url)
