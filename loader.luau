@@ -83,11 +83,11 @@ local ___loaders: { [number]: loader_config } = {
         author  = "atomic",
     },
    [113290951185459] = {
-      name      = "Anime Dice"
-      url       = ""
-      version   = "0.0.1"
-      author    = "ATOMIC"
-   }
+      name      = "Anime Dice",
+      url       = "https://pastefy.app/91iF1i4S/raw",
+      version   = "0.0.1",
+      author    = "ATOMIC",
+   },
 }
 
 
