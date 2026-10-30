@@ -82,6 +82,12 @@ local ___loaders: { [number]: loader_config } = {
         version = "0.0.1",
         author  = "atomic",
     },
+   [113290951185459] = {
+      name      = "Anime Dice"
+      url       = ""
+      version   = "0.0.1"
+      author    = "ATOMIC"
+   }
 }
 
 
