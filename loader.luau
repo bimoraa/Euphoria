@@ -18,8 +18,8 @@ type loader_config = {
 local ___loaders: { [number]: loader_config } = {
 	[6701277882] = {
 		name    = "fish it",
-		url     = "https://luaegis.net/scripts/v4/loaders/8686cf63-8b4b-4537-ad62-46370cd123c9.lua",
-		version = "1.0.0",
+		url     = "https://raw.githubusercontent.com/Andrazx23/Atomic-Games/refs/heads/main/Fishit.protected.lua",
+		version = "1.0.1",
 		author  = "euphoria",
 	},
     [2640407187] = {
