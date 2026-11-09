@@ -36,7 +36,7 @@ local ___loaders: { [number]: loader_config } = {
     },
     [7089588429] = {
         name    = "drag-drive-simulator-dds",
-        url     = "https://luaegis.net/scripts/v4/loaders/cf0d5530-e8d7-4ebd-9979-78b4358332af.lua",
+        url     = "https://raw.githubusercontent.com/Andrazx23/Atomic-Games/refs/heads/main/Dedees.protected.lua",
         version = "0.0.1",
         author  = "atomic",
     },
